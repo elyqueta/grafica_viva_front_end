@@ -25,13 +25,13 @@ export default function Hero() {
         <div className="mt-8 flex items-center gap-4">
           <a
             href="#sobre"
-            className="rounded-sm border border-amber-50 px-6 py-3 text-sm font-bold tracking-wide text-amber-50 transition-colors hover:bg-amber-50 hover:text-black"
+            className="rounded-sm border border-amber-50 px-6 py-3 text-sm font-bold tracking-wide text-amber-50 transition-colors hover:bg-amber-50 hover:text-[#29292980]"
           >
             SAIBA MAIS
           </a>
           <a
             href="#servicos"
-            className="rounded-sm bg-amber-50 px-6 py-3 text-sm font-bold tracking-wide text-black transition-colors hover:bg-white/90"
+            className="rounded-sm bg-amber-50 px-6 py-3 text-sm font-bold tracking-wide text-[#292929c5] transition-colors hover:bg-white/90 hover:text-[#29292980]"
           >
             NOSSOS SERVIÇOS
           </a>
