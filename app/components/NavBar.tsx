@@ -27,7 +27,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 z-50 w-full transition-colors duration-500 ${
         scrolled
-          ? "bg-black/70 shadow-lg shadow-black/30 backdrop-blur-md"
+          ? "bg-amber-50 shadow-sm shadow-black/20 backdrop-blur-md"
           : "bg-transparent"
       }`}
     >
@@ -41,8 +41,8 @@ export default function Navbar() {
             <li key={link.href} className="relative">
               <a
                 href={link.href}
-                className={`text-sm font-semibold tracking-wide transition-colors hover:text-white ${
-                  index === 0 ? "text-white" : "text-white/80"
+                className={`text-regular font-semibold tracking-wide transition-colors hover:text-black ${
+                  index === 0 ? "text-[#000]" : "text-black/60"
                 }`}
               >
                 {link.label.toUpperCase()}

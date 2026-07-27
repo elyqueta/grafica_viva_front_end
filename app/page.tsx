@@ -1,12 +1,15 @@
-import Navbar from "./components/NavBar";
-
+import Preloader from './components/Preloader';
+import Navbar from './components/NavBar';
+import Hero from './components/Hero';
 
 export default function Home() {
   return (
-    <div className="">
-      <main className="">
-        <Navbar></Navbar>
-      </main>
-    </div>
+    <>
+      <Preloader />
+      <Navbar />
+      <Hero />
+
+      <div className='h-300 bg-amber-50'></div>
+    </>
   );
 }
