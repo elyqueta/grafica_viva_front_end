@@ -2,17 +2,19 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { X, MessageCircle } from "lucide-react";
 
 const NAV_LINKS = [
-  { label: "Início", href: "#inicio" },
-  { label: "Sobre Nós", href: "#sobre" },
-  { label: "Serviços", href: "#servicos" },
-  { label: "Produtos", href: "#produtos" },
-  { label: "Portfólio", href: "#portfolio" },
-  { label: "Blog", href: "#blog" },
-  { label: "Contactos", href: "#contactos" },
+  { label: "Início", href: "/" },
+  { label: "Sobre Nós", href: "/sobre" },
+  { label: "Serviços", href: "/servicos" },
+  { label: "Produtos", href: "/produtos" },
+  { label: "Portfólio", href: "/portfolio" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contactos", href: "/contactos" },
 ];
 
 const WHATSAPP_LINK = "https://wa.me/244924666323";
@@ -20,6 +22,7 @@ const WHATSAPP_LINK = "https://wa.me/244924666323";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const overlayRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -91,13 +94,13 @@ export default function Navbar() {
         className={`fixed top-0 left-0 z-50 w-full bg-transparent transition-colors duration-500`}
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4 lg:px-10 lg:py-4">
-          <a
-            href="#inicio"
+          <Link
+            href="/"
             id="nav-logo-target"
             className="hidden shrink-0 lg:block"
           >
             <img src="/logo.png" alt="Gráfica Viva" className="h-20 w-auto" />
-          </a>
+          </Link>
 
           <button
             type="button"
@@ -118,21 +121,24 @@ export default function Navbar() {
           </button>
 
           <ul className="hidden items-center gap-8 lg:flex">
-            {NAV_LINKS.map((link, index) => (
-              <li key={link.href} className="relative">
-                <a
-                  href={link.href}
-                  className={`text-regular font-semibold tracking-wide transition-colors hover:text-black ${
-                    index === 0 ? "text-[#000]" : "text-black/60"
-                  }`}
-                >
-                  {link.label.toUpperCase()}
-                  {index === 0 && (
-                    <span className="absolute -bottom-1 left-0 h-[2px] w-full bg-rose-600" />
-                  )}
-                </a>
-              </li>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <li key={link.href} className="relative">
+                  <Link
+                    href={link.href}
+                    className={`text-regular font-semibold tracking-wide transition-colors hover:text-black ${
+                      isActive ? "text-[#000]" : "text-black/60"
+                    }`}
+                  >
+                    {link.label.toUpperCase()}
+                    {isActive && (
+                      <span className="absolute -bottom-1 left-0 h-[2px] w-full bg-rose-600" />
+                    )}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
 
           <button
@@ -159,19 +165,22 @@ export default function Navbar() {
           className="mx-4 flex max-h-[calc(100vh-6rem)] flex-col justify-between overflow-y-auto rounded-3xl bg-amber-50 p-8"
         >
           <ul ref={linksRef} className="flex flex-col gap-5">
-            {NAV_LINKS.map((link, index) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className={`text-2xl text-black font-semibold transition-colors hover:text-black/70 ${
-                    index === 0 ? "text-black/80" : "text-black/35"
-                  }`}
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setMenuOpen(false)}
+                    className={`text-2xl text-black font-semibold transition-colors hover:text-black/70 ${
+                      isActive ? "text-black/80" : "text-black/35"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
 
           <div className="mt-10 flex items-center justify-between">
