@@ -1,10 +1,12 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useHorizontalScroll } from '@/app/lib/useHorizontalScroll';
+import ScrollArrows from './ScrollArrows';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -64,6 +66,19 @@ export default function Portfolio() {
   const sectionRef = useRef<HTMLElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const [isHorizontal, setIsHorizontal] = useState(false);
+
+  useEffect(() => {
+    const mm = window.matchMedia('(max-width: 1023px)');
+    const update = () => setIsHorizontal(mm.matches);
+    update();
+    mm.addEventListener('change', update);
+    return () => mm.removeEventListener('change', update);
+  }, []);
+
+  const { atStart, atEnd, scrollByCard } = useHorizontalScroll(trackRef, {
+    wheelEnabled: isHorizontal,
+  });
 
   useEffect(() => {
     if (!pinRef.current || !trackRef.current) return;
@@ -149,7 +164,14 @@ export default function Portfolio() {
         </div>
       </div>
 
-      <div ref={pinRef} className="mt-12 w-full overflow-hidden">
+      <div ref={pinRef} className="relative mt-12 w-full overflow-hidden">
+        <ScrollArrows
+          atStart={atStart}
+          atEnd={atEnd}
+          onPrev={() => scrollByCard(-1)}
+          onNext={() => scrollByCard(1)}
+        />
+
         <div
           ref={trackRef}
           className="flex w-max gap-0 overflow-x-auto scroll-smooth px-[7.5vw] pb-6 pt-2 [scrollbar-width:none] [-ms-overflow-style:none] snap-x snap-mandatory lg:snap-none lg:overflow-visible lg:px-0 lg:pb-0 lg:pt-0 [&::-webkit-scrollbar]:hidden"
