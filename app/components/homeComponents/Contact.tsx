@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Mail, Phone, MapPin } from 'lucide-react';
@@ -22,6 +22,14 @@ const WHATSAPP_LINK = 'https://wa.me/244924666323';
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
   const pillsRef = useRef<(HTMLSpanElement | null)[]>([]);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const update = () => setIsMobile(window.innerWidth < 1024);
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -75,8 +83,13 @@ export default function Contact() {
       ref={sectionRef}
       className="relative w-full overflow-hidden bg-amber-50 px-6 py-24 lg:px-10 lg:py-32"
     >
-      <div className="pointer-events-none absolute inset-0 hidden lg:block">
-        <MagneticPillField pills={PILLS} wrapperRefs={pillsRef} />
+      <div className="pointer-events-none absolute inset-0">
+        <MagneticPillField
+          pills={PILLS}
+          wrapperRefs={pillsRef}
+          disabled={isMobile}
+          className="opacity-40 scale-[0.65] sm:scale-75 lg:scale-100 lg:opacity-100"
+        />
       </div>
 
       <div className="relative mx-auto max-w-3xl text-center">

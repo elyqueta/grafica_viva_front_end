@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import MagneticPillField, { MagneticPillConfig } from './MagneticPillField';
+import MagneticPillField, { MagneticPillConfig } from './homeComponents/MagneticPillField';
 
 gsap.registerPlugin(ScrollTrigger);
 

@@ -1,10 +1,11 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useHorizontalScroll } from '@/app/lib/useHorizontalScroll';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -71,6 +72,17 @@ export default function Services() {
   const sectionRef = useRef<HTMLElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const [isHorizontal, setIsHorizontal] = useState(false);
+
+  useHorizontalScroll(trackRef, isHorizontal);
+
+  useEffect(() => {
+    const mm = window.matchMedia('(max-width: 1023px)');
+    const update = () => setIsHorizontal(mm.matches);
+    update();
+    mm.addEventListener('change', update);
+    return () => mm.removeEventListener('change', update);
+  }, []);
 
   useEffect(() => {
     if (!pinRef.current || !trackRef.current) return;
@@ -110,6 +122,30 @@ export default function Services() {
 
         return () => trigger.kill();
       });
+
+      mm.add('(max-width: 1023px)', () => {
+        const cards = gsap.utils.toArray<HTMLElement>('[data-services-card]');
+        const trigger = ScrollTrigger.create({
+          trigger: trackRef.current,
+          start: 'top 85%',
+          onEnter: () => {
+            gsap.fromTo(
+              cards,
+              { opacity: 0, x: 40 },
+              {
+                opacity: 1,
+                x: 0,
+                duration: 0.7,
+                stagger: 0.1,
+                ease: 'power2.out',
+              },
+            );
+          },
+          once: true,
+        });
+
+        return () => trigger.kill();
+      });
     }, sectionRef);
 
     return () => ctx.revert();
@@ -135,13 +171,14 @@ export default function Services() {
       <div ref={pinRef} className="mt-12 w-full overflow-hidden">
         <div
           ref={trackRef}
-          className="flex w-max gap-0 overflow-x-auto lg:overflow-visible"
+          className="flex w-max touch-pan-x gap-0 overflow-x-auto scroll-smooth px-[7.5vw] pb-6 pt-2 [scrollbar-width:none] [-ms-overflow-style:none] snap-x snap-mandatory lg:snap-none lg:overflow-visible lg:px-0 lg:pb-0 lg:pt-0 [&::-webkit-scrollbar]:hidden"
         >
           {SERVICES.map((service) => (
             <Link
               key={service.slug}
               href={`/servicos/${service.slug}`}
-              className="group relative h-[70vh] w-[85vw] shrink-0 sm:w-[60vw] lg:h-[80vh] lg:w-[32vw]"
+              data-services-card
+              className="group relative h-[70vh] w-[85vw] shrink-0 snap-center sm:w-[60vw] lg:h-[80vh] lg:w-[32vw] lg:snap-align-none"
             >
               <Image
                 src={service.image}

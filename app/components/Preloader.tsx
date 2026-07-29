@@ -4,7 +4,10 @@ import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 
 const PARTICLE_COUNT = 250;
+const PARTICLE_COUNT_MOBILE = 120;
 const LOGO_SRC = '/logo.png';
+
+const isMobileViewport = () => window.innerWidth < 1024;
 
 type Point = { x: number; y: number };
 
@@ -69,8 +72,9 @@ export default function Preloader() {
         const target = document.getElementById('nav-logo-target');
         const heroEls = document.querySelectorAll('[data-hero-fade]');
         const rect = target?.getBoundingClientRect();
+        const isMobile = isMobileViewport();
 
-        if (rect && logoRef.current) {
+        if (rect && rect.width > 0 && rect.height > 0 && logoRef.current) {
           tl.to(logoRef.current, {
             width: rect.width,
             height: rect.height,
@@ -78,6 +82,15 @@ export default function Preloader() {
             y: rect.top,
             duration: 0.9,
             ease: 'power3.inOut',
+          }, '+=0.35');
+        } else if (logoRef.current && isMobile) {
+          // Em mobile o logo da navbar não está visível; fazemos um fade elegante
+          // para o centro enquanto revelamos o hero.
+          tl.to(logoRef.current, {
+            scale: 0.85,
+            opacity: 0,
+            duration: 0.7,
+            ease: 'power2.inOut',
           }, '+=0.35');
         } else {
           tl.to({}, { duration: 0.35 });
@@ -98,7 +111,7 @@ export default function Preloader() {
         const originX = window.innerWidth / 2 - boxW / 2;
         const originY = window.innerHeight / 2 - boxH / 2;
 
-        const points = sampleLogoPoints(img, boxW, boxH, PARTICLE_COUNT);
+        const points = sampleLogoPoints(img, boxW, boxH, isMobileViewport() ? PARTICLE_COUNT_MOBILE : PARTICLE_COUNT);
 
         if (!points.length || !particlesRef.current) {
           const tl = gsap.timeline();

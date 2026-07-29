@@ -19,6 +19,8 @@ type MagneticPillFieldProps = {
   /** permite ao componente-pai aceder aos wrappers (ex: animações de entrada) */
   wrapperRefs?: MutableRefObject<(HTMLSpanElement | null)[]>;
   className?: string;
+  /** desativa o efeito magnético (útil em mobile, onde o cursor não existe) */
+  disabled?: boolean;
 };
 
 const DEFAULT_RADIUS = 160;
@@ -44,6 +46,7 @@ export default function MagneticPillField({
   ringRadius = DEFAULT_RING_RADIUS,
   wrapperRefs,
   className = '',
+  disabled = false,
 }: MagneticPillFieldProps) {
   const localWrapperRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const pillElRefs = useRef<(HTMLSpanElement | null)[]>([]);
@@ -54,10 +57,13 @@ export default function MagneticPillField({
   }, [pills.length]);
 
   useEffect(() => {
-    // Estado inicial: todos escondidos até o cursor entrar no raio.
+    // Estado inicial: quando desativado as pills ficam sempre visíveis; caso
+    // contrário só aparecem quando o cursor entrar no raio de ação.
     pillElRefs.current.forEach((pillEl) => {
-      if (pillEl) gsap.set(pillEl, { opacity: 0, scale: 0.6 });
+      if (pillEl) gsap.set(pillEl, { opacity: disabled ? 1 : 0, scale: disabled ? 1 : 0.6 });
     });
+
+    if (disabled) return;
 
     const handlePointerMove = (e: PointerEvent) => {
       const distances: number[] = [];
@@ -135,7 +141,7 @@ export default function MagneticPillField({
 
     window.addEventListener('pointermove', handlePointerMove);
     return () => window.removeEventListener('pointermove', handlePointerMove);
-  }, [pills, radius, ringRadius]);
+  }, [pills, radius, ringRadius, disabled]);
 
   return (
     <>

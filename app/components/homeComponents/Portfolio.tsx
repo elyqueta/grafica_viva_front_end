@@ -103,6 +103,30 @@ export default function Portfolio() {
 
         return () => trigger.kill();
       });
+
+      mm.add('(max-width: 1023px)', () => {
+        const cards = gsap.utils.toArray<HTMLElement>('[data-portfolio-card]');
+        const trigger = ScrollTrigger.create({
+          trigger: trackRef.current,
+          start: 'top 85%',
+          onEnter: () => {
+            gsap.fromTo(
+              cards,
+              { opacity: 0, x: 40 },
+              {
+                opacity: 1,
+                x: 0,
+                duration: 0.7,
+                stagger: 0.1,
+                ease: 'power2.out',
+              },
+            );
+          },
+          once: true,
+        });
+
+        return () => trigger.kill();
+      });
     }, sectionRef);
 
     return () => ctx.revert();
@@ -128,13 +152,14 @@ export default function Portfolio() {
       <div ref={pinRef} className="mt-12 w-full overflow-hidden">
         <div
           ref={trackRef}
-          className="flex w-max gap-0 overflow-x-auto lg:overflow-visible"
+          className="flex w-max gap-0 overflow-x-auto scroll-smooth px-[7.5vw] pb-6 pt-2 [scrollbar-width:none] [-ms-overflow-style:none] snap-x snap-mandatory lg:snap-none lg:overflow-visible lg:px-0 lg:pb-0 lg:pt-0 [&::-webkit-scrollbar]:hidden"
         >
           {PROJECTS.map((project) => (
             <Link
               key={project.slug}
               href={`/portfolio/${project.slug}`}
-              className="group relative h-[70vh] w-[85vw] shrink-0 sm:w-[60vw] lg:h-[80vh] lg:w-[32vw]"
+              data-portfolio-card
+              className="group relative h-[70vh] w-[85vw] shrink-0 snap-center sm:w-[60vw] lg:h-[80vh] lg:w-[32vw] lg:snap-align-none"
             >
               <Image
                 src={project.image}

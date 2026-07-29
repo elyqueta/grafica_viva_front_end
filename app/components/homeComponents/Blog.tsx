@@ -42,6 +42,20 @@ export default function Blog() {
   const sectionRef = useRef<HTMLElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
+  const isMobile = () => window.innerWidth < 1024;
+
+  const handleItemClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    index: number,
+  ) => {
+    // Em mobile não há hover; o primeiro toque expande o artigo e o segundo
+    // toque é que navega para a página do artigo.
+    if (isMobile() && activeIndex !== index) {
+      e.preventDefault();
+      setActiveIndex(index);
+    }
+  };
+
   useEffect(() => {
     if (!sectionRef.current) return;
 
@@ -87,6 +101,7 @@ export default function Blog() {
                 href={`/blog/${post.slug}`}
                 data-blog-reveal
                 onMouseEnter={() => setActiveIndex(index)}
+                onClick={(e) => handleItemClick(e, index)}
                 className="block py-6"
               >
                 <div className="flex items-baseline gap-4">
