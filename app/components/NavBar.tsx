@@ -146,7 +146,7 @@ export default function Navbar() {
       {/* Mobile / tablet menu overlay */}
       <div
         ref={overlayRef}
-        className="invisible fixed inset-x-0 top-0 z-40 flex flex-col opacity-0 lg:hidden"
+        className="invisible fixed inset-0 z-40 flex flex-col opacity-0 lg:hidden"
         onClick={() => setMenuOpen(false)}
       >
         <div className="h-16 sm:h-20" />
