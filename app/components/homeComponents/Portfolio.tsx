@@ -132,7 +132,7 @@ export default function Portfolio() {
           {PROJECTS.map((project) => (
             <Link
               key={project.slug}
-              href={`/portfolio/${project.slug}`}
+              href={`/portfolio`}
               data-portfolio-card
               className="group relative h-[70vh] w-[85vw] shrink-0 sm:w-[60vw] lg:h-[80vh] lg:w-[32vw]"
             >

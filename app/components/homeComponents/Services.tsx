@@ -139,7 +139,7 @@ export default function Services() {
           {SERVICES.map((service) => (
             <Link
               key={service.slug}
-              href={`/servicos/${service.slug}`}
+              href={`/servicos`}
               data-services-card
               className="group relative h-[70vh] w-[85vw] shrink-0 sm:w-[60vw] lg:h-[80vh] lg:w-[32vw]"
             >
