@@ -1,12 +1,10 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useHorizontalScroll } from '@/app/lib/useHorizontalScroll';
-import ScrollArrows from './ScrollArrows';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -66,19 +64,6 @@ export default function Portfolio() {
   const sectionRef = useRef<HTMLElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
-  const [isHorizontal, setIsHorizontal] = useState(false);
-
-  useEffect(() => {
-    const mm = window.matchMedia('(max-width: 1023px)');
-    const update = () => setIsHorizontal(mm.matches);
-    update();
-    mm.addEventListener('change', update);
-    return () => mm.removeEventListener('change', update);
-  }, []);
-
-  const { atStart, atEnd, scrollByCard } = useHorizontalScroll(trackRef, {
-    wheelEnabled: isHorizontal,
-  });
 
   useEffect(() => {
     if (!pinRef.current || !trackRef.current) return;
@@ -95,53 +80,28 @@ export default function Portfolio() {
         },
       });
 
-      const mm = gsap.matchMedia();
+      const track = trackRef.current!;
 
-      mm.add('(min-width: 1024px)', () => {
-        const track = trackRef.current!;
+      // Aplica-se sempre — o pin passa a ser controlado pelo scroll vertical
+      // (Lenis) em todos os tamanhos de ecrã, eliminando a necessidade de
+      // scroll horizontal manual por toque.
+      const getScrollAmount = () =>
+        track.scrollWidth - (pinRef.current?.offsetWidth ?? 0);
 
-        const getScrollAmount = () =>
-          track.scrollWidth - (pinRef.current?.offsetWidth ?? 0);
-
-        const trigger = ScrollTrigger.create({
-          trigger: pinRef.current,
-          start: 'top top',
-          end: () => `+=${getScrollAmount()}`,
-          pin: true,
-          scrub: 1,
-          invalidateOnRefresh: true,
-          animation: gsap.to(track, {
-            x: () => -getScrollAmount(),
-            ease: 'none',
-          }),
-        });
-
-        return () => trigger.kill();
+      const trigger = ScrollTrigger.create({
+        trigger: pinRef.current,
+        start: 'top top',
+        end: () => `+=${getScrollAmount()}`,
+        pin: true,
+        scrub: 1,
+        invalidateOnRefresh: true,
+        animation: gsap.to(track, {
+          x: () => -getScrollAmount(),
+          ease: 'none',
+        }),
       });
 
-      mm.add('(max-width: 1023px)', () => {
-        const cards = gsap.utils.toArray<HTMLElement>('[data-portfolio-card]');
-        const trigger = ScrollTrigger.create({
-          trigger: trackRef.current,
-          start: 'top 85%',
-          onEnter: () => {
-            gsap.fromTo(
-              cards,
-              { opacity: 0, x: 40 },
-              {
-                opacity: 1,
-                x: 0,
-                duration: 0.7,
-                stagger: 0.1,
-                ease: 'power2.out',
-              },
-            );
-          },
-          once: true,
-        });
-
-        return () => trigger.kill();
-      });
+      return () => trigger.kill();
     }, sectionRef);
 
     return () => ctx.revert();
@@ -165,23 +125,16 @@ export default function Portfolio() {
       </div>
 
       <div ref={pinRef} className="relative mt-12 w-full overflow-hidden">
-        <ScrollArrows
-          atStart={atStart}
-          atEnd={atEnd}
-          onPrev={() => scrollByCard(-1)}
-          onNext={() => scrollByCard(1)}
-        />
-
         <div
           ref={trackRef}
-          className="flex w-max gap-0 overflow-x-auto scroll-smooth px-[7.5vw] pb-6 pt-2 [scrollbar-width:none] [-ms-overflow-style:none] snap-x snap-mandatory lg:snap-none lg:overflow-visible lg:px-0 lg:pb-0 lg:pt-0 [&::-webkit-scrollbar]:hidden"
+          className="flex w-max gap-0 px-[7.5vw] lg:px-0"
         >
           {PROJECTS.map((project) => (
             <Link
               key={project.slug}
               href={`/portfolio/${project.slug}`}
               data-portfolio-card
-              className="group relative h-[70vh] w-[85vw] shrink-0 snap-center sm:w-[60vw] lg:h-[80vh] lg:w-[32vw] lg:snap-align-none"
+              className="group relative h-[70vh] w-[85vw] shrink-0 sm:w-[60vw] lg:h-[80vh] lg:w-[32vw]"
             >
               <Image
                 src={project.image}
