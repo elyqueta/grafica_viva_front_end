@@ -1,16 +1,13 @@
 import Navbar from '../components/NavBar';
 import Footer from '../components/Footer';
 import PageShell from '../components/homeComponents/PageShell';
+import PortfolioManifest from '../components/portfolioComponents/PortfolioManifest';
 
-export default function AboutPage() {
+export default function PortfolioPage() {
   return (
     <PageShell footer={<Footer />}>
       <Navbar />
-
-      <div className="p-20 h-100 text-center text-3xl font-bold">
-        <h1>Página em desenvolvimento</h1>
-      </div>
-     
+      <PortfolioManifest />
     </PageShell>
   );
 }
