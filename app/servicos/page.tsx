@@ -1,16 +1,15 @@
 import Navbar from '../components/NavBar';
 import Footer from '../components/Footer';
 import PageShell from '../components/homeComponents/PageShell';
+import ServicosGrid from '../components/servicosComponents/ServicosGrid';
+import ServicosWhy from '../components/servicosComponents/ServicosWhy';
 
-export default function AboutPage() {
+export default function ServicosPage() {
   return (
     <PageShell footer={<Footer />}>
       <Navbar />
-
-      <div className="p-20 h-100 text-center text-3xl font-bold">
-        <h1>Página em desenvolvimento</h1>
-      </div>
-     
+      <ServicosGrid />
+      <ServicosWhy />
     </PageShell>
   );
 }
