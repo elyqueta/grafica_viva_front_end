@@ -53,7 +53,7 @@ export default function ServicosWhy() {
     >
       <div className="mx-auto max-w-2xl text-center">
         <p data-why-reveal className="text-xs font-semibold tracking-widest text-black/40">
-          [porquê escolher a gráfica viva]
+          [porque escolher a gráfica viva]
         </p>
 
         <ul data-why-list className="mx-auto mt-10 max-w-sm space-y-4 text-left">
@@ -72,10 +72,10 @@ export default function ServicosWhy() {
           href={WHATSAPP_LINK}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-12 inline-flex items-center gap-2 rounded-sm bg-rose-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-rose-700"
+          className="mt-12 inline-flex items-center gap-2 rounded-sm bg-black/5 px-6 py-3 text-sm font-semibold text-black/80 transition-colors hover:bg-black/10"
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-white" />
-          fala connosco
+          <span className="h-1.5 w-1.5 rounded-full bg-black/60" />
+          falar pelo whatsapp
         </a>
       </div>
     </section>
