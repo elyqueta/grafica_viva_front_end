@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState, type ReactNode } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Lenis from 'lenis';
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Lenis from "lenis";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,7 +31,7 @@ export default function PageShell({ children, footer }: PageShellProps) {
     // O ScrollTrigger normalmente ouve o evento nativo `scroll`; como o
     // Lenis passa a controlar o scroll, é preciso dizer explicitamente ao
     // ScrollTrigger para recalcular sempre que o Lenis emitir um "tick".
-    lenis.on('scroll', ScrollTrigger.update);
+    lenis.on("scroll", ScrollTrigger.update);
 
     // Liga o próprio relógio do GSAP ao Lenis, para os dois ficarem no
     // mesmo frame e não perderem sincronia com as animações existentes.
@@ -62,11 +62,11 @@ export default function PageShell({ children, footer }: PageShellProps) {
 
     const ro = new ResizeObserver(update);
     ro.observe(el);
-    window.addEventListener('resize', update);
+    window.addEventListener("resize", update);
 
     return () => {
       ro.disconnect();
-      window.removeEventListener('resize', update);
+      window.removeEventListener("resize", update);
     };
   }, []);
 
@@ -81,9 +81,7 @@ export default function PageShell({ children, footer }: PageShellProps) {
           estando lá (z-0, por baixo), ficaria tapado por uma camada da
           mesma cor da página, parecendo "vazio" ou em branco.
         */}
-        <div className="rounded-b-3xl bg-amber-50 shadow-sm">
-          {children}
-        </div>
+        <div className="rounded-b-3xl bg-amber-50 shadow-sm">{children}</div>
 
         {/*
           Espaçador: reserva no fluxo do documento um espaço com a altura
@@ -93,7 +91,12 @@ export default function PageShell({ children, footer }: PageShellProps) {
           margens negativas nem de `position: sticky` (que se comporta de
           forma inconsistente entre browsers quando combinado com flex).
         */}
-        <div id="page-footer-spacer" style={{ height: footerHeight }} aria-hidden="true" />
+        <div
+          id="page-footer-spacer"
+          style={{ height: footerHeight }}
+          aria-hidden="true"
+          className="pointer-events-none"
+        />
       </div>
 
       {/*

@@ -3,11 +3,15 @@ import Navbar from './components/NavBar';
 import Hero from './components/homeComponents/Hero';
 import About from './components/homeComponents/About';
 import Services from './components/homeComponents/Services';
-import Portfolio from './components/homeComponents/Portfolio';
 import Blog from './components/homeComponents/Blog';
 import Contact from './components/homeComponents/Contact';
 import Footer from './components/Footer';
 import PageShell from './components/homeComponents/PageShell';
+import Needs from './components/homeComponents/Needs';
+import HowItWorks from './components/homeComponents/HowItWorks';
+import WhyUs from './components/homeComponents/WhyUs';
+import Partners from './components/homeComponents/Partners';
+import FinalCta from './components/homeComponents/FinalCta';
 
 export default function Home() {
   return (
@@ -15,10 +19,14 @@ export default function Home() {
       <Preloader />
       <Navbar />
       <Hero />
+      <Needs />
       <About />
       <Services />
-      <Portfolio />
+      <HowItWorks />
+      <WhyUs />
+      <Partners />
       <Blog />
+      <FinalCta />
       <Contact />
     </PageShell>
   );

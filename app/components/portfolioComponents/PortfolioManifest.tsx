@@ -1,24 +1,24 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState, type ReactNode } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const NAV_ITEMS = [
-  { number: '01', title: 'branco' },
-  { number: '02', title: 'entropia' },
-  { number: '03', title: 'pareto' },
-  { number: '04', title: 'observador' },
-  { number: '05', title: 'dicotomia' },
-  { number: '06', title: 'escolha' },
-  { number: '07', title: 'perda' },
-  { number: '08', title: 'confiança' },
-  { number: '09', title: 'resta' },
+  { number: "01", title: "branco" },
+  { number: "02", title: "entropia" },
+  { number: "03", title: "pareto" },
+  { number: "04", title: "observador" },
+  { number: "05", title: "dicotomia" },
+  { number: "06", title: "escolha" },
+  { number: "07", title: "perda" },
+  { number: "08", title: "confiança" },
+  { number: "09", title: "resta" },
 ];
 
-const WHATSAPP_LINK = 'https://wa.me/244924666323';
+const WHATSAPP_LINK = "https://wa.me/244924666323";
 
 /* ------------------------------------------------------------------ */
 /* wrapper de cada secção                                             */
@@ -32,20 +32,35 @@ type ManifestSectionProps = {
   children: ReactNode;
 };
 
-function ManifestSection({ label, text, more, sectionRef, children }: ManifestSectionProps) {
+function ManifestSection({
+  label,
+  text,
+  more,
+  sectionRef,
+  children,
+}: ManifestSectionProps) {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <section ref={sectionRef} className="flex min-h-[85vh] flex-col justify-center gap-16 py-16">
+    <section
+      ref={sectionRef}
+      className="flex min-h-[85vh] flex-col justify-center gap-16 py-16"
+    >
       <div data-manifest-reveal className="max-w-md">
-        <p className="text-xs font-semibold tracking-widest text-black/40">{label}</p>
-        <p className="mt-3 text-base leading-relaxed text-black/70 sm:text-lg">{text}</p>
+        <p className="text-xs font-semibold tracking-widest text-black/40">
+          {label}
+        </p>
+        <p className="mt-3 text-base leading-relaxed text-black/70 sm:text-lg">
+          {text}
+        </p>
 
         {more && (
           <>
             <div
               className={`grid transition-all duration-500 ease-out ${
-                expanded ? 'mt-2 grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                expanded
+                  ? "mt-2 grid-rows-[1fr] opacity-100"
+                  : "grid-rows-[0fr] opacity-0"
               }`}
             >
               <div className="overflow-hidden">
@@ -58,13 +73,16 @@ function ManifestSection({ label, text, more, sectionRef, children }: ManifestSe
               className="mt-3 inline-flex items-center gap-2 text-xs font-semibold text-black/50 transition-colors hover:text-black"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-rose-600" />
-              {expanded ? 'mostrar menos' : 'saber mais'}
+              {expanded ? "mostrar menos" : "saber mais"}
             </button>
           </>
         )}
       </div>
 
-      <div data-manifest-reveal className="flex flex-1 items-center justify-center">
+      <div
+        data-manifest-reveal
+        className="flex flex-1 items-center justify-center"
+      >
         {children}
       </div>
     </section>
@@ -84,7 +102,7 @@ function VisualBranco() {
       rotate: 4,
       y: -8,
       duration: 2.8,
-      ease: 'sine.inOut',
+      ease: "sine.inOut",
       yoyo: true,
       repeat: -1,
     });
@@ -118,7 +136,7 @@ function VisualEntropia() {
         x: () => gsap.utils.random(wide ? -150 : -50, wide ? 150 : 50),
         y: () => gsap.utils.random(wide ? -90 : -30, wide ? 90 : 30),
         duration: 1.1,
-        ease: 'power2.out',
+        ease: "power2.out",
       });
     });
   };
@@ -152,7 +170,11 @@ function VisualEntropia() {
         <span className="h-1.5 w-1.5 rounded-full bg-rose-600" />
         aplicar energia
       </button>
-      {energised && <p className="text-xs text-black/40">a ordem custa energia para se manter</p>}
+      {energised && (
+        <p className="text-xs text-black/40">
+          a ordem custa energia para se manter
+        </p>
+      )}
     </div>
   );
 }
@@ -173,7 +195,12 @@ function VisualPareto() {
     barsRef.current.forEach((bar, i) => {
       if (!bar) return;
       const height = next ? Math.max(8, 100 - i * i * 1.05) : 46;
-      gsap.to(bar, { height, duration: 0.6, ease: 'power2.out', delay: i * 0.02 });
+      gsap.to(bar, {
+        height,
+        duration: 0.6,
+        ease: "power2.out",
+        delay: i * 0.02,
+      });
     });
   };
 
@@ -197,7 +224,9 @@ function VisualPareto() {
         className="inline-flex items-center gap-2 rounded-sm bg-black/5 px-4 py-2 text-xs font-semibold text-black/70 transition-colors hover:bg-black/10"
       >
         <span className="h-1.5 w-1.5 rounded-full bg-rose-600" />
-        {concentrated ? 'repartir de forma igual' : 'ver como o valor se concentra'}
+        {concentrated
+          ? "repartir de forma igual"
+          : "ver como o valor se concentra"}
       </button>
     </div>
   );
@@ -215,9 +244,15 @@ function VisualObservador() {
     setApproved(true);
     if (!ringsRef.current) return;
     gsap.fromTo(
-      ringsRef.current.querySelectorAll('[data-ring]'),
+      ringsRef.current.querySelectorAll("[data-ring]"),
       { scale: 0.85, opacity: 0.6 },
-      { scale: 1.15, opacity: 0, duration: 1, ease: 'power2.out', stagger: 0.1 },
+      {
+        scale: 1.15,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out",
+        stagger: 0.1,
+      },
     );
   };
 
@@ -245,7 +280,9 @@ function VisualObservador() {
         </button>
       </div>
       <p className="text-xs text-black/40">
-        {approved ? 'prova aprovada, segue para impressão' : 'clica para rever a prova'}
+        {approved
+          ? "prova aprovada, segue para impressão"
+          : "clica para rever a prova"}
       </p>
     </div>
   );
@@ -255,28 +292,31 @@ function VisualObservador() {
 /* 05 · dicotomia                                                     */
 /* ------------------------------------------------------------------ */
 
-type Side = 'tecnico' | 'ambos' | 'criativo';
+type Side = "tecnico" | "ambos" | "criativo";
 
 const SIDE_TEXT: Record<Side, string> = {
-  tecnico: 'este lado mede, calcula e verifica margens antes de qualquer máquina arrancar.',
-  ambos: 'os dois lados vivem no mesmo processo, da folha em branco à entrega final.',
-  criativo: 'este lado sente o que funciona visualmente, mesmo antes de saber explicar porquê.',
+  tecnico:
+    "este lado mede, calcula e verifica margens antes de qualquer máquina arrancar.",
+  ambos:
+    "os dois lados vivem no mesmo processo, da folha em branco à entrega final.",
+  criativo:
+    "este lado sente o que funciona visualmente, mesmo antes de saber explicar porquê.",
 };
 
 function VisualDicotomia() {
-  const [side, setSide] = useState<Side>('ambos');
+  const [side, setSide] = useState<Side>("ambos");
 
   return (
     <div className="flex flex-col items-center gap-6">
       <div className="relative flex h-40 w-64 items-center justify-center sm:h-48 sm:w-72">
         <div
           className={`absolute left-1/2 h-36 w-36 -translate-x-[65%] rounded-full border border-black/20 transition-colors duration-300 sm:h-44 sm:w-44 ${
-            side !== 'criativo' ? 'bg-black/15' : 'bg-transparent'
+            side !== "criativo" ? "bg-black/15" : "bg-transparent"
           }`}
         />
         <div
           className={`absolute left-1/2 h-36 w-36 -translate-x-[35%] rounded-full border border-black/20 transition-colors duration-300 sm:h-44 sm:w-44 ${
-            side !== 'tecnico' ? 'bg-black/15' : 'bg-transparent'
+            side !== "tecnico" ? "bg-black/15" : "bg-transparent"
           }`}
         />
       </div>
@@ -284,30 +324,32 @@ function VisualDicotomia() {
       <div className="flex flex-wrap items-center justify-center gap-3 text-xs font-medium">
         <button
           type="button"
-          onClick={() => setSide('tecnico')}
-          className={side === 'tecnico' ? 'text-black' : 'text-black/35'}
+          onClick={() => setSide("tecnico")}
+          className={side === "tecnico" ? "text-black" : "text-black/35"}
         >
           o lado técnico
         </button>
         <span className="text-black/20">/</span>
         <button
           type="button"
-          onClick={() => setSide('ambos')}
-          className={side === 'ambos' ? 'text-black' : 'text-black/35'}
+          onClick={() => setSide("ambos")}
+          className={side === "ambos" ? "text-black" : "text-black/35"}
         >
           o ofício
         </button>
         <span className="text-black/20">/</span>
         <button
           type="button"
-          onClick={() => setSide('criativo')}
-          className={side === 'criativo' ? 'text-black' : 'text-black/35'}
+          onClick={() => setSide("criativo")}
+          className={side === "criativo" ? "text-black" : "text-black/35"}
         >
           o lado criativo
         </button>
       </div>
 
-      <p className="max-w-xs text-center text-sm text-black/60">{SIDE_TEXT[side]}</p>
+      <p className="max-w-xs text-center text-sm text-black/60">
+        {SIDE_TEXT[side]}
+      </p>
     </div>
   );
 }
@@ -316,7 +358,13 @@ function VisualDicotomia() {
 /* 06 · escolha                                                       */
 /* ------------------------------------------------------------------ */
 
-const PAPERS = ['couché 300g', 'reciclado kraft', 'verjurado', 'brilho uv', 'linho texturado'];
+const PAPERS = [
+  "couché 300g",
+  "reciclado kraft",
+  "verjurado",
+  "brilho uv",
+  "linho texturado",
+];
 
 function VisualEscolha() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -330,8 +378,8 @@ function VisualEscolha() {
       gsap.to(door, {
         scaleX: 0,
         duration: 0.5,
-        ease: 'power2.inOut',
-        transformOrigin: 'left center',
+        ease: "power2.inOut",
+        transformOrigin: "left center",
       });
     }
   };
@@ -386,14 +434,20 @@ function VisualPerda() {
     const poly = polyRef.current;
     if (!poly) return;
     const points = pointsRef.current
-      .map((v, i) => `${i * (240 / (pointsRef.current.length - 1 || 1))},${80 - v}`)
-      .join(' ');
-    poly.setAttribute('points', points);
+      .map(
+        (v, i) =>
+          `${i * (240 / (pointsRef.current.length - 1 || 1))},${80 - v}`,
+      )
+      .join(" ");
+    poly.setAttribute("points", points);
   };
 
   const addPoint = (delta: number) => {
     const last = pointsRef.current[pointsRef.current.length - 1];
-    pointsRef.current = [...pointsRef.current, Math.max(4, Math.min(76, last + delta))].slice(-12);
+    pointsRef.current = [
+      ...pointsRef.current,
+      Math.max(4, Math.min(76, last + delta)),
+    ].slice(-12);
     redraw();
   };
 
@@ -484,10 +538,18 @@ function VisualConfianca() {
         </div>
       </div>
       <div className="flex justify-center gap-6 text-xs font-medium">
-        <button type="button" onClick={trust} className="text-black/70 transition-colors hover:text-black">
+        <button
+          type="button"
+          onClick={trust}
+          className="text-black/70 transition-colors hover:text-black"
+        >
           confiar
         </button>
-        <button type="button" onClick={betray} className="text-black/70 transition-colors hover:text-black">
+        <button
+          type="button"
+          onClick={betray}
+          className="text-black/70 transition-colors hover:text-black"
+        >
           trair
         </button>
       </div>
@@ -508,12 +570,12 @@ export default function PortfolioManifest() {
     if (!containerRef.current) return;
 
     const ctx = gsap.context(() => {
-      gsap.from('[data-manifest-intro]', {
+      gsap.from("[data-manifest-intro]", {
         opacity: 0,
         y: 20,
         duration: 0.8,
         stagger: 0.1,
-        ease: 'power2.out',
+        ease: "power2.out",
       });
 
       sectionRefs.current.forEach((section, i) => {
@@ -521,21 +583,21 @@ export default function PortfolioManifest() {
 
         ScrollTrigger.create({
           trigger: section,
-          start: 'top center',
-          end: 'bottom center',
+          start: "top center",
+          end: "bottom center",
           onEnter: () => setActiveIndex(i),
           onEnterBack: () => setActiveIndex(i),
         });
 
-        gsap.from(section.querySelectorAll('[data-manifest-reveal]'), {
+        gsap.from(section.querySelectorAll("[data-manifest-reveal]"), {
           opacity: 0,
           y: 24,
           duration: 0.7,
           stagger: 0.1,
-          ease: 'power2.out',
+          ease: "power2.out",
           scrollTrigger: {
             trigger: section,
-            start: 'top 75%',
+            start: "top 75%",
           },
         });
       });
@@ -545,7 +607,10 @@ export default function PortfolioManifest() {
   }, []);
 
   const scrollToSection = (i: number) => {
-    sectionRefs.current[i]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    sectionRefs.current[i]?.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
   };
 
   return (
@@ -553,12 +618,19 @@ export default function PortfolioManifest() {
       {/* intro */}
       <section className="flex min-h-[70vh] w-full flex-col justify-center px-6 pb-16 pt-36 lg:px-10 lg:pt-44">
         <div className="ml-auto max-w-xl text-right">
-          <p data-manifest-intro className="text-xs font-semibold tracking-widest text-black/40">
+          <p
+            data-manifest-intro
+            className="text-xs font-semibold tracking-widest text-black/40"
+          >
             [manifesto]
           </p>
-          <p data-manifest-intro className="mt-6 text-xl leading-relaxed text-black sm:text-2xl">
-            não vemos o design como decoração. tiramos o que é desnecessário de uma peça gráfica,
-            de uma frase, de um dia inteiro de trabalho. o que fica não é menos, é mais claro.
+          <p
+            data-manifest-intro
+            className="mt-6 text-xl leading-relaxed text-black sm:text-2xl"
+          >
+            não vemos o design como decoração. tiramos o que é desnecessário de
+            uma peça gráfica, de uma frase, de um dia inteiro de trabalho. o que
+            fica não é menos, é mais claro.
           </p>
           <p data-manifest-intro className="mt-10 text-xs text-black/40">
             as ideias começam abaixo, desliza
@@ -579,13 +651,17 @@ export default function PortfolioManifest() {
                 >
                   <span
                     className={`h-px shrink-0 transition-all duration-300 ${
-                      activeIndex === i ? 'w-8 bg-black' : 'w-4 bg-black/20'
+                      activeIndex === i ? "w-8 bg-black" : "w-4 bg-black/20"
                     }`}
                   />
                   {activeIndex === i && (
                     <span className="flex items-baseline gap-2">
-                      <span className="text-xs text-black/40">{item.number}</span>
-                      <span className="text-sm font-semibold text-black">{item.title}</span>
+                      <span className="text-xs text-black/40">
+                        {item.number}
+                      </span>
+                      <span className="text-sm font-semibold text-black">
+                        {item.title}
+                      </span>
                     </span>
                   )}
                 </button>
@@ -602,7 +678,7 @@ export default function PortfolioManifest() {
             }}
             label="[antes da tinta]"
             text="todo o trabalho começa aqui. uma folha sem marcas é pura possibilidade, mas também o maior risco: o primeiro traço decide tudo o que vem a seguir."
-            more="às vezes a decisão mais difícil de um projeto é não desenhar nada."
+            more="às vezes a decisão mais difícil de um projecto é não desenhar nada."
           >
             <VisualBranco />
           </ManifestSection>
@@ -691,10 +767,16 @@ export default function PortfolioManifest() {
             }}
             className="flex min-h-[85vh] flex-col items-center justify-center gap-6 py-16 text-center"
           >
-            <p data-manifest-reveal className="text-2xl font-semibold text-black sm:text-3xl">
+            <p
+              data-manifest-reveal
+              className="text-2xl font-semibold text-black sm:text-3xl"
+            >
               é tudo isto. e é suficiente.
             </p>
-            <p data-manifest-reveal className="text-sm tracking-widest text-black/40">
+            <p
+              data-manifest-reveal
+              className="text-sm tracking-widest text-black/40"
+            >
               [gráfica viva]
             </p>
             <a

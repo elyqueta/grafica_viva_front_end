@@ -18,25 +18,33 @@ type ServiceCard = {
 
 const SERVICES: ServiceCard[] = [
   {
-    slug: 'impressao-digital',
-    category: 'impressão digital',
-    title: 'grande e pequeno formato',
-    subtitle: 'gráfica viva',
-    image:
-      'https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=900&q=80',
-  },
-  {
     slug: 'design-grafico',
     category: 'design gráfico',
-    title: 'identidade visual e materiais',
+    title: 'identidade visual que traduz a sua marca',
     subtitle: 'gráfica viva',
     image:
       'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=900&q=80',
   },
   {
+    slug: 'impressao',
+    category: 'impressão',
+    title: 'qualidade e atenção ao detalhe',
+    subtitle: 'gráfica viva',
+    image:
+      'https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=900&q=80',
+  },
+  {
+    slug: 'grande-formato',
+    category: 'grande formato',
+    title: 'banners, lonas e visibilidade',
+    subtitle: 'gráfica viva',
+    image:
+      'https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80',
+  },
+  {
     slug: 'embalagens',
     category: 'embalagens',
-    title: 'soluções personalizadas',
+    title: 'soluções que valorizam o produto',
     subtitle: 'gráfica viva',
     image:
       'https://images.unsplash.com/photo-1607166452427-7e4477079cb9?w=900&q=80',
@@ -44,15 +52,7 @@ const SERVICES: ServiceCard[] = [
   {
     slug: 'sinaletica',
     category: 'sinalética',
-    title: 'interior e exterior',
-    subtitle: 'gráfica viva',
-    image:
-      'https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80',
-  },
-  {
-    slug: 'impressao-offset',
-    category: 'impressão offset',
-    title: 'tiragens de grande escala',
+    title: 'espaços com identidade profissional',
     subtitle: 'gráfica viva',
     image:
       'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=900&q=80',
@@ -60,7 +60,7 @@ const SERVICES: ServiceCard[] = [
   {
     slug: 'personalizacao',
     category: 'personalização',
-    title: 'brindes e merchandising',
+    title: 'materiais para empresas e eventos',
     subtitle: 'gráfica viva',
     image:
       'https://images.unsplash.com/photo-1601924582970-9238bcb495d9?w=900&q=80',
@@ -120,15 +120,16 @@ export default function Services() {
       ref={sectionRef}
       className="relative w-full bg-amber-50"
     >
-      <div className="mx-auto max-w-7xl px-6 pt-24 lg:px-10">
-        <div data-services-heading>
+     <div data-services-heading className="mx-auto max-w-7xl px-6 pt-24 lg:px-10"> 
           <p className="text-xs font-semibold tracking-widest text-black/40">
             [serviços]
           </p>
           <h2 className="mt-2 text-3xl font-extrabold text-black sm:text-4xl">
-            o que fazemos
+            do conceito à impressão.
           </h2>
-        </div>
+          <p className="mt-4 max-w-xl text-base text-black/60 sm:text-lg">
+            Soluções gráficas pensadas para ajudar a sua marca a comunicar melhor e destacar-se.
+          </p>
       </div>
 
       <div ref={pinRef} className="relative mt-12 w-full overflow-hidden">
@@ -170,6 +171,15 @@ export default function Services() {
             </Link>
           ))}
         </div>
+      </div>
+       <div className="mx-auto mt-12 max-w-7xl px-6 text-center lg:px-10">
+        <Link
+          href="/orcamento"
+          className="inline-flex items-center gap-2 rounded-sm bg-rose-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-rose-700"
+        >
+          <span className="h-1.5 w-1.5 rounded-full bg-white" />
+          pedir orçamento
+        </Link>
       </div>
     </section>
   );

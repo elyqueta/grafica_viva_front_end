@@ -1,23 +1,53 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Mail, Phone, MapPin } from 'lucide-react';
-import MagneticPillField, { MagneticPillConfig } from './MagneticPillField';
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Mail, Phone, MapPin } from "lucide-react";
+import MagneticPillField, { MagneticPillConfig } from "./MagneticPillField";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const PILLS: MagneticPillConfig[] = [
-  { id: 'uma-ideia', label: 'uma ideia?', color: 'bg-violet-500', style: { top: '8%', left: '6%' } },
-  { id: 'tens-um', label: 'tens um', color: 'bg-amber-500', style: { top: '2%', left: '32%' } },
-  { id: 'projeto', label: 'projeto?', color: 'bg-sky-500', style: { top: '14%', left: '58%' } },
-  { id: 'vamos', label: 'vamos', color: 'bg-rose-500', style: { top: '58%', left: '4%' } },
-  { id: 'conversar', label: 'conversar', color: 'bg-pink-400', style: { top: '64%', left: '28%' } },
-  { id: 'fala-connosco', label: 'fala connosco', color: 'bg-orange-500', style: { top: '52%', left: '68%' } },
+  {
+    id: "uma-ideia",
+    label: "uma ideia?",
+    color: "bg-violet-500",
+    style: { top: "8%", left: "6%" },
+  },
+  {
+    id: "tens-um",
+    label: "tens um",
+    color: "bg-amber-500",
+    style: { top: "2%", left: "32%" },
+  },
+  {
+    id: "projecto",
+    label: "projecto?",
+    color: "bg-sky-500",
+    style: { top: "14%", left: "58%" },
+  },
+  {
+    id: "vamos",
+    label: "vamos",
+    color: "bg-rose-500",
+    style: { top: "58%", left: "4%" },
+  },
+  {
+    id: "conversar",
+    label: "conversar",
+    color: "bg-pink-400",
+    style: { top: "64%", left: "28%" },
+  },
+  {
+    id: "fala-connosco",
+    label: "fala connosco",
+    color: "bg-orange-500",
+    style: { top: "52%", left: "68%" },
+  },
 ];
 
-const WHATSAPP_LINK = 'https://wa.me/244924666323';
+const WHATSAPP_LINK = "https://wa.me/244924666323";
 
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -27,23 +57,23 @@ export default function Contact() {
   useEffect(() => {
     const update = () => setIsMobile(window.innerWidth < 1024);
     update();
-    window.addEventListener('resize', update);
-    return () => window.removeEventListener('resize', update);
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
   }, []);
 
   useEffect(() => {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      gsap.from('[data-contact-reveal]', {
+      gsap.from("[data-contact-reveal]", {
         opacity: 0,
         y: 24,
         duration: 0.7,
         stagger: 0.08,
-        ease: 'power2.out',
+        ease: "power2.out",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 75%',
+          start: "top 75%",
         },
       });
 
@@ -52,20 +82,20 @@ export default function Contact() {
         scale: 0.6,
         duration: 0.6,
         stagger: 0.06,
-        ease: 'back.out(1.7)',
+        ease: "back.out(1.7)",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 70%',
+          start: "top 70%",
         },
         onComplete: () => {
           pillsRef.current.forEach((pill) => {
             if (!pill) return;
             gsap.to(pill, {
-              y: '+=14',
+              y: "+=14",
               x: `+=${gsap.utils.random(-10, 10)}`,
               rotate: gsap.utils.random(-4, 4),
               duration: gsap.utils.random(2.5, 4),
-              ease: 'sine.inOut',
+              ease: "sine.inOut",
               yoyo: true,
               repeat: -1,
             });
@@ -93,7 +123,10 @@ export default function Contact() {
       </div>
 
       <div className="relative mx-auto max-w-3xl text-center">
-        <p data-contact-reveal className="text-xs font-semibold tracking-widest text-black/40">
+        <p
+          data-contact-reveal
+          className="text-xs font-semibold tracking-widest text-black/40"
+        >
           [contactos]
         </p>
 
@@ -104,8 +137,11 @@ export default function Contact() {
           vamos construir algo com significado.
         </h2>
 
-        <p data-contact-reveal className="mt-4 text-base text-black/60 sm:text-lg">
-          a nossa porta está aberta. se tens uma ideia ou um projeto para
+        <p
+          data-contact-reveal
+          className="mt-4 text-base text-black/60 sm:text-lg"
+        >
+          a nossa porta está aberta. se tens uma ideia ou um projecto para
           imprimir, fala connosco.
         </p>
 

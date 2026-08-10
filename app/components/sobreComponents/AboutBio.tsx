@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,10 +15,18 @@ type ServiceItem = {
 };
 
 const SERVICES_PREVIEW: ServiceItem[] = [
-  { number: '01', title: 'grande e pequeno formato', category: 'impressão digital' },
-  { number: '02', title: 'identidade visual e materiais', category: 'design gráfico' },
-  { number: '03', title: 'soluções personalizadas', category: 'embalagens' },
-  { number: '04', title: 'interior e exterior', category: 'sinalética' },
+  {
+    number: "01",
+    title: "grande e pequeno formato",
+    category: "impressão digital",
+  },
+  {
+    number: "02",
+    title: "identidade visual e materiais",
+    category: "design gráfico",
+  },
+  { number: "03", title: "soluções personalizadas", category: "embalagens" },
+  { number: "04", title: "interior e exterior", category: "sinalética" },
 ];
 
 export default function AboutBio() {
@@ -28,33 +36,33 @@ export default function AboutBio() {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      gsap.from('[data-bio-reveal]', {
+      gsap.from("[data-bio-reveal]", {
         opacity: 0,
         y: 24,
         duration: 0.7,
         stagger: 0.08,
-        ease: 'power2.out',
-        scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' },
+        ease: "power2.out",
+        scrollTrigger: { trigger: sectionRef.current, start: "top 75%" },
       });
 
-      gsap.from('[data-bio-image]', {
+      gsap.from("[data-bio-image]", {
         opacity: 0,
         y: 30,
         rotate: 0,
         scale: 0.94,
         duration: 0.8,
         stagger: 0.12,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: sectionRef.current, start: 'top 70%' },
+        ease: "power3.out",
+        scrollTrigger: { trigger: sectionRef.current, start: "top 70%" },
       });
 
-      gsap.from('[data-services-item]', {
+      gsap.from("[data-services-item]", {
         opacity: 0,
         y: 16,
         duration: 0.5,
         stagger: 0.08,
-        ease: 'power2.out',
-        scrollTrigger: { trigger: '[data-services-list]', start: 'top 85%' },
+        ease: "power2.out",
+        scrollTrigger: { trigger: "[data-services-list]", start: "top 85%" },
       });
     }, sectionRef);
 
@@ -67,17 +75,27 @@ export default function AboutBio() {
       className="relative w-full bg-amber-50 px-6 py-24 lg:px-10 lg:py-32"
     >
       <div className="mx-auto max-w-4xl text-center">
-        <p data-bio-reveal className="text-xs font-semibold tracking-widest text-black/40">
+        <p
+          data-bio-reveal
+          className="text-xs font-semibold tracking-widest text-black/40"
+        >
           [a nossa história]
         </p>
-        <p data-bio-reveal className="mt-6 text-lg leading-relaxed text-black/70 sm:text-xl">
-          começámos como uma pequena tipografia de bairro, com uma máquina antiga e a
-          vontade de fazer bem feito. hoje somos uma equipa que desenha, imprime e
-          acompanha cada projeto do primeiro rascunho à entrega final.
+        <p
+          data-bio-reveal
+          className="mt-6 text-lg leading-relaxed text-black/70 sm:text-xl"
+        >
+          começámos como uma pequena tipografia de bairro, com uma máquina
+          antiga e a vontade de fazer bem feito. hoje somos uma equipa que
+          desenha, imprime e acompanha cada projecto do primeiro rascunho à
+          entrega final.
         </p>
-        <p data-bio-reveal className="mt-4 text-lg leading-relaxed text-black/70 sm:text-xl">
-          não crescemos a acrescentar clientes ao acaso — crescemos a dizer que não a
-          trabalho apressado.
+        <p
+          data-bio-reveal
+          className="mt-4 text-lg leading-relaxed text-black/70 sm:text-xl"
+        >
+          não crescemos a acrescentar clientes ao acaso — crescemos a dizer que
+          não a trabalho apressado.
         </p>
       </div>
 
@@ -96,16 +114,25 @@ export default function AboutBio() {
         </div>
 
         <div className="text-center">
-          <p data-bio-reveal className="text-xs font-semibold tracking-widest text-black/40">
+          <p
+            data-bio-reveal
+            className="text-xs font-semibold tracking-widest text-black/40"
+          >
             [o que fazemos]
           </p>
-          <p data-bio-reveal className="mt-6 text-base leading-relaxed text-black/70 sm:text-lg">
+          <p
+            data-bio-reveal
+            className="mt-6 text-base leading-relaxed text-black/70 sm:text-lg"
+          >
             desenhamos a identidade visual e imprimimos o resultado final. não
             separamos as duas fases — quem cria também acompanha a produção.
           </p>
-          <p data-bio-reveal className="mt-4 text-base leading-relaxed text-black/70 sm:text-lg">
-            trabalhamos grandes e pequenos formatos, embalagens, sinalética e tudo o
-            que precise de sair do ecrã para o papel.
+          <p
+            data-bio-reveal
+            className="mt-4 text-base leading-relaxed text-black/70 sm:text-lg"
+          >
+            trabalhamos grandes e pequenos formatos, embalagens, sinalética e
+            tudo o que precise de sair do ecrã para o papel.
           </p>
         </div>
 

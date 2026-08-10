@@ -5,6 +5,7 @@ import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
@@ -53,27 +54,26 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pt-24 text-center lg:px-10">
         <h1 className="mx-auto max-w-3xl text-4xl font-extrabold leading-tight text-amber-50 sm:text-5xl lg:text-6xl">
-          Imprimimos Qualidade,
-          <br />
-          Damos Vida às Suas Ideias
+          A sua ideia merece ser vista.
         </h1>
 
         <p className="mx-auto mt-6 max-w-xl text-base text-amber-50 sm:text-lg">
-          Soluções gráficas completas com criatividade, precisão e compromisso.
+          Transformamos ideias em soluções gráficas que dão força à sua marca, do design à impressão final.
         </p>
 
         <div className="mt-8 flex items-center justify-center gap-4">
-          <a
-            href="#sobre"
+           <a
+            href="/orcamento"
+            className="rounded-sm cursor-pointer bg-amber-50 px-6 py-3 text-sm font-bold tracking-wide text-[#292929c5] transition-colors hover:bg-white/90 hover:text-[#29292980]"
+          >
+            PEDIR ORÇAMENTO
+          </a>
+          
+          <a          
+            href="#servicos"
             className="rounded-sm border border-amber-50 px-6 py-3 text-sm font-bold tracking-wide text-amber-50 transition-colors hover:bg-amber-50 hover:text-[#29292980]"
           >
-            SAIBA MAIS
-          </a>
-          <a
-            href="#servicos"
-            className="rounded-sm bg-amber-50 px-6 py-3 text-sm font-bold tracking-wide text-[#292929c5] transition-colors hover:bg-white/90 hover:text-[#29292980]"
-          >
-            NOSSOS SERVIÇOS
+            VER SERVIÇOS
           </a>
         </div>
       </div>

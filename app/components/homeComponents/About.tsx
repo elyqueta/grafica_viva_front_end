@@ -107,25 +107,23 @@ export default function About() {
         </div>
 
         <div data-about-text className="w-full lg:w-1/3">
-          <p className="text-base leading-relaxed text-black/70 sm:text-lg">
-            Desenhamos e imprimimos. O que nos importa é transformar ideias em
-            suportes físicos de qualidade — do conceito à impressão final.
+          <h2 className="text-2xl font-extrabold leading-tight text-black sm:text-3xl">
+            mais do que uma gráfica. somos parceiros das suas ideias.
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-black/70 sm:text-lg">
+            Acompanhamos cada projecto do primeiro rascunho à entrega final, com atenção ao detalhe e compromisso com a qualidade.
           </p>
-        </div>
+        </div>  
       </div>
 
-      <div className="mx-auto mt-20 max-w-3xl text-center">
-        <p data-about-quote className="text-lg text-black/60 sm:text-xl">
-          Não há atalhos na qualidade. Cada impressão é tratada como se fosse
-          a primeira e a última.
-        </p>
-
+     <div className="mx-auto mt-16 max-w-2xl text-center">
         <Link
           data-about-cta
           href="/sobre"
-          className="mt-8 inline-flex items-center gap-2 rounded-sm bg-black/5 px-5 py-2.5 text-sm font-semibold text-black/80 transition-colors hover:bg-black/10"
+          className="inline-flex items-center gap-2 rounded-sm bg-black/5 px-5 py-2.5 text-sm font-semibold text-black/80 transition-colors hover:bg-black/10"
         >
-          a nossa história
+          <span className="h-1.5 w-1.5 rounded-full bg-rose-600" />
+          conhecer a gráfica viva
         </Link>
       </div>
     </section>

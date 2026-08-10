@@ -12,15 +12,15 @@ gsap.registerPlugin(Flip);
 
 const NAV_LINKS = [
   { label: "Início", href: "/" },
-  { label: "Sobre Nós", href: "/sobre" },
   { label: "Serviços", href: "/servicos" },
-  { label: "Produtos", href: "/produtos" },
-  { label: "Portfólio", href: "/portfolio" },
+  { label: "Sobre Nós", href: "/sobre" },
+  { label: "Parceiros", href: "/#parceiros" },
   { label: "Blog", href: "/blog" },
   { label: "Contactos", href: "/contactos" },
 ];
 
 const WHATSAPP_LINK = "https://wa.me/244924666323";
+const ORCAMENTO_LINK = "/orcamento";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -284,13 +284,23 @@ export default function Navbar() {
             })}
           </ul>
 
-          <button
-            type="button"
-            className="flex shrink-0 items-center cursor-pointer gap-2 rounded-full bg-rose-600 px-4 py-2 text-sm font-semibold text-white"
-          >
-            <span className="h-2 w-2 rounded-full bg-white" />
-            en
-          </button>
+          <div className="hidden shrink-0 items-center gap-3 lg:flex">
+            <button
+              type="button"
+              className="flex items-center cursor-pointer gap-2 rounded-full bg-black/5 px-4 py-2 text-sm font-semibold text-black/70 transition-colors hover:bg-black/10"
+            >
+              <span className="h-2 w-2 rounded-full bg-black/40" />
+              en
+            </button>
+
+            <Link
+              href={ORCAMENTO_LINK}
+              className="flex items-center gap-2 rounded-full bg-rose-600 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-rose-700"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-white" />
+              pedir orçamento
+            </Link>
+          </div>
         </nav>
       </header>
 
@@ -326,20 +336,27 @@ export default function Navbar() {
           })}
         </ul>
 
-        <div
-          ref={footerRef}
-          className="mt-10 flex items-center justify-between"
-        >
-          <img src="/logo.png" alt="Gráfica Viva" className="h-10 w-auto" />
-          <a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-black/70 transition-colors hover:text-black/45"
+        <div ref={footerRef} className="mt-10 flex flex-col gap-4">
+          <Link
+            href={ORCAMENTO_LINK}
+            onClick={() => setMenuOpen(false)}
+            className="flex items-center justify-center gap-2 rounded-full bg-rose-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-rose-700"
           >
-            WhatsApp
-            <MessageCircle className="h-5 w-5" />
-          </a>
+            <span className="h-1.5 w-1.5 rounded-full bg-white" />
+            pedir orçamento
+          </Link>
+
+          <div className="flex items-center justify-between">
+            <img src="/logo.png" alt="Gráfica Viva" className="h-10 w-auto" />
+            <a              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-black/70 transition-colors hover:text-black/45"
+            >
+              WhatsApp
+              <MessageCircle className="h-5 w-5" />
+            </a>
+          </div>
         </div>
       </div>
     </>
