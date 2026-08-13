@@ -108,7 +108,7 @@ export default function Needs() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-amber-50 px-6 py-24 lg:px-10 lg:py-32"
+      className="relative w-full bg-amber-50 py-24 lg:px-10 lg:py-32"
     >
       <div className="mx-auto max-w-3xl text-center">
         <p data-needs-reveal className="text-xs font-semibold tracking-widest text-black/40">
@@ -124,13 +124,13 @@ export default function Needs() {
 
       <div
         data-needs-list
-        className="mx-auto mt-14 grid max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
+        className="mt-14 grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
       >
         {NEEDS.map((need) => (
           <div key={need.slug} data-needs-card>
             <Link
               href="/servicos"
-              className="group relative block h-64 w-full overflow-hidden rounded-sm sm:h-72 lg:h-80"
+              className="group relative block h-74 w-full overflow-hidden sm:h-72 lg:h-90"
             >
               <Image
                 src={need.image}

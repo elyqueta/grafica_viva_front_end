@@ -77,7 +77,7 @@ export default function ServicosGrid() {
 
       <div
         data-servicos-list
-        className="mt-10 grid grid-cols-1 gap-4 px-6 lg:grid-cols-12 lg:gap-4 lg:px-10"
+        className="mt-10 grid grid-cols-1 lg:grid-cols-12"
       >
         {SERVICES.map((service, index) => {
           const pattern = index % SPAN_PATTERN.length;
@@ -112,7 +112,7 @@ export default function ServicosGrid() {
                 </span>
               </Link>
 
-              <div data-servicos-caption className="px-1 py-4">
+              <div data-servicos-caption className="px-6 py-4">
                 <p className="text-base font-semibold text-black sm:text-lg">
                   {service.title}
                 </p>

@@ -100,11 +100,11 @@ export default function WhyUs() {
 
       <div
         data-why-us-grid
-        className="mx-auto mt-14 grid max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5"
+        className="mt-14 grid max-w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-5"
       >
         {REASONS.map((reason) => (
           <div key={reason.title} data-why-us-card>
-            <div className="group relative h-64 w-full overflow-hidden rounded-sm sm:h-72 lg:h-64">
+            <div className="group relative h-64 w-full overflow-hidden sm:h-72 lg:h-150">
               <Image
                 src={reason.image}
                 alt={reason.title}
