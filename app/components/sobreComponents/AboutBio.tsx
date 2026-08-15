@@ -102,7 +102,7 @@ export default function AboutBio() {
       <div className="mx-auto mt-20 grid max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-3 lg:gap-8">
         <div
           data-bio-image
-          className="relative mx-auto w-48 -rotate-2 overflow-hidden rounded-sm border-4 border-white bg-white shadow-sm sm:w-56 lg:mx-0 lg:w-full"
+          className="relative mx-auto w-48 overflow-hidden bg-white sm:w-56 lg:mx-0 lg:w-full"
         >
           <Image
             src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80"
@@ -138,7 +138,7 @@ export default function AboutBio() {
 
         <div
           data-bio-image
-          className="relative mx-auto w-48 rotate-1 overflow-hidden rounded-sm border-4 border-white bg-white shadow-sm sm:w-56 lg:mx-0 lg:ml-auto lg:w-full"
+          className="relative mx-auto w-48 overflow-hidden bg-white shadow-sm sm:w-56 lg:mx-0 lg:ml-auto lg:w-full"
         >
           <Image
             src="https://images.unsplash.com/photo-1601924582970-9238bcb495d9?w=600&q=80"

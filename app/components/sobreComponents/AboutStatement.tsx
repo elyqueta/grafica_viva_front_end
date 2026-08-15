@@ -12,7 +12,6 @@ type ScatterImage = {
   alt: string;
   size: string; // largura responsiva
   position: string; // posição lg (absolute)
-  rotateClass: string; // rotação final (classe tailwind)
 };
 
 const IMAGES: ScatterImage[] = [
@@ -21,21 +20,18 @@ const IMAGES: ScatterImage[] = [
     alt: 'Processo de impressão na Gráfica Viva',
     size: 'w-56 sm:w-64 lg:w-72',
     position: 'lg:left-[4%] lg:top-[2%]',
-    rotateClass: '-rotate-2',
   },
   {
     src: 'https://images.unsplash.com/photo-1607166452427-7e4477079cb9?w=700&q=80',
     alt: 'Embalagens produzidas pela Gráfica Viva',
     size: 'w-48 sm:w-56 lg:w-60',
     position: 'lg:left-1/2 lg:top-[32%] lg:-translate-x-1/2',
-    rotateClass: 'rotate-1',
   },
   {
     src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=700&q=80',
     alt: 'Materiais gráficos da Gráfica Viva',
     size: 'w-56 sm:w-64 lg:w-80',
     position: 'lg:right-[6%] lg:top-[48%]',
-    rotateClass: '-rotate-1',
   },
 ];
 
@@ -86,7 +82,7 @@ export default function AboutStatement() {
           <div
             key={img.src}
             data-scatter-image
-            className={`relative mx-auto overflow-hidden rounded-sm border-4 border-white bg-white shadow-sm lg:absolute lg:mx-0 ${img.size} ${img.position} ${img.rotateClass}`}
+            className={`relative mx-auto overflow-hidden border-white bg-white lg:absolute lg:mx-0 ${img.size} ${img.position}`}
           >
             <Image
               src={img.src}
@@ -98,12 +94,12 @@ export default function AboutStatement() {
           </div>
         ))}
 
-        <div className="relative max-w-md lg:absolute lg:bottom-0 lg:left-0">
+        <div className="relative max-w-md lg:absolute lg:bottom-35 lg:left-0">
           <h2
             data-scatter-text
-            className="text-3xl font-extrabold leading-tight text-black sm:text-4xl lg:text-5xl"
+            className="text-3xl font-extrabold leading-tight text-black sm:text-2xl lg:text-4xl"
           >
-            confiamos no olho, não no acaso.
+            confiamos no olho, <br /> não no acaso.
           </h2>
           <p data-scatter-text className="mt-4 text-base text-black/60 sm:text-lg">
             reparamos no que a maioria ignora.
