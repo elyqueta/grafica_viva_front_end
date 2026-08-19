@@ -233,9 +233,9 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 z-50 w-full transition-colors duration-500`}
+        className={`fixed top-0 left-0 z-50 w-full transition-colors duration-500 lg:p-5`}
       >
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4 lg:px-10 lg:py-4">
+        <nav className="lg:bg-neutral-400/24 lg:backdrop-blur-[1px] lg:border lg:border-neutral-400/20 mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4 lg:px-5 lg:py-1 lg:rounded-full">
           <Link
             href="/"
             id="nav-logo-target"

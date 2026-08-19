@@ -81,7 +81,7 @@ export default function About() {
       ref={sectionRef}
       className="relative w-full bg-amber-50 px-6 py-24 lg:px-10 lg:py-32"
     >
-      <div className="mx-auto flex max-w-7xl flex-col items-center gap-12 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
+      <div className="mx-auto flex max-w-7xl flex-col items-center gap-12 lg:items-center lg:justify-between lg:gap-8">
         <div data-about-label className="w-full text-center lg:w-1/4 lg:text-left">
           <p className="text-xs font-semibold tracking-widest text-black/40">
             [sobre nós]
@@ -91,10 +91,12 @@ export default function About() {
           </p>
         </div>
 
+        <div className='flex flex-col gap-10 lg:items-center lg:flex-row lg:justify-between lg:gap-10'>
+
         <div
           data-about-image
-          className="relative w-56 shrink-0 -rotate-3 sm:w-64 lg:w-72"
-        >
+          className="w-full shrink-0 sm:w-64 lg:w-110"
+          >
           <div className="overflow-hidden rounded-sm border-4 border-white bg-white shadow-sm">
             <Image
               src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=600&q=80"
@@ -102,7 +104,7 @@ export default function About() {
               width={600}
               height={750}
               className="h-auto w-full object-cover"
-            />
+              />
           </div>
         </div>
 
@@ -115,6 +117,7 @@ export default function About() {
           </p>
         </div>  
       </div>
+    </div>
 
      <div className="mx-auto mt-16 max-w-2xl text-center">
         <Link
