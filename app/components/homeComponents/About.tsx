@@ -97,7 +97,7 @@ export default function About() {
           data-about-image
           className="w-full shrink-0 sm:w-64 lg:w-110"
           >
-          <div className="overflow-hidden rounded-sm border-4 border-white bg-white shadow-sm">
+          <div className="overflow-hidden">
             <Image
               src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=600&q=80"
               alt="Processo de impressão na Gráfica Viva"
