@@ -24,7 +24,7 @@ export default function Home() {
       <Services />
       <HowItWorks />
       <WhyUs />
-      <Partners />
+      <Partners sectionId="parceiros" />
       <Blog />
       <FinalCta />
       <Contact sectionId="contactos" />

@@ -25,7 +25,7 @@ const LINK_COLUMNS = [
       { label: "início", href: "/", external: false },
       { label: "serviços", href: "/servicos", external: false },
       { label: "sobre nós", href: "/sobre", external: false },
-      { label: "parceiros", href: "/#parceiros", external: false },
+      { label: "parceiros", href: "/parceiros", external: false },
       { label: "manifesto", href: "/manifesto", external: false },
       { label: "portfólio", href: "/portfolio", external: false },
       { label: "blog", href: "/blog", external: false },

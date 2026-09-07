@@ -2,7 +2,7 @@
 
 # Estado
 
-Status: PENDING
+Status: COMPLETED
 
 ---
 
@@ -49,13 +49,29 @@ clicáveis a apontar para aqui).
 
 ## Resultado da implementação
 
-_(preencher ao executar este bloco)_
-
 - O que foi alterado:
-- Componentes criados:
-- Componentes reutilizados:
+  - `app/portfolio/[slug]/page.tsx` criado com estrutura completa: hero visual, objetivo, solução aplicada, galeria, projectos relacionados e CTA final para `/orcamento`.
+  - `app/data/portfolio.ts` enriquecido com campos `category`, `objective`, `solution` e `gallery` em cada projecto, mantendo o aviso de dados de exemplo.
+  - `app/components/servicosComponents/RelatedProjects.tsx` atualizado para suportar links para páginas individuais de projecto via prop `asDetailLinks`.
+  - `app/portfolio/page.tsx` atualizado para que cada card da grelha aponte para a página individual do projecto (`/portfolio/[slug]`).
+- Componentes criados: `app/portfolio/[slug]/page.tsx`.
+- Componentes reutilizados: `NavBar`, `Footer`, `PageShell`, `RelatedProjects`, `Image` (next/image), `Link` (next/link).
 - Problemas encontrados:
+  - `app/data/portfolio.ts` não tinha campos suficientes para storytelling (objective, solution, gallery).
+  - `RelatedProjects.tsx` tinha links hardcoded para `/portfolio`, não servia para páginas individuais.
+  - `app/portfolio/page.tsx` usava `<article>` sem link, impedindo navegação para detalhe do projecto.
 - Problemas corrigidos:
+  - Enriquecidos os dados mockados de `portfolio.ts` com campos de storytelling, mantendo o aviso de exemplo.
+  - `RelatedProjects.tsx` ganhou prop `asDetailLinks` para gerar hrefs dinâmicos por projecto.
+  - `app/portfolio/page.tsx` agora usa `<Link>` em cada card da grelha, apontando para `/portfolio/${project.slug}`.
 - Problemas ainda existentes:
+  - Nenhum.
 - Ficheiros alterados:
+  - `app/portfolio/[slug]/page.tsx` (criado)
+  - `app/data/portfolio.ts` (atualizado)
+  - `app/components/servicosComponents/RelatedProjects.tsx` (atualizado)
+  - `app/portfolio/page.tsx` (atualizado)
 - Testes realizados:
+  - `npx tsc --noEmit` sem erros.
+  - `npm run build` compila com sucesso e gera as 6 páginas estáticas via `generateStaticParams`.
+  - `npm run lint` sem erros novos nos ficheiros alterados.

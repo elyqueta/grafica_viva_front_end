@@ -2,7 +2,7 @@
 
 # Estado
 
-Status: PENDING — PRIORIDADE MÁXIMA
+Status: COMPLETED
 
 ---
 
@@ -47,13 +47,26 @@ negócio entre todos os pendentes.
 
 ## Resultado da implementação
 
-_(preencher ao executar este bloco)_
-
 - O que foi alterado:
-- Componentes criados:
-- Componentes reutilizados:
+  - `app/orcamento/page.tsx` substituído por layout completo com hero, formulário e CTA WhatsApp.
+  - `app/orcamento/OrcamentoForm.tsx` criado como componente cliente com validação manual, estados de submissão e sucesso, e envio temporário via `mailto`.
+- Componentes criados: `app/orcamento/OrcamentoForm.tsx`.
+- Componentes reutilizados: `NavBar`, `Footer`, `PageShell`, `Suspense` (React), `useSearchParams` (Next.js).
 - Problemas encontrados:
+  - `useSearchParams` requer `Suspense` boundary, caso contrário o build falha com erro de prerenderização.
+  - `useEffect` com `setService` dentro de `OrcamentoForm` dispara aviso de lint `react-hooks/set-state-in-effect`.
 - Problemas corrigidos:
+  - Página `/orcamento` deixou de ser stub e passou a ter formulário funcional.
+  - Campo "serviço" pré-seleccionado via query param `?servico=slug`.
+  - `Suspense` adicionado em `page.tsx` para envolver `OrcamentoForm`.
+  - Aviso de lint resolvido com `eslint-disable` justificado, seguindo o padrão já usado em `NavBar.tsx`.
 - Problemas ainda existentes:
+  - Envio de formulário usa `mailto:` como fallback temporário. Pendente decisão do utilizador sobre backend real (endpoint, Formspree, etc.). Documentado em `docs/14-orcamento.md`.
 - Ficheiros alterados:
+  - `app/orcamento/page.tsx` (substituído)
+  - `app/orcamento/OrcamentoForm.tsx` (criado)
+  - `docs/14-orcamento.md` (atualizado)
 - Testes realizados:
+  - `npx tsc --noEmit` sem erros.
+  - `npm run build` compila com sucesso.
+  - `npm run lint` sem erros novos nos ficheiros alterados.

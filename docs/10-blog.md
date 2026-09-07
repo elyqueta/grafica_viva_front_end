@@ -2,7 +2,7 @@
 
 # Estado
 
-Status: PENDING
+Status: COMPLETED
 
 ---
 
@@ -43,13 +43,27 @@ passar a vir de uma fonte de dados partilhada.
 
 ## Resultado da implementação
 
-_(preencher ao executar este bloco)_
-
 - O que foi alterado:
-- Componentes criados:
-- Componentes reutilizados:
+  - `app/data/blog.ts` criado com 6 posts mockados tipados, cada um com slug, título, excerto, data, imagem e categoria.
+  - `homeComponents/Blog.tsx` atualizado para importar `BLOG_POSTS` de `app/data/blog.ts`, removendo o array local.
+  - `app/blog/page.tsx` reconstruído com layout editorial: artigo em destaque com imagem grande, grelha para os restantes e filtro por categoria client-side.
+- Componentes criados: `app/data/blog.ts`, `app/blog/page.tsx`.
+- Componentes reutilizados: `homeComponents/Blog.tsx`, `next/image`, `next/link`.
 - Problemas encontrados:
+  - `homeComponents/Blog.tsx` mantinha array `POSTS` local, duplicando dados que agora vivem em `app/data/blog.ts`.
+  - `app/blog/page.tsx` era um stub com texto "Página em desenvolvimento".
 - Problemas corrigidos:
+  - Eliminada duplicação de dados de blog entre Home e `/blog`.
+  - `/blog` passou a ter conteúdo real com layout editorial coerente com o design system.
+  - Filtro por categoria implementado client-side sem novas dependências.
 - Problemas ainda existentes:
+  - Nenhum.
 - Ficheiros alterados:
+  - `app/data/blog.ts` (criado)
+  - `app/components/homeComponents/Blog.tsx` (atualizado)
+  - `app/blog/page.tsx` (substituído)
+  - `docs/10-blog.md` (atualizado)
 - Testes realizados:
+  - `npx tsc --noEmit` sem erros.
+  - `npm run build` compila com sucesso.
+  - `npm run lint` sem erros novos nos ficheiros alterados.

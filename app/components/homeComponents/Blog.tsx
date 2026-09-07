@@ -4,39 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { BLOG_POSTS } from "../../data/blog";
 
 gsap.registerPlugin(ScrollTrigger);
-
-type Post = {
-  slug: string;
-  title: string;
-  excerpt: string;
-  date: string;
-};
-
-const POSTS: Post[] = [
-  {
-    slug: "papel-certo-para-a-tua-marca",
-    title: "como escolher o papel certo para a tua marca",
-    excerpt:
-      "a textura e a gramagem do papel comunicam tanto quanto o design. um guia prático para não errar na escolha.",
-    date: "jan 2026",
-  },
-  {
-    slug: "embalagem-sustentavel-2026",
-    title: "tendências de embalagem sustentável em 2026",
-    excerpt:
-      "materiais reciclados, menos tinta, mais impacto. o que estamos a ver mudar na produção de embalagens.",
-    date: "fev 2026",
-  },
-  {
-    slug: "sinaletica-que-vende",
-    title: "sinalética que vende: o que aprendemos em 50 projectos",
-    excerpt:
-      "nem sempre o maior letreiro é o mais eficaz. partilhamos os padrões que realmente funcionam.",
-    date: "mar 2026",
-  },
-];
 
 export default function Blog() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -48,8 +18,6 @@ export default function Blog() {
     e: React.MouseEvent<HTMLAnchorElement>,
     index: number,
   ) => {
-    // Em mobile não há hover; o primeiro toque expande o artigo e o segundo
-    // toque é que navega para a página do artigo.
     if (isMobile() && activeIndex !== index) {
       e.preventDefault();
       setActiveIndex(index);
@@ -93,7 +61,7 @@ export default function Blog() {
         </div>
 
         <div className="mt-10 divide-y divide-black/10 border-y border-black/10">
-          {POSTS.map((post, index) => {
+          {BLOG_POSTS.map((post, index) => {
             const isActive = index === activeIndex;
             return (
               <Link

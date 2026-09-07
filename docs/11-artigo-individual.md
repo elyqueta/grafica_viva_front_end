@@ -2,7 +2,7 @@
 
 # Estado
 
-Status: PENDING
+Status: COMPLETED
 
 ---
 
@@ -35,13 +35,24 @@ Depende do bloco `10`.
 
 ## Resultado da implementação
 
-_(preencher ao executar este bloco)_
-
 - O que foi alterado:
-- Componentes criados:
-- Componentes reutilizados:
+  - `app/data/blog.ts` enriquecido com campos `body` e `gallery` para cada post, mantendo o aviso de dados de exemplo.
+  - `app/blog/[slug]/page.tsx` criado com estrutura completa: hero visual, categoria, data, título, introdução, corpo do artigo, galeria, artigos relacionados, CTA final e navegação anterior/seguinte.
+- Componentes criados: `app/blog/[slug]/page.tsx`.
+- Componentes reutilizados: `NavBar`, `Footer`, `PageShell`, `next/image`, `next/link`.
 - Problemas encontrados:
+  - `app/data/blog.ts` não tinha conteúdo de corpo nem galeria, impossibilitando uma página de leitura real.
+  - Rotas `/blog/[slug]` não existiam, gerando 404 a partir dos links da Home e de `/blog`.
 - Problemas corrigidos:
+  - Adicionados `body` e `gallery` a cada post, com texto editorial coerente e imagens Unsplash temáticas.
+  - Páginas individuais de artigo criadas e pré-geradas via `generateStaticParams`.
 - Problemas ainda existentes:
+  - Nenhum.
 - Ficheiros alterados:
+  - `app/data/blog.ts` (atualizado)
+  - `app/blog/[slug]/page.tsx` (criado)
+  - `docs/11-artigo-individual.md` (atualizado)
 - Testes realizados:
+  - `npx tsc --noEmit` sem erros.
+  - `npm run build` compila com sucesso e gera as 6 páginas estáticas via `generateStaticParams`.
+  - `npm run lint` sem erros novos nos ficheiros alterados.

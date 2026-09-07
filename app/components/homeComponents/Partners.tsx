@@ -8,7 +8,11 @@ import { PARTNERS } from '../../data/partners';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Partners() {
+type PartnersProps = {
+  sectionId?: string;
+};
+
+export default function Partners({ sectionId }: PartnersProps = {}) {
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const loopTweenRef = useRef<gsap.core.Tween | null>(null);
@@ -50,7 +54,7 @@ export default function Partners() {
 
   return (
     <section
-      id="parceiros"
+      id={sectionId}
       ref={sectionRef}
       className="relative w-full overflow-hidden bg-amber-50 px-6 py-24 lg:px-10 lg:py-32"
     >
