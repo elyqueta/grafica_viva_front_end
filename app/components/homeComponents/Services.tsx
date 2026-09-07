@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { SERVICES } from '../../data/servicos';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,56 +17,13 @@ type ServiceCard = {
   image: string;
 };
 
-const SERVICES: ServiceCard[] = [
-  {
-    slug: 'design-grafico',
-    category: 'design gráfico',
-    title: 'identidade visual que traduz a sua marca',
-    subtitle: 'gráfica viva',
-    image:
-      'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=900&q=80',
-  },
-  {
-    slug: 'impressao',
-    category: 'impressão',
-    title: 'qualidade e atenção ao detalhe',
-    subtitle: 'gráfica viva',
-    image:
-      'https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=900&q=80',
-  },
-  {
-    slug: 'grande-formato',
-    category: 'grande formato',
-    title: 'banners, lonas e visibilidade',
-    subtitle: 'gráfica viva',
-    image:
-      'https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80',
-  },
-  {
-    slug: 'embalagens',
-    category: 'embalagens',
-    title: 'soluções que valorizam o produto',
-    subtitle: 'gráfica viva',
-    image:
-      'https://images.unsplash.com/photo-1607166452427-7e4477079cb9?w=900&q=80',
-  },
-  {
-    slug: 'sinaletica',
-    category: 'sinalética',
-    title: 'espaços com identidade profissional',
-    subtitle: 'gráfica viva',
-    image:
-      'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=900&q=80',
-  },
-  {
-    slug: 'personalizacao',
-    category: 'personalização',
-    title: 'materiais para empresas e eventos',
-    subtitle: 'gráfica viva',
-    image:
-      'https://images.unsplash.com/photo-1601924582970-9238bcb495d9?w=900&q=80',
-  },
-];
+const SERVICES_CARDS: ServiceCard[] = SERVICES.map((s) => ({
+  slug: s.slug,
+  category: s.category,
+  title: s.serviceTitle,
+  subtitle: s.subtitle,
+  image: s.image,
+}));
 
 export default function Services() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -89,9 +47,6 @@ export default function Services() {
 
       const track = trackRef.current!;
 
-      // Aplica-se sempre — o pin passa a ser controlado pelo scroll vertical
-      // (Lenis) em todos os tamanhos de ecrã, eliminando a necessidade de
-      // scroll horizontal manual por toque.
       const getScrollAmount = () =>
         track.scrollWidth - (pinRef.current?.offsetWidth ?? 0);
 
@@ -120,16 +75,16 @@ export default function Services() {
       ref={sectionRef}
       className="relative w-full bg-amber-50"
     >
-     <div data-services-heading className="mx-auto max-w-7xl px-6 pt-24 lg:px-10"> 
-          <p className="text-xs font-semibold tracking-widest text-black/40">
-            [serviços]
-          </p>
-          <h2 className="mt-2 text-3xl font-extrabold text-black sm:text-4xl">
-            do conceito à impressão.
-          </h2>
-          <p className="mt-4 max-w-xl text-base text-black/60 sm:text-lg">
-            Soluções gráficas pensadas para ajudar a sua marca a comunicar melhor e destacar-se.
-          </p>
+      <div data-services-heading className="mx-auto max-w-7xl px-6 pt-24 lg:px-10">
+        <p className="text-xs font-semibold tracking-widest text-black/40">
+          [serviços]
+        </p>
+        <h2 className="mt-2 text-3xl font-extrabold text-black sm:text-4xl">
+          do conceito à impressão.
+        </h2>
+        <p className="mt-4 max-w-xl text-base text-black/60 sm:text-lg">
+          Soluções gráficas pensadas para ajudar a sua marca a comunicar melhor e destacar-se.
+        </p>
       </div>
 
       <div ref={pinRef} className="relative mt-12 w-full overflow-hidden">
@@ -137,7 +92,7 @@ export default function Services() {
           ref={trackRef}
           className="flex w-max gap-0 px-[7.5vw] lg:px-0"
         >
-          {SERVICES.map((service) => (
+          {SERVICES_CARDS.map((service) => (
             <Link
               key={service.slug}
               href={`/servicos`}
@@ -172,7 +127,7 @@ export default function Services() {
           ))}
         </div>
       </div>
-       <div className="mx-auto mt-12 max-w-7xl px-6 text-center lg:px-10">
+      <div className="mx-auto mt-12 max-w-7xl px-6 text-center lg:px-10">
         <Link
           href="/orcamento"
           className="inline-flex items-center gap-2 rounded-sm bg-rose-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-rose-700"

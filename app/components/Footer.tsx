@@ -8,6 +8,13 @@ import MagneticPillField, {
   MagneticPillConfig,
 } from "./homeComponents/MagneticPillField";
 import { Mail, Phone, MapPin } from "lucide-react";
+import {
+  WHATSAPP_LINK,
+  CONTACT_EMAIL,
+  CONTACT_PHONE,
+  CONTACT_ADDRESS,
+  CONTACT_MAPS_URL,
+} from "../lib/constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,15 +35,15 @@ const LINK_COLUMNS = [
     heading: "[redes]",
     items: [
       { label: "instagram", href: "https://instagram.com", external: true },
-      { label: "whatsapp", href: "https://wa.me/244924666323", external: true },
+      { label: "whatsapp", href: WHATSAPP_LINK, external: true },
     ],
   },
 ];
 
 const CONTACT_INFO = [
-  { Icon: Mail, label: "email", value: "geral@graficaviva.co.ao", href: "mailto:geral@graficaviva.co.ao" },
-  { Icon: Phone, label: "telefone", value: "+244 924 666 323", href: "tel:+244924666323" },
-  { Icon: MapPin, label: "morada", value: "Nova Vida, Luanda, Angola", href: "https://maps.google.com/?q=Nova+Vida,+Luanda,+Angola" },
+  { Icon: Mail, label: "email", value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
+  { Icon: Phone, label: "telefone", value: CONTACT_PHONE, href: `tel:${CONTACT_PHONE.replace(/\s/g, '')}` },
+  { Icon: MapPin, label: "morada", value: CONTACT_ADDRESS, href: CONTACT_MAPS_URL },
 ];
 
 const FOOTER_PILLS: MagneticPillConfig[] = [
@@ -68,12 +75,6 @@ export default function Footer() {
     if (!footerRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Importante: o trigger NÃO pode ser o próprio footer (footerRef),
-      // porque o footer está `fixed` — a posição dele na viewport nunca
-      // muda com o scroll, logo o ScrollTrigger nunca "vê" progresso e a
-      // animação fica presa no estado inicial (opacity: 0), dando a
-      // sensação de footer vazio. Usamos o espaçador do PageShell, que
-      // está no fluxo normal do documento e sobe conforme se faz scroll.
       const spacer = document.getElementById("page-footer-spacer");
 
       const tl = gsap.timeline({

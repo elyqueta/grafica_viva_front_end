@@ -15,7 +15,7 @@ const REASONS = [
   'soluções completas num só lugar',
 ];
 
-const WHATSAPP_LINK = 'https://wa.me/244924666323';
+import { WHATSAPP_LINK } from '../../lib/constants';
 
 export default function ServicosWhy() {
   const sectionRef = useRef<HTMLElement>(null);

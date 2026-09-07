@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { SERVICES } from '../../data/servicos';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,56 +17,13 @@ type Need = {
   image: string;
 };
 
-const NEEDS: Need[] = [
-  {
-    slug: 'cartoes-de-visita',
-    category: 'cartões de visita',
-    title: 'uma primeira impressão profissional',
-    accent: 'bg-violet-500',
-    image:
-      'https://images.unsplash.com/photo-1606857521015-7f9fcf423740?w=900&q=80',
-  },
-  {
-    slug: 'flyers-e-brochuras',
-    category: 'flyers e brochuras',
-    title: 'a sua mensagem, clara e apelativa',
-    accent: 'bg-sky-500',
-    image:
-      'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=900&q=80',
-  },
-  {
-    slug: 'banners-e-lonas',
-    category: 'banners e lonas',
-    title: 'visibilidade em grande formato',
-    accent: 'bg-rose-500',
-    image:
-      'https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80',
-  },
-  {
-    slug: 'embalagens',
-    category: 'embalagens',
-    title: 'valorize a apresentação do produto',
-    accent: 'bg-pink-400',
-    image:
-      'https://images.unsplash.com/photo-1607166452427-7e4477079cb9?w=900&q=80',
-  },
-  {
-    slug: 'brindes-personalizados',
-    category: 'brindes personalizados',
-    title: 'a marca em cada objeto',
-    accent: 'bg-orange-500',
-    image:
-      'https://images.unsplash.com/photo-1601924582970-9238bcb495d9?w=900&q=80',
-  },
-  {
-    slug: 'sinaletica',
-    category: 'sinalética',
-    title: 'espaços com identidade clara',
-    accent: 'bg-amber-500',
-    image:
-      'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=900&q=80',
-  },
-];
+const NEEDS: Need[] = SERVICES.map((s) => ({
+  slug: s.slug,
+  category: s.needCategory,
+  title: s.needTitle,
+  accent: s.accent,
+  image: s.image,
+}));
 
 export default function Needs() {
   const sectionRef = useRef<HTMLElement>(null);

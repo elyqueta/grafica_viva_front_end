@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Mail, Phone, MapPin } from "lucide-react";
 import MagneticPillField, { MagneticPillConfig } from "./MagneticPillField";
+import { WHATSAPP_LINK, CONTACT_EMAIL, CONTACT_PHONE, CONTACT_ADDRESS } from "../../lib/constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -46,8 +47,6 @@ const PILLS: MagneticPillConfig[] = [
     style: { top: "52%", left: "68%" },
   },
 ];
-
-const WHATSAPP_LINK = "https://wa.me/244924666323";
 
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -166,7 +165,7 @@ export default function Contact() {
             <div>
               <p className="text-xs text-black/40">email</p>
               <p className="text-sm font-medium text-black/80">
-                geral@graficaviva.co.ao
+                {CONTACT_EMAIL}
               </p>
             </div>
           </div>
@@ -176,7 +175,7 @@ export default function Contact() {
             <div>
               <p className="text-xs text-black/40">telefone</p>
               <p className="text-sm font-medium text-black/80">
-                +244 924 666 323
+                {CONTACT_PHONE}
               </p>
             </div>
           </div>
@@ -186,7 +185,7 @@ export default function Contact() {
             <div>
               <p className="text-xs text-black/40">morada</p>
               <p className="text-sm font-medium text-black/80">
-                Nova Vida, Luanda, Angola
+                {CONTACT_ADDRESS}
               </p>
             </div>
           </div>

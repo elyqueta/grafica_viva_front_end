@@ -19,8 +19,7 @@ const NAV_LINKS = [
   { label: "Contactos", href: "/contactos" },
 ];
 
-const WHATSAPP_LINK = "https://wa.me/244924666323";
-const ORCAMENTO_LINK = "/orcamento";
+import { WHATSAPP_LINK, ORCAMENTO_LINK } from '../lib/constants';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);

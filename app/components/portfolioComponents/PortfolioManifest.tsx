@@ -18,7 +18,7 @@ const NAV_ITEMS = [
   { number: "09", title: "resta" },
 ];
 
-const WHATSAPP_LINK = "https://wa.me/244924666323";
+import { WHATSAPP_LINK } from '../../lib/constants';
 
 /* ------------------------------------------------------------------ */
 /* wrapper de cada secção                                             */

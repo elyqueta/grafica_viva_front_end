@@ -9,6 +9,10 @@ export type ServiceItem = {
   accent: string;
   image: string;
   href: string;
+  needTitle: string;
+  needCategory: string;
+  serviceTitle: string;
+  subtitle: string;
 };
 
 export const SERVICES: ServiceItem[] = [
@@ -34,6 +38,10 @@ export const SERVICES: ServiceItem[] = [
     image:
       'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=900&q=80',
     href: '/orcamento',
+    needTitle: 'uma primeira impressão profissional',
+    needCategory: 'cartões de visita',
+    serviceTitle: 'identidade visual que traduz a sua marca',
+    subtitle: 'gráfica viva',
   },
   {
     id: 'publicidade-propaganda',
@@ -55,6 +63,10 @@ export const SERVICES: ServiceItem[] = [
     image:
       'https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80',
     href: '/orcamento',
+    needTitle: 'a sua mensagem, clara e apelativa',
+    needCategory: 'flyers e brochuras',
+    serviceTitle: 'qualidade e atenção ao detalhe',
+    subtitle: 'gráfica viva',
   },
   {
     id: 'servicos-graficos',
@@ -78,6 +90,10 @@ export const SERVICES: ServiceItem[] = [
     image:
       'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=900&q=80',
     href: '/orcamento',
+    needTitle: 'visibilidade em grande formato',
+    needCategory: 'banners e lonas',
+    serviceTitle: 'banners, lonas e visibilidade',
+    subtitle: 'gráfica viva',
   },
   {
     id: 'brindes-personalizados',
@@ -91,6 +107,10 @@ export const SERVICES: ServiceItem[] = [
     image:
       'https://images.unsplash.com/photo-1601924582970-9238bcb495d9?w=900&q=80',
     href: '/orcamento',
+    needTitle: 'valorize a apresentação do produto',
+    needCategory: 'embalagens',
+    serviceTitle: 'soluções que valorizam o produto',
+    subtitle: 'gráfica viva',
   },
   {
     id: 'websites-profissionais',
@@ -110,6 +130,10 @@ export const SERVICES: ServiceItem[] = [
     image:
       'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=900&q=80',
     href: '/orcamento',
+    needTitle: 'a marca em cada objeto',
+    needCategory: 'brindes personalizados',
+    serviceTitle: 'espaços com identidade profissional',
+    subtitle: 'gráfica viva',
   },
   {
     id: 'aplicacoes',
@@ -129,5 +153,9 @@ export const SERVICES: ServiceItem[] = [
     image:
       'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&q=80',
     href: '/orcamento',
+    needTitle: 'espaços com identidade clara',
+    needCategory: 'sinalética',
+    serviceTitle: 'materiais para empresas e eventos',
+    subtitle: 'gráfica viva',
   },
 ];
