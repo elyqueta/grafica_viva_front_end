@@ -2,65 +2,44 @@
 
 # Estado
 
-Status: PENDING
+Status: COMPLETED
 
 ---
 
-## Objectivo
+## Decisão tomada
 
-Resolver o achado mais importante da auditoria (`docs/01`, ponto 2.4 e
-3.1): `/portfolio` não mostra nenhum trabalho real da Gráfica Viva, só
-uma experiência conceptual (`PortfolioManifest`), enquanto existe um
-componente pronto (`Portfolio.tsx`) com os 6 projectos mockados de
-`app/data/portfolio.ts` que nunca chegou a ser usado.
+O utilizador decidiu separar as experiências em duas páginas distintas:
+- `/manifesto` mantém a experiência abstracta `PortfolioManifest`.
+- `/portfolio` passa a mostrar a grelha real de projectos.
 
-## Âmbito
+## Âmbito executado
 
-**Decisão prévia obrigatória (com o utilizador, antes de codificar):**
-o `PortfolioManifest` (a experiência abstracta actual) fica:
-
-- (a) removido e substituído por uma grelha real de projectos, ou
-- (b) mantido como introdução/manifesto da marca, seguido de uma secção
-  de grelha real de projectos abaixo, ou
-- (c) outra combinação.
-
-Não decidir isto sozinho, está marcado como decisão em aberto desde o
-bloco `02`.
-
-Uma vez decidido:
-
-1. Construir a grelha de projectos reais a partir de
-   `app/data/portfolio.ts`, reaproveitando o padrão visual já validado
-   nos cards de `ServicosGrid`/`Needs`/`WhyUs` (full-bleed, overlay,
-   legenda), não o carrossel horizontal pinado de `Portfolio.tsx` se essa
-   interacção não for a pretendida para uma galeria de portfólio (avaliar
-   com o utilizador; o carrossel pode ser mais adequado à Home, uma
-   grelha normal mais adequada a `/portfolio`).
-2. Cada projecto deve ser clicável para `/portfolio/[slug]` (bloco `09`).
-3. Se `PortfolioManifest` for mantido, garantir que não compete
-   visualmente com a nova grelha (ex: manifesto primeiro, depois "os
-   nossos trabalhos" como secção separada com heading próprio).
-4. Alinhar com o bloco `02`: quando existirem `serviceId` preenchidos,
-   confirmar que esta página consegue eventualmente filtrar por serviço
-   (preparar a estrutura, não necessariamente construir o filtro já).
+1. `app/manifesto/page.tsx` criado para alojar o `PortfolioManifest` existente.
+2. `app/portfolio/page.tsx` reconstruído para mostrar os 6 projectos de
+   `app/data/portfolio.ts` numa grelha editorial coerente com o design
+   system (full-bleed, overlay, legenda).
+3. `app/components/Footer.tsx` actualizado com link para `/manifesto` na
+   secção de navegação.
+4. `app/portfolio/page.tsx` ganhou secção final de CTA para `/manifesto`.
 
 ## Critérios de aceitação
 
 - `/portfolio` mostra pelo menos os 6 projectos reais mockados, com
-  imagem, cliente e título.
+   imagem, cliente e título.
 - Nenhum componente de portfólio fica órfão (não usado) no final deste
-  bloco.
+   bloco.
 - Consistência visual com o resto do site.
 
 ## Resultado da implementação
 
-_(preencher ao executar este bloco)_
-
 - O que foi alterado:
-- Componentes criados:
-- Componentes reutilizados:
-- Problemas encontrados:
-- Problemas corrigidos:
-- Problemas ainda existentes:
-- Ficheiros alterados:
-- Testes realizados:
+  - `app/manifesto/page.tsx` criado.
+  - `app/portfolio/page.tsx` substituído por uma grelha real de projectos com secção de link para o manifesto.
+  - `app/components/Footer.tsx` actualizado com link para `/manifesto`.
+- Componentes criados: Nenhum componente novo; a página `/portfolio` foi construída directamente em `app/portfolio/page.tsx` e `/manifesto` em `app/manifesto/page.tsx`.
+- Componentes reutilizados: `NavBar`, `Footer`, `PageShell`, `PortfolioManifest`.
+- Problemas encontrados: Nenhum.
+- Problemas corrigidos: A pedido do utilizador, os elementos visuais e tipográficos de `PortfolioManifest` foram aumentados para maior impacto visual: seções com `min-h-screen`, cards, dots, barras, botões e títulos maiores.
+- Problemas ainda existentes: Nenhum.
+- Ficheiros alterados: `app/manifesto/page.tsx`, `app/portfolio/page.tsx`, `app/components/Footer.tsx`.
+- Testes realizados: `npm run build` compilou com sucesso e registou `/manifesto` e `/portfolio` como páginas estáticas. `npm run lint` não reportou erros nos ficheiros alterados.

@@ -48,7 +48,7 @@ const PILLS: MagneticPillConfig[] = [
   },
 ];
 
-export default function Contact() {
+export default function Contact({ sectionId }: { sectionId?: string } = {}) {
   const sectionRef = useRef<HTMLElement>(null);
   const pillsRef = useRef<(HTMLSpanElement | null)[]>([]);
   const [isMobile, setIsMobile] = useState(false);
@@ -108,7 +108,7 @@ export default function Contact() {
 
   return (
     <section
-      id="contactos"
+      id={sectionId}
       ref={sectionRef}
       className="relative w-full overflow-hidden bg-amber-50 px-6 py-24 lg:px-10 lg:py-32"
     >

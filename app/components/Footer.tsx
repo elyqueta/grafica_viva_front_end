@@ -26,6 +26,7 @@ const LINK_COLUMNS = [
       { label: "serviços", href: "/servicos", external: false },
       { label: "sobre nós", href: "/sobre", external: false },
       { label: "parceiros", href: "/#parceiros", external: false },
+      { label: "manifesto", href: "/manifesto", external: false },
       { label: "portfólio", href: "/portfolio", external: false },
       { label: "blog", href: "/blog", external: false },
       { label: "contactos", href: "/contactos", external: false },
@@ -150,50 +151,50 @@ export default function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="relative w-full overflow-hidden bg-amber-50 px-6 pb-10 pt-24 lg:px-10"
+      className="relative w-full bg-amber-50 px-6 pb-6 pt-10 lg:pb-10 lg:pt-24 lg:px-10"
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 hidden h-40 lg:block">
         <MagneticPillField pills={FOOTER_PILLS} wrapperRefs={pillsRef} />
       </div>
 
-      <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col justify-between gap-12 lg:flex-row lg:items-end">
-          <div className="max-w-sm">
-            <p
-              data-footer-label
-              className="text-xs font-semibold tracking-widest text-black/40"
-            >
-              [contacto]
-            </p>
-            <h2
-              data-footer-heading
-              className="mt-3 text-3xl font-extrabold text-black sm:text-4xl"
-            >
-              precisa de um orçamento?
-            </h2>
-            <p
-              data-footer-heading
-              className="mt-3 text-sm text-black/60 sm:text-base"
-            >
-              Soluções gráficas completas, do design à impressão final.
-            </p>
-            <Link
-              data-footer-heading
-              href="/orcamento"
-              className="mt-6 inline-flex items-center gap-2 rounded-sm bg-rose-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-rose-700"
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-white" />
-              pedir orçamento
-            </Link>
-          </div>
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-col items-start gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
+            <div className="max-w-xs">
+              <p
+                data-footer-label
+                className="text-[10px] font-semibold tracking-widest text-black/40"
+              >
+                [contacto]
+              </p>
+              <h2
+                data-footer-heading
+                className="mt-2 text-xl font-extrabold text-black sm:text-2xl lg:text-4xl"
+              >
+                precisa de um orçamento?
+              </h2>
+              <p
+                data-footer-heading
+                className="mt-2 text-xs text-black/60 sm:text-sm"
+              >
+                Soluções gráficas completas, do design à impressão final.
+              </p>
+              <Link
+                data-footer-heading
+                href="/orcamento"
+                className="mt-4 inline-flex items-center gap-2 rounded-sm bg-rose-600 px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-rose-700"
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-white" />
+                pedir orçamento
+              </Link>
+            </div>
 
-          <div className="flex flex-wrap gap-12 sm:gap-16">
+            <div className="flex flex-wrap gap-6 sm:gap-8 lg:gap-16">
             {LINK_COLUMNS.map((column) => (
               <div key={column.heading} data-footer-column>
-                <p className="text-xs font-semibold tracking-widest text-black/40">
+                <p className="text-[10px] font-semibold tracking-widest text-black/40">
                   {column.heading}
                 </p>
-                <ul className="mt-3 space-y-2">
+                <ul className="mt-2 space-y-1.5">
                   {column.items.map((item) => (
                     <li key={item.label}>
                       {item.external ? (
@@ -201,14 +202,14 @@ export default function Footer() {
                           href={item.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-sm font-medium text-black/70 transition-colors hover:text-black cursor-pointer"
+                          className="text-xs font-medium text-black/70 transition-colors hover:text-black cursor-pointer"
                         >
                           {item.label}
                         </a>
                       ) : (
                         <Link
                           href={item.href}
-                          className="text-sm font-medium text-black/70 transition-colors hover:text-black cursor-pointer"
+                          className="text-xs font-medium text-black/70 transition-colors hover:text-black cursor-pointer"
                         >
                           {item.label}
                         </Link>
@@ -220,18 +221,18 @@ export default function Footer() {
             ))}
 
             <div data-footer-column>
-              <p className="text-xs font-semibold tracking-widest text-black/40">
+              <p className="text-[10px] font-semibold tracking-widest text-black/40">
                 [contactos]
               </p>
-              <ul className="mt-3 space-y-3">
+              <ul className="mt-2 space-y-2">
                 {CONTACT_INFO.map(({ Icon, label, value, href }) => (
                   <li key={label} className="flex items-start gap-2">
-                    <Icon className="mt-0.5 h-4 w-4 shrink-0 text-black/40" />
+                    <Icon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-black/40" />
                     <a
                       href={href}
                       target={href.startsWith('http') ? '_blank' : undefined}
                       rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="text-sm cursor-pointer font-medium text-black/70 transition-colors hover:text-black"
+                      className="text-xs cursor-pointer font-medium text-black/70 transition-colors hover:text-black"
                     >
                       {value}
                     </a>
@@ -244,16 +245,16 @@ export default function Footer() {
 
         <div
           data-footer-wordmark
-          className="mt-8 border-y border-black/10 py-8"
+          className="mt-4 border-y border-black/10 py-4 sm:mt-6 sm:py-6 lg:mt-8 lg:py-8"
         >
-          <p className="text-6xl font-extrabold tracking-tight text-black sm:text-8xl lg:text-9xl">
+          <p className="text-2xl font-extrabold tracking-tight text-black sm:text-4xl lg:text-8xl">
             [gráfica viva]
           </p>
         </div>
 
         <div data-footer-divider className="h-px w-full bg-black/10" />
 
-        <p data-footer-copyright className="mt-6 text-xs text-black/40">
+        <p data-footer-copyright className="mt-3 text-[10px] text-black/40 sm:mt-4 lg:mt-6">
           desenhado e construído pela gráfica viva © 2026
         </p>
       </div>

@@ -37,7 +37,7 @@ export const SERVICES: ServiceItem[] = [
     accent: 'bg-violet-500',
     image:
       'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=900&q=80',
-    href: '/orcamento',
+    href: '/servicos/comunicacao-institucional',
     needTitle: 'uma primeira impressão profissional',
     needCategory: 'cartões de visita',
     serviceTitle: 'identidade visual que traduz a sua marca',
@@ -62,7 +62,7 @@ export const SERVICES: ServiceItem[] = [
     accent: 'bg-sky-500',
     image:
       'https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80',
-    href: '/orcamento',
+    href: '/servicos/publicidade-propaganda',
     needTitle: 'a sua mensagem, clara e apelativa',
     needCategory: 'flyers e brochuras',
     serviceTitle: 'qualidade e atenção ao detalhe',
@@ -89,7 +89,7 @@ export const SERVICES: ServiceItem[] = [
     accent: 'bg-rose-500',
     image:
       'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=900&q=80',
-    href: '/orcamento',
+    href: '/servicos/servicos-graficos',
     needTitle: 'visibilidade em grande formato',
     needCategory: 'banners e lonas',
     serviceTitle: 'banners, lonas e visibilidade',
@@ -106,7 +106,7 @@ export const SERVICES: ServiceItem[] = [
     accent: 'bg-pink-400',
     image:
       'https://images.unsplash.com/photo-1601924582970-9238bcb495d9?w=900&q=80',
-    href: '/orcamento',
+    href: '/servicos/brindes-personalizados',
     needTitle: 'valorize a apresentação do produto',
     needCategory: 'embalagens',
     serviceTitle: 'soluções que valorizam o produto',
@@ -129,7 +129,7 @@ export const SERVICES: ServiceItem[] = [
     accent: 'bg-orange-500',
     image:
       'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=900&q=80',
-    href: '/orcamento',
+    href: '/servicos/websites-profissionais',
     needTitle: 'a marca em cada objeto',
     needCategory: 'brindes personalizados',
     serviceTitle: 'espaços com identidade profissional',
@@ -152,7 +152,7 @@ export const SERVICES: ServiceItem[] = [
     accent: 'bg-amber-500',
     image:
       'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&q=80',
-    href: '/orcamento',
+    href: '/servicos/aplicacoes',
     needTitle: 'espaços com identidade clara',
     needCategory: 'sinalética',
     serviceTitle: 'materiais para empresas e eventos',

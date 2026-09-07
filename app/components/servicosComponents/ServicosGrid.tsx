@@ -104,7 +104,7 @@ export default function ServicosGrid() {
                 <span
                   className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-90 whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-semibold text-white opacity-0 transition-all duration-300 ease-out group-hover:scale-100 group-hover:opacity-100 ${service.accent}`}
                 >
-                  • pedir orçamento
+                  • conhecer serviço
                 </span>
 
                 <span className="absolute left-4 top-4 text-xs font-semibold tracking-widest text-white/80">

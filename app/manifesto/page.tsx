@@ -1,13 +1,13 @@
 import Navbar from '../components/NavBar';
 import Footer from '../components/Footer';
 import PageShell from '../components/homeComponents/PageShell';
-import Contact from '../components/homeComponents/Contact';
+import PortfolioManifest from '../components/portfolioComponents/PortfolioManifest';
 
-export default function ContactosPage() {
+export default function ManifestoPage() {
   return (
     <PageShell footer={<Footer />}>
       <Navbar />
-      <Contact />
+      <PortfolioManifest />
     </PageShell>
   );
 }

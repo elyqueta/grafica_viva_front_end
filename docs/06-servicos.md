@@ -2,7 +2,7 @@
 
 # Estado
 
-Status: PENDING
+Status: COMPLETED
 
 ---
 
@@ -42,13 +42,16 @@ não de reconstrução.
 
 ## Resultado da implementação
 
-_(preencher ao executar este bloco)_
-
-- O que foi alterado:
-- Componentes criados:
-- Componentes reutilizados:
-- Problemas encontrados:
-- Problemas corrigidos:
-- Problemas ainda existentes:
-- Ficheiros alterados:
-- Testes realizados:
+- O que foi alterado: Nenhuma alteração de código necessária. A página já se encontrava no estado-alvo definido por este bloco de consolidação.
+- Componentes criados: Nenhum.
+- Componentes reutilizados: `ScrollFillHeading` (já existente em `app/components/servicosComponents/ScrollFillHeading.tsx`), `RelatedProjects` (já existente em `app/components/servicosComponents/RelatedProjects.tsx`).
+- Problemas encontrados: Nenhum.
+- Problemas corrigidos: Nenhum.
+- Problemas ainda existentes: Nenhum.
+- Ficheiros alterados: Nenhum.
+- Testes realizados: Verificação estática do código:
+  - `ServicosGrid.tsx` importa de `app/data/servicos.ts` (fonte única). `app/data/services.ts` não existe.
+  - `ServicosHero.tsx`, `ServicosGuia.tsx`, `ServicosWhy.tsx`, `ServicosCtaFinal.tsx` importam `WHATSAPP_LINK` de `app/lib/constants` (sem hardcode).
+  - `ScrollFillHeading` usa `scrub: true`, sem `pin`, sem `once`, com `start: 'top 80%'` e `end: 'top 30%'`, garantindo reversibilidade.
+  - `RelatedProjects` devolve `null` quando `projects.length === 0`, não quebrando a grelha.
+  - Grelha responsiva: `grid-cols-1` em mobile, `lg:grid-cols-12` em desktop com spans variáveis, sem estados intermédios estranhos.

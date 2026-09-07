@@ -44,13 +44,13 @@ function ManifestSection({
   return (
     <section
       ref={sectionRef}
-      className="flex min-h-[85vh] flex-col justify-center gap-16 py-16"
+      className="flex min-h-screen flex-col justify-center gap-20 py-20 lg:py-28"
     >
-      <div data-manifest-reveal className="max-w-md">
-        <p className="text-xs font-semibold tracking-widest text-black/40">
+      <div data-manifest-reveal className="max-w-2xl">
+        <p className="text-sm font-semibold tracking-widest text-black/40">
           {label}
         </p>
-        <p className="mt-3 text-base leading-relaxed text-black/70 sm:text-lg">
+        <p className="mt-4 text-xl leading-relaxed text-black sm:text-2xl">
           {text}
         </p>
 
@@ -59,20 +59,20 @@ function ManifestSection({
             <div
               className={`grid transition-all duration-500 ease-out ${
                 expanded
-                  ? "mt-2 grid-rows-[1fr] opacity-100"
+                  ? "mt-4 grid-rows-[1fr] opacity-100"
                   : "grid-rows-[0fr] opacity-0"
               }`}
             >
               <div className="overflow-hidden">
-                <p className="text-sm text-black/60">{more}</p>
+                <p className="text-base text-black/60">{more}</p>
               </div>
             </div>
             <button
               type="button"
               onClick={() => setExpanded((v) => !v)}
-              className="mt-3 inline-flex items-center gap-2 text-xs font-semibold text-black/50 transition-colors hover:text-black"
+              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-black/50 transition-colors hover:text-black"
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-rose-600" />
+              <span className="h-2 w-2 rounded-full bg-rose-600" />
               {expanded ? "mostrar menos" : "saber mais"}
             </button>
           </>
@@ -114,7 +114,7 @@ function VisualBranco() {
   return (
     <div
       ref={cardRef}
-      className="h-40 w-32 -rotate-2 rounded-sm border border-black/10 bg-white shadow-[0_25px_60px_-25px_rgba(0,0,0,0.35)] sm:h-52 sm:w-40"
+      className="h-56 w-44 -rotate-2 rounded-sm border border-black/10 bg-white shadow-[0_25px_60px_-25px_rgba(0,0,0,0.35)] sm:h-72 sm:w-56"
     />
   );
 }
@@ -133,8 +133,8 @@ function VisualEntropia() {
     dotsRef.current.forEach((dot) => {
       if (!dot) return;
       gsap.to(dot, {
-        x: () => gsap.utils.random(wide ? -150 : -50, wide ? 150 : 50),
-        y: () => gsap.utils.random(wide ? -90 : -30, wide ? 90 : 30),
+        x: () => gsap.utils.random(wide ? -180 : -70, wide ? 180 : 70),
+        y: () => gsap.utils.random(wide ? -110 : -40, wide ? 110 : 40),
         duration: 1.1,
         ease: "power2.out",
       });
@@ -147,15 +147,15 @@ function VisualEntropia() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center gap-6">
-      <div className="relative h-48 w-64 sm:h-56 sm:w-80">
+    <div className="flex flex-col items-center gap-8">
+      <div className="relative h-64 w-72 sm:h-72 sm:w-80">
         {Array.from({ length: DOT_COUNT }).map((_, i) => (
           <span
             key={i}
             ref={(el) => {
               dotsRef.current[i] = el;
             }}
-            className="absolute left-1/2 top-1/2 h-1.5 w-1.5 rounded-full bg-black/50"
+            className="absolute left-1/2 top-1/2 h-2 w-2 rounded-full bg-black/50"
           />
         ))}
       </div>
@@ -165,13 +165,13 @@ function VisualEntropia() {
           setEnergised(true);
           scatter(true);
         }}
-        className="inline-flex items-center gap-2 rounded-sm bg-black/5 px-4 py-2 text-xs font-semibold text-black/70 transition-colors hover:bg-black/10"
+        className="inline-flex items-center gap-2 rounded-sm bg-black/5 px-5 py-3 text-sm font-semibold text-black/70 transition-colors hover:bg-black/10"
       >
-        <span className="h-1.5 w-1.5 rounded-full bg-rose-600" />
+        <span className="h-2 w-2 rounded-full bg-rose-600" />
         aplicar energia
       </button>
       {energised && (
-        <p className="text-xs text-black/40">
+        <p className="text-sm text-black/40">
           a ordem custa energia para se manter
         </p>
       )}
@@ -194,7 +194,7 @@ function VisualPareto() {
     setConcentrated(next);
     barsRef.current.forEach((bar, i) => {
       if (!bar) return;
-      const height = next ? Math.max(8, 100 - i * i * 1.05) : 46;
+      const height = next ? Math.max(10, 110 - i * i * 1.05) : 56;
       gsap.to(bar, {
         height,
         duration: 0.6,
@@ -205,25 +205,25 @@ function VisualPareto() {
   };
 
   return (
-    <div className="flex flex-col items-center gap-6">
-      <div className="flex h-32 items-end gap-1.5 sm:h-40">
+    <div className="flex flex-col items-center gap-8">
+      <div className="flex h-44 items-end gap-2 sm:h-52">
         {Array.from({ length: BAR_COUNT }).map((_, i) => (
           <div
             key={i}
             ref={(el) => {
               barsRef.current[i] = el;
             }}
-            style={{ height: 46 }}
-            className="w-2.5 rounded-t-sm bg-black/60 sm:w-3"
+            style={{ height: 56 }}
+            className="w-3 rounded-t-sm bg-black/60 sm:w-3.5"
           />
         ))}
       </div>
       <button
         type="button"
         onClick={toggle}
-        className="inline-flex items-center gap-2 rounded-sm bg-black/5 px-4 py-2 text-xs font-semibold text-black/70 transition-colors hover:bg-black/10"
+        className="inline-flex items-center gap-2 rounded-sm bg-black/5 px-5 py-3 text-sm font-semibold text-black/70 transition-colors hover:bg-black/10"
       >
-        <span className="h-1.5 w-1.5 rounded-full bg-rose-600" />
+        <span className="h-2 w-2 rounded-full bg-rose-600" />
         {concentrated
           ? "repartir de forma igual"
           : "ver como o valor se concentra"}
@@ -257,10 +257,10 @@ function VisualObservador() {
   };
 
   return (
-    <div className="flex flex-col items-center gap-6">
+    <div className="flex flex-col items-center gap-8">
       <div
         ref={ringsRef}
-        className="relative flex h-48 w-48 items-center justify-center sm:h-56 sm:w-56"
+        className="relative flex h-64 w-64 items-center justify-center sm:h-72 sm:w-72"
       >
         {[1, 2, 3].map((r) => (
           <div
@@ -274,12 +274,12 @@ function VisualObservador() {
           type="button"
           onClick={handleClick}
           aria-label="observar prova"
-          className="relative flex h-14 w-14 items-center justify-center rounded-full border border-black/30 bg-white transition-transform hover:scale-105"
+          className="relative flex h-20 w-20 items-center justify-center rounded-full border border-black/30 bg-white transition-transform hover:scale-105"
         >
-          <span className="h-2 w-2 rounded-full bg-black" />
+          <span className="h-3 w-3 rounded-full bg-black" />
         </button>
       </div>
-      <p className="text-xs text-black/40">
+      <p className="text-sm text-black/40">
         {approved
           ? "prova aprovada, segue para impressão"
           : "clica para rever a prova"}
@@ -307,21 +307,21 @@ function VisualDicotomia() {
   const [side, setSide] = useState<Side>("ambos");
 
   return (
-    <div className="flex flex-col items-center gap-6">
-      <div className="relative flex h-40 w-64 items-center justify-center sm:h-48 sm:w-72">
+    <div className="flex flex-col items-center gap-8">
+      <div className="relative flex h-52 w-80 items-center justify-center sm:h-60 sm:w-96">
         <div
-          className={`absolute left-1/2 h-36 w-36 -translate-x-[65%] rounded-full border border-black/20 transition-colors duration-300 sm:h-44 sm:w-44 ${
+          className={`absolute left-1/2 h-48 w-48 -translate-x-[65%] rounded-full border border-black/20 transition-colors duration-300 sm:h-56 sm:w-56 ${
             side !== "criativo" ? "bg-black/15" : "bg-transparent"
           }`}
         />
         <div
-          className={`absolute left-1/2 h-36 w-36 -translate-x-[35%] rounded-full border border-black/20 transition-colors duration-300 sm:h-44 sm:w-44 ${
+          className={`absolute left-1/2 h-48 w-48 -translate-x-[35%] rounded-full border border-black/20 transition-colors duration-300 sm:h-56 sm:w-56 ${
             side !== "tecnico" ? "bg-black/15" : "bg-transparent"
           }`}
         />
       </div>
 
-      <div className="flex flex-wrap items-center justify-center gap-3 text-xs font-medium">
+      <div className="flex flex-wrap items-center justify-center gap-4 text-sm font-medium">
         <button
           type="button"
           onClick={() => setSide("tecnico")}
@@ -347,7 +347,7 @@ function VisualDicotomia() {
         </button>
       </div>
 
-      <p className="max-w-xs text-center text-sm text-black/60">
+      <p className="max-w-sm text-center text-base text-black/60">
         {SIDE_TEXT[side]}
       </p>
     </div>
@@ -385,16 +385,16 @@ function VisualEscolha() {
   };
 
   return (
-    <div className="flex flex-col items-center gap-6">
-      <p className="text-xs text-black/40">cinco papéis, escolhe só um</p>
-      <div className="flex gap-2 sm:gap-3">
+    <div className="flex flex-col items-center gap-8">
+      <p className="text-sm text-black/40">cinco papéis, escolhe só um</p>
+      <div className="flex gap-3 sm:gap-4">
         {PAPERS.map((paper, i) => (
           <div
             key={paper}
-            className="relative h-36 w-12 overflow-hidden rounded-sm bg-black/5 sm:h-44 sm:w-16"
+            className="relative h-44 w-14 overflow-hidden rounded-sm bg-black/5 sm:h-52 sm:w-16"
           >
             {openIndex === i && (
-              <span className="absolute inset-0 flex items-center justify-center px-1 text-center text-[10px] font-medium text-black/70">
+              <span className="absolute inset-0 flex items-center justify-center px-1 text-center text-xs font-medium text-black/70">
                 {paper}
               </span>
             )}
@@ -412,7 +412,7 @@ function VisualEscolha() {
         ))}
       </div>
       {openIndex !== null && (
-        <p className="text-xs text-black/40">
+        <p className="text-sm text-black/40">
           escolheste {PAPERS[openIndex]}, as outras portas ficam fechadas
         </p>
       )}
@@ -457,8 +457,8 @@ function VisualPerda() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center gap-6">
-      <svg viewBox="0 0 240 80" className="h-24 w-full max-w-xs sm:h-28">
+    <div className="flex flex-col items-center gap-8">
+      <svg viewBox="0 0 240 80" className="h-32 w-full max-w-sm sm:h-36">
         <polyline
           ref={polyRef}
           fill="none"
@@ -468,16 +468,16 @@ function VisualPerda() {
           strokeLinejoin="round"
         />
       </svg>
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-4">
         <button
           type="button"
           onClick={() => {
             setGain((g) => g + 1);
             addPoint(4);
           }}
-          className="inline-flex items-center gap-2 rounded-sm bg-black/5 px-4 py-2 text-xs font-semibold text-black/70 transition-colors hover:bg-black/10"
+          className="inline-flex items-center gap-2 rounded-sm bg-black/5 px-5 py-3 text-sm font-semibold text-black/70 transition-colors hover:bg-black/10"
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-rose-600" />
+          <span className="h-2 w-2 rounded-full bg-rose-600" />
           ganhar folha
         </button>
         <button
@@ -486,13 +486,13 @@ function VisualPerda() {
             setLoss((l) => l + 1);
             addPoint(-8);
           }}
-          className="inline-flex items-center gap-2 rounded-sm bg-black/5 px-4 py-2 text-xs font-semibold text-black/70 transition-colors hover:bg-black/10"
+          className="inline-flex items-center gap-2 rounded-sm bg-black/5 px-5 py-3 text-sm font-semibold text-black/70 transition-colors hover:bg-black/10"
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-black/40" />
+          <span className="h-2 w-2 rounded-full bg-black/40" />
           perder folha
         </button>
       </div>
-      <p className="text-xs text-black/40">
+      <p className="text-sm text-black/40">
         ganhas {gain} folhas / perdes {loss} folhas
       </p>
     </div>
@@ -518,10 +518,10 @@ function VisualConfianca() {
   };
 
   return (
-    <div className="flex w-full max-w-xs flex-col gap-6">
+    <div className="flex w-full max-w-sm flex-col gap-8">
       <div>
-        <p className="mb-1 text-xs text-black/40">[nós]</p>
-        <div className="h-1.5 w-full rounded-full bg-black/10">
+        <p className="mb-2 text-sm text-black/40">[nós]</p>
+        <div className="h-2.5 w-full rounded-full bg-black/10">
           <div
             className="h-full rounded-full bg-black transition-all duration-500"
             style={{ width: `${meBar}%` }}
@@ -529,15 +529,15 @@ function VisualConfianca() {
         </div>
       </div>
       <div>
-        <p className="mb-1 text-xs text-black/40">[cliente]</p>
-        <div className="h-1.5 w-full rounded-full bg-black/10">
+        <p className="mb-2 text-sm text-black/40">[cliente]</p>
+        <div className="h-2.5 w-full rounded-full bg-black/10">
           <div
             className="h-full rounded-full bg-rose-600 transition-all duration-500"
             style={{ width: `${clientBar}%` }}
           />
         </div>
       </div>
-      <div className="flex justify-center gap-6 text-xs font-medium">
+      <div className="flex justify-center gap-8 text-sm font-medium">
         <button
           type="button"
           onClick={trust}
@@ -616,23 +616,23 @@ export default function PortfolioManifest() {
   return (
     <div ref={containerRef} className="relative w-full bg-amber-50">
       {/* intro */}
-      <section className="flex min-h-[70vh] w-full flex-col justify-center px-6 pb-16 pt-36 lg:px-10 lg:pt-44">
-        <div className="ml-auto max-w-xl text-right">
+      <section className="flex min-h-screen w-full flex-col justify-center px-6 pb-20 pt-36 lg:px-10 lg:pt-44">
+        <div className="ml-auto max-w-2xl text-right">
           <p
             data-manifest-intro
-            className="text-xs font-semibold tracking-widest text-black/40"
+            className="text-sm font-semibold tracking-widest text-black/40"
           >
             [manifesto]
           </p>
           <p
             data-manifest-intro
-            className="mt-6 text-xl leading-relaxed text-black sm:text-2xl"
+            className="mt-8 text-2xl leading-relaxed text-black sm:text-3xl lg:text-4xl"
           >
             não vemos o design como decoração. tiramos o que é desnecessário de
             uma peça gráfica, de uma frase, de um dia inteiro de trabalho. o que
             fica não é menos, é mais claro.
           </p>
-          <p data-manifest-intro className="mt-10 text-xs text-black/40">
+          <p data-manifest-intro className="mt-12 text-sm text-black/40">
             as ideias começam abaixo, desliza
           </p>
         </div>
@@ -765,17 +765,17 @@ export default function PortfolioManifest() {
             ref={(el) => {
               sectionRefs.current[8] = el;
             }}
-            className="flex min-h-[85vh] flex-col items-center justify-center gap-6 py-16 text-center"
+            className="flex min-h-screen flex-col items-center justify-center gap-8 py-20 text-center"
           >
             <p
               data-manifest-reveal
-              className="text-2xl font-semibold text-black sm:text-3xl"
+              className="text-3xl font-semibold text-black sm:text-4xl"
             >
               é tudo isto. e é suficiente.
             </p>
             <p
               data-manifest-reveal
-              className="text-sm tracking-widest text-black/40"
+              className="text-base tracking-widest text-black/40"
             >
               [gráfica viva]
             </p>
@@ -784,9 +784,9 @@ export default function PortfolioManifest() {
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-sm bg-rose-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-rose-700"
+              className="inline-flex items-center gap-2 rounded-sm bg-rose-600 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-rose-700"
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-white" />
+              <span className="h-2 w-2 rounded-full bg-white" />
               se algo disto falou contigo, fala connosco
             </a>
           </section>

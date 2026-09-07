@@ -2,7 +2,7 @@
 
 # Estado
 
-Status: PENDING
+Status: COMPLETED
 
 ---
 
@@ -50,13 +50,35 @@ e resolver o único achado crítico que lhe diz respeito: o componente
 
 ## Resultado da implementação
 
-_(preencher ao executar este bloco)_
-
 - O que foi alterado:
-- Componentes criados:
-- Componentes reutilizados:
+  - Confirmado que `Needs.tsx` e `homeComponents/Services.tsx` já consumiam `app/data/servicos.ts` (resultado do bloco `02`). Nenhuma alteração necessária.
+  - Removido `app/components/homeComponents/Portfolio.tsx` (código morto, não importado em lado nenhum), conforme decisão do bloco `02`.
+  - Atualizado `Hero.tsx` para importar `ORCAMENTO_LINK` de `app/lib/constants.ts` e usá-lo no CTA "PEDIR ORÇAMENTO", eliminando o hardcode `/orcamento`.
+  - Modificado `Contact.tsx` para aceitar uma prop opcional `sectionId?: string`, permitindo reutilizar o componente tanto na Home (com `id="contactos"`) como na página dedicada `/contactos` (sem id duplicado).
+  - Implementada `app/contactos/page.tsx` com conteúdo real, reutilizando `Contact.tsx` com Navbar e PageShell.
+- Componentes criados: `app/contactos/page.tsx`.
+- Componentes reutilizados: `Contact.tsx` (modificado para aceitar prop), `Hero.tsx` (actualizado), `NavBar.tsx`, `Footer.tsx`, `PageShell.tsx`.
 - Problemas encontrados:
+  - `homeComponents/Portfolio.tsx` era código morto, não importado em lado nenhum (confirmado por grep). Removido.
+  - `Hero.tsx` tinha `/orcamento` hardcoded no CTA, apesar de `FinalCta.tsx` e `Contact.tsx` já usarem constantes.
+  - `Contact.tsx` tinha `id="contactos"` hardcoded, impedindo a reutilização segura em `/contactos/page.tsx` sem duplicação de ID.
+  - `app/contactos/page.tsx` era um stub sem conteúdo.
 - Problemas corrigidos:
+  - Eliminado hardcode `/orcamento` em `Hero.tsx`.
+  - `Contact.tsx` agora reutilizável em múltiplas páginas via prop `sectionId`.
+  - `app/contactos/page.tsx` deixou de ser stub e passou a ter conteúdo real.
 - Problemas ainda existentes:
+  - Nenhum.
+- Decisão sobre `Contact.tsx` na Home vs `/contactos`:
+  - `Contact.tsx` continua na Home (útil para CTA direto sem sair da página) com `sectionId="contactos"`.
+  - `/contactos/page.tsx` reutiliza `Contact.tsx` sem id, evitando duplicação.
 - Ficheiros alterados:
+  - `app/components/homeComponents/Portfolio.tsx` (removido)
+  - `app/components/homeComponents/Hero.tsx`
+  - `app/components/homeComponents/Contact.tsx`
+  - `app/page.tsx`
+  - `app/contactos/page.tsx`
+  - `docs/05-home.md`
 - Testes realizados:
+  - `npx tsc --noEmit` sem erros.
+  - `npm run build` compila com sucesso.

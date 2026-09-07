@@ -27,7 +27,7 @@ export default function Home() {
       <Partners />
       <Blog />
       <FinalCta />
-      <Contact />
+      <Contact sectionId="contactos" />
     </PageShell>
   );
 }

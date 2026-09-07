@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ORCAMENTO_LINK } from '../../lib/constants';
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -63,18 +64,20 @@ export default function Hero() {
 
         <div className="mt-8 flex items-center justify-center gap-4">
            <a
-            href="/orcamento"
-            className="rounded-sm cursor-pointer bg-amber-50 px-6 py-3 text-sm font-bold tracking-wide text-[#292929c5] transition-colors hover:bg-white/90 hover:text-[#29292980]"
-          >
-            PEDIR ORÇAMENTO
-          </a>
-          
-          <a          
-            href="#servicos"
-            className="rounded-sm border border-amber-50 px-6 py-3 text-sm font-bold tracking-wide text-amber-50 transition-colors hover:bg-amber-50 hover:text-[#29292980]"
-          >
-            VER SERVIÇOS
-          </a>
+             href={ORCAMENTO_LINK}
+             className="rounded-sm cursor-pointer bg-amber-50 px-6 py-3 text-sm font-bold tracking-wide text-[#292929c5] transition-colors hover:bg-white/90 hover:text-[#29292980]"
+           >
+             <span className="hidden sm:inline">PEDIR ORÇAMENTO</span>
+             <span className="sm:hidden">orçamento</span>
+           </a>
+           
+           <a          
+             href="#servicos"
+             className="rounded-sm border border-amber-50 px-6 py-3 text-sm font-bold tracking-wide text-amber-50 transition-colors hover:bg-amber-50 hover:text-[#29292980]"
+           >
+             <span className="hidden sm:inline">VER SERVIÇOS</span>
+             <span className="sm:hidden">serviço</span>
+           </a>
         </div>
       </div>
     </section>

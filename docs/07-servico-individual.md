@@ -2,7 +2,7 @@
 
 # Estado
 
-Status: PENDING
+Status: COMPLETED
 
 ---
 
@@ -56,13 +56,14 @@ este bloco introduz a página intermédia `/servicos/[slug]`.
 
 ## Resultado da implementação
 
-_(preencher ao executar este bloco)_
-
-- O que foi alterado:
-- Componentes criados:
-- Componentes reutilizados:
-- Problemas encontrados:
-- Problemas corrigidos:
-- Problemas ainda existentes:
-- Ficheiros alterados:
-- Testes realizados:
+- O que foi alterado: 
+  - `app/servicos/[slug]/page.tsx` criado.
+  - `app/data/servicos.ts`: `href` de cada serviço actualizado para `/servicos/[slug]`.
+  - `app/components/servicosComponents/ServicosGrid.tsx`: texto do CTA no hover alterado de "pedir orçamento" para "conhecer serviço".
+- Componentes criados: Nenhum componente novo; a página de detalhe foi construída directamente em `app/servicos/[slug]/page.tsx`.
+- Componentes reutilizados: `NavBar`, `Footer`, `PageShell`, `RelatedProjects`, `ScrollFillHeading`, `Check` (lucide-react).
+- Problemas encontrados: Em runtime, `params` em Server Components do Next.js 15+ é uma Promise; a página estava a usar `params.slug` de forma síncrona, resultando em `slug === undefined` e na página “serviço não encontrado” para todas as rotas.
+- Problemas corrigidos: `generateMetadata` e `ServicoPage` agora fazem `await params` e usam `slug` correctamente. `generateStaticParams` mantém-se inalterado e valida os slugs.
+- Problemas ainda existentes: Nenhum.
+- Ficheiros alterados: `app/servicos/[slug]/page.tsx`, `app/data/servicos.ts`, `app/components/servicosComponents/ServicosGrid.tsx`.
+- Testes realizados: `npm run build` compilou com sucesso e gerou as 6 páginas estáticas via `generateStaticParams`. `npm run lint` não reportou erros novos nos ficheiros alterados.
