@@ -94,7 +94,7 @@ export default function PageShell({ children, footer }: PageShellProps) {
 
   return (
     <>
-      <div className="relative z-10">
+      <div className="relative z-10 pointer-events-none">
         {/*
           O fundo (bg-amber-50), cantos arredondados e sombra ficam SÓ
           nesta div, que envolve exclusivamente o conteúdo real. Se esta
@@ -103,7 +103,7 @@ export default function PageShell({ children, footer }: PageShellProps) {
           estando lá, ficaria tapado por uma camada da mesma cor da página,
           parecendo "vazio" ou em branco.
         */}
-        <div className="rounded-b-3xl bg-amber-50 shadow-sm">{children}</div>
+        <div className="pointer-events-auto rounded-b-3xl bg-amber-50 shadow-sm">{children}</div>
 
         {/*
           Espaçador: reserva no fluxo do documento um espaço com a altura

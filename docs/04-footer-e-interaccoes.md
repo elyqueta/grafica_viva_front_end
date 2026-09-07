@@ -2,7 +2,7 @@
 
 # Estado
 
-Status: COMPLETED
+Status: IN_PROGRESS
 
 ---
 
@@ -54,13 +54,16 @@ regressões futuras.
 - Componentes reutilizados: `Footer.tsx`, `MagneticPillField.tsx`, `PageShell.tsx`.
 - Problemas encontrados:
   - Links das colunas "[navegação]" e "[redes]" do Footer não tinham `cursor-pointer` explícito, podendo dar a sensação de não serem clicáveis em alguns browsers/dispositivos.
+  - **Problema de hit-testing em `PageShell.tsx`**: o wrapper exterior (`<div className="relative z-10">`) não tinha `pointer-events-none`, por isso interceptava todos os cliques na área do espaçador do footer, mesmo sendo visualmente transparente. O espaçador (`#page-footer-spacer`) já tinha `pointer-events-none`, mas o browser "aterrava" o clique no pai, que está em `z-10` acima do footer fixo (`z-0`). Era por isso que os links do footer não respondiam, apesar do footer estar visível e os pills aparecerem normalmente.
 - Problemas corrigidos:
   - Adicionado `cursor-pointer` a todos os links das colunas de navegação do Footer.
+  - Corrigido problema de hit-testing em `PageShell.tsx`: wrapper exterior passou a `pointer-events-none`, e a div de conteúdo real (`rounded-b-3xl bg-amber-50 shadow-sm`) passou a `pointer-events-auto`. Assim, cliques fora da área de conteúdo (ex: área do espaçador) chegam ao footer fixo, enquanto links e botões do conteúdo principal continuam funcionando normalmente.
 - Problemas ainda existentes:
   - Nenhum. A correcção histórica do Footer (uso do espaçador como trigger do ScrollTrigger) já estava aplicada e confirmada em `docs/01`.
 - Ficheiros alterados:
   - `app/components/Footer.tsx`
+  - `app/components/homeComponents/PageShell.tsx`
 - Testes realizados:
   - `npx tsc --noEmit` sem erros.
   - `npm run build` compila com sucesso.
-  - Verificação manual em produção recomendada: scroll até ao fim da Home, `/servicos`, `/sobre` e `/portfolio`, clicar em todos os links do Footer em desktop e mobile.
+  - Verificação manual pendente: scroll até ao fim da Home, `/servicos`, `/sobre` e `/portfolio`, clicar em todos os links do Footer em desktop e mobile. Só depois disto o status passará a `COMPLETED`.
