@@ -77,7 +77,7 @@ function ManifestSection({
               className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-black/50 transition-colors hover:text-black"
             >
               <span className="h-2 w-2 rounded-full bg-rose-600" />
-              {expanded ? "mostrar menos" : "saber mais"}
+              {expanded ? "mostrar menos" : "Ler manifesto"}
             </button>
           </>
         )}

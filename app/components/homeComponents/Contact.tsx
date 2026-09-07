@@ -1,68 +1,15 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Mail, Phone, MapPin } from "lucide-react";
-import MagneticPillField, { MagneticPillConfig } from "./MagneticPillField";
 import { WHATSAPP_LINK, CONTACT_EMAIL, CONTACT_PHONE, CONTACT_ADDRESS } from "../../lib/constants";
-import MediaReveal from "../MediaReveal";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// vídeo de placeholder para teste de performance, substituir por vídeo real da marca
-const CONTACT_VIDEO = '/videos/contacto.mp4';
-
-const PILLS: MagneticPillConfig[] = [
-  {
-    id: "uma-ideia",
-    label: "uma ideia?",
-    color: "bg-violet-500",
-    style: { top: "8%", left: "6%" },
-  },
-  {
-    id: "tens-um",
-    label: "tens um",
-    color: "bg-amber-500",
-    style: { top: "2%", left: "32%" },
-  },
-  {
-    id: "projecto",
-    label: "projecto?",
-    color: "bg-sky-500",
-    style: { top: "14%", left: "58%" },
-  },
-  {
-    id: "vamos",
-    label: "vamos",
-    color: "bg-rose-500",
-    style: { top: "58%", left: "4%" },
-  },
-  {
-    id: "conversar",
-    label: "conversar",
-    color: "bg-pink-400",
-    style: { top: "64%", left: "28%" },
-  },
-  {
-    id: "fala-connosco",
-    label: "fala connosco",
-    color: "bg-orange-500",
-    style: { top: "52%", left: "68%" },
-  },
-];
-
 export default function Contact({ sectionId }: { sectionId?: string } = {}) {
   const sectionRef = useRef<HTMLElement>(null);
-  const pillsRef = useRef<(HTMLSpanElement | null)[]>([]);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const update = () => setIsMobile(window.innerWidth < 1024);
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
-  }, []);
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -79,32 +26,6 @@ export default function Contact({ sectionId }: { sectionId?: string } = {}) {
           start: "top 75%",
         },
       });
-
-      gsap.from(pillsRef.current, {
-        opacity: 0,
-        scale: 0.6,
-        duration: 0.6,
-        stagger: 0.06,
-        ease: "back.out(1.7)",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 70%",
-        },
-        onComplete: () => {
-          pillsRef.current.forEach((pill) => {
-            if (!pill) return;
-            gsap.to(pill, {
-              y: "+=14",
-              x: `+=${gsap.utils.random(-10, 10)}`,
-              rotate: gsap.utils.random(-4, 4),
-              duration: gsap.utils.random(2.5, 4),
-              ease: "sine.inOut",
-              yoyo: true,
-              repeat: -1,
-            });
-          });
-        },
-      });
     }, sectionRef);
 
     return () => ctx.revert();
@@ -116,22 +37,6 @@ export default function Contact({ sectionId }: { sectionId?: string } = {}) {
       ref={sectionRef}
       className="relative w-full overflow-hidden bg-amber-50 px-6 py-24 lg:px-10 lg:py-32"
     >
-      <div className="pointer-events-none absolute inset-0">
-        <MediaReveal
-          poster="https://images.unsplash.com/photo-1607166452427-7e4477079cb9?w=1600&q=80"
-          alt="contactos"
-          videoSrc={CONTACT_VIDEO}
-          className="h-full w-full"
-        />
-        <MagneticPillField
-          pills={PILLS}
-          wrapperRefs={pillsRef}
-          disabled={isMobile}
-          className="absolute inset-0 opacity-40 scale-[0.65] sm:scale-75 lg:scale-100 lg:opacity-100"
-        />
-      </div>
-      <div className="relative inset-0 bg-amber-50/80" />
-
       <div className="relative mx-auto max-w-3xl text-center">
         <p
           data-contact-reveal

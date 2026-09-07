@@ -88,7 +88,7 @@ export default function PortfolioPage() {
             className="mt-8 inline-flex items-center gap-2 rounded-sm bg-rose-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-rose-700"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-white" />
-            ler manifesto
+            Ler manifesto
           </Link>
         </div>
       </section>

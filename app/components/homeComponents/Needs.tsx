@@ -103,7 +103,7 @@ export default function Needs() {
               <span
                 className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-90 whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-semibold text-white opacity-0 transition-all duration-300 ease-out group-hover:scale-100 group-hover:opacity-100 ${need.accent}`}
               >
-                saber mais →
+                Ver soluções →
               </span>
             </Link>
 

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { SERVICES } from "../data/servicos";
-import { WHATSAPP_LINK } from "../lib/constants";
+import { WHATSAPP_LINK, CONTACT_EMAIL } from "../lib/constants";
 
 type FormState = "idle" | "submitting" | "success" | "error";
 
@@ -79,7 +79,7 @@ export function OrcamentoForm() {
       `nome: ${name}\nemail: ${email}\ntelefone: ${phone}\nempresa: ${company || "—"}\nserviço: ${service}\nprazo desejado: ${deadline || "—"}\n\n${description}`,
     );
 
-    window.location.href = `mailto:${WHATSAPP_LINK.replace("https://wa.me/", "")}?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
     setFormState("success");
   };
 

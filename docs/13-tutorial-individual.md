@@ -2,14 +2,14 @@
 
 # Estado
 
-Status: PENDING — A CONFIRMAR ANTES DE EXECUTAR
+Status: DESCARTADO
 
 ---
 
-## Nota importante
+## Decisão
 
-Depende inteiramente da confirmação e execução do bloco `12`. Se o
-bloco `12` for descartado, este também fica descartado automaticamente.
+Dependia do bloco `12`, que foi descartado. Este bloco fica também
+descartado automaticamente.
 
 ## Objectivo (se confirmado)
 

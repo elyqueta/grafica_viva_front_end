@@ -2,20 +2,15 @@
 
 # Estado
 
-Status: PENDING — A CONFIRMAR ANTES DE EXECUTAR
+Status: DESCARTADO
 
 ---
 
-## Nota importante
+## Decisão
 
-Esta secção **não fazia parte de nenhuma instrução anterior** sobre o
-âmbito do site da Gráfica Viva (ver `docs/01`, ponto 7). Foi pedida no
-briefing mestre mais recente, mas não há confirmação de que a Gráfica
-Viva pretende mesmo uma área de tutoriais públicos.
-
-**Não executar este bloco sem confirmação explícita do utilizador.** Se
-confirmado, prosseguir com o âmbito abaixo. Se não fizer sentido para o
-negócio, marcar este documento como `DESCARTADO` e não criar as rotas.
+Utilizador pediu para pular este bloco. Marcado como `DESCARTADO` sem
+executar. O bloco `13` depende inteiramente deste, pelo que também fica
+automaticamente descartado.
 
 ## Objectivo (se confirmado)
 

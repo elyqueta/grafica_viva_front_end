@@ -175,7 +175,7 @@ export default function AboutBio() {
             className="inline-flex items-center gap-2 rounded-sm bg-black/5 px-5 py-2.5 text-sm font-semibold text-black/80 transition-colors hover:bg-black/10"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-rose-600" />
-            ver todos os serviços
+            Ver todos os serviços
           </Link>
         </div>
       </div>

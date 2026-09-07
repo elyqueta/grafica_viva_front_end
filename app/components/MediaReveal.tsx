@@ -22,6 +22,7 @@ export default function MediaReveal({
   const videoRef = useRef<HTMLVideoElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const [videoFailed, setVideoFailed] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const ctxRef = useRef<gsap.Context | null>(null);
 
   useEffect(() => {
@@ -40,7 +41,12 @@ export default function MediaReveal({
       };
 
       const crossfade = () => {
-        if (videoRef.current && imageRef.current) {
+        if (
+          videoRef.current &&
+          imageRef.current &&
+          imageLoaded &&
+          videoRef.current.readyState >= 3
+        ) {
           gsap.to(videoRef.current, {
             opacity: 1,
             duration: 0.6,
@@ -55,13 +61,7 @@ export default function MediaReveal({
       };
 
       const onCanPlayThrough = () => {
-        play();
-        crossfade();
-      };
-
-      const onLoadedData = () => {
-        play();
-        crossfade();
+        play().then(crossfade).catch(() => {});
       };
 
       const onError = () => {
@@ -76,18 +76,17 @@ export default function MediaReveal({
       };
 
       const timeout = window.setTimeout(() => {
-        play();
-        crossfade();
+        if (video.readyState >= 3 && imageLoaded) {
+          play().then(crossfade).catch(() => {});
+        }
       }, 3000);
 
       video.addEventListener('canplaythrough', onCanPlayThrough);
-      video.addEventListener('loadeddata', onLoadedData);
       video.addEventListener('error', onError);
 
       return () => {
         window.clearTimeout(timeout);
         video.removeEventListener('canplaythrough', onCanPlayThrough);
-        video.removeEventListener('loadeddata', onLoadedData);
         video.removeEventListener('error', onError);
       };
     });
@@ -95,12 +94,12 @@ export default function MediaReveal({
     return () => {
       ctxRef.current?.revert();
     };
-  }, [videoSrc, videoFailed]);
+  }, [videoSrc, videoFailed, imageLoaded]);
 
   const showVideo = videoSrc && !videoFailed;
 
   return (
-    <div className={`absolute inset-0 ${className}`}>
+    <div className={`absolute inset-0 bg-black ${className}`}>
       <Image
         ref={imageRef}
         src={poster}
@@ -108,6 +107,8 @@ export default function MediaReveal({
         fill
         priority={priority}
         className="absolute inset-0 object-cover"
+        style={{ opacity: imageLoaded ? 1 : 1 }}
+        onLoad={() => setImageLoaded(true)}
       />
       {showVideo && (
         <video

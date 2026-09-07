@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-import { WHATSAPP_LINK } from '../../lib/constants';
+import { WHATSAPP_LINK, ORCAMENTO_LINK } from '../../lib/constants';
 
 export default function ServicosGuia() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -50,7 +50,7 @@ export default function ServicosGuia() {
         <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link
             data-guia-reveal
-            href="/orcamento"
+            href={ORCAMENTO_LINK}
             className="inline-flex items-center gap-2 rounded-sm bg-rose-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-rose-700"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-white" />

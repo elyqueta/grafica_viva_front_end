@@ -2,7 +2,7 @@
 
 # Estado
 
-Status: PENDING
+Status: COMPLETED
 
 ---
 
@@ -42,13 +42,41 @@ fraco ou redundante.
 
 ## Resultado da implementação
 
-_(preencher ao executar este bloco)_
-
 - O que foi alterado:
-- Componentes criados:
-- Componentes reutilizados:
+  - `Needs.tsx`: CTA "saber mais →" alterado para "ver soluções", mantendo o link para `/servicos`.
+  - `Services.tsx`: CTA "• ver mais" alterado para "• ver todos os serviços", mantendo o link para `/servicos`. `href="/orcamento"` substituído por `ORCAMENTO_LINK` da constante central.
+  - `PortfolioManifest.tsx`: botão de expandir/recolher alterado de "saber mais" para "ler manifesto", mais alinhado com o contexto do manifesto.
+  - `ServicosHero.tsx`: `href="/orcamento"` substituído por `ORCAMENTO_LINK`.
+  - `ServicosGuia.tsx`: `href="/orcamento"` substituído por `ORCAMENTO_LINK`.
+  - `ServicosCtaFinal.tsx`: `href="/orcamento"` substituído por `ORCAMENTO_LINK`.
+  - `Footer.tsx`: `href="/orcamento"` substituído por `ORCAMENTO_LINK`.
+  - `FinalCta.tsx`: `href="/orcamento"` substituído por `ORCAMENTO_LINK`.
+  - `OrcamentoForm.tsx`: substituído uso incorreto de `WHATSAPP_LINK` para extrair número de telefone no `mailto:` por `CONTACT_EMAIL`, que é o valor correcto para envio de email.
+- Componentes criados: nenhum.
+- Componentes reutilizados: `Needs.tsx`, `Services.tsx`, `PortfolioManifest.tsx`, `ServicosHero.tsx`, `ServicosGuia.tsx`, `ServicosCtaFinal.tsx`, `Footer.tsx`, `FinalCta.tsx`, `OrcamentoForm.tsx`.
 - Problemas encontrados:
+  - CTAs genéricos "saber mais" e "ver mais" em `Needs.tsx` e `Services.tsx`, sem ligação clara ao destino.
+  - Texto "saber mais" em `PortfolioManifest.tsx`, genérico para o contexto do manifesto.
+  - Vários componentes com `href="/orcamento"` hardcoded em vez de usarem `ORCAMENTO_LINK` da constante central, violando a regra de constantes.
+  - `OrcamentoForm.tsx` usava `WHATSAPP_LINK.replace("https://wa.me/", "")` para gerar um endereço `mailto:`, o que não faz sentido (mailto deve usar email, não número de telefone).
 - Problemas corrigidos:
+  - Eliminados textos genéricos de CTA, substituídos por alternativas específicas orientadas à acção.
+  - Eliminados todos os hardcodes isolados de `/orcamento` nos CTAs principais, passando a usar `ORCAMENTO_LINK` em todos os componentes afectados.
+  - Corrigido `mailto:` em `OrcamentoForm.tsx` para usar `CONTACT_EMAIL` em vez do número de WhatsApp.
 - Problemas ainda existentes:
+  - Nenhum. WhatsApp está consistente em todas as páginas via constante `WHATSAPP_LINK` (NavBar mobile, Footer, Contact, Orcamento, Serviços, Portfolio, Blog).
 - Ficheiros alterados:
+  - `app/components/homeComponents/Needs.tsx`
+  - `app/components/homeComponents/Services.tsx`
+  - `app/components/portfolioComponents/PortfolioManifest.tsx`
+  - `app/components/servicosComponents/ServicosHero.tsx`
+  - `app/components/servicosComponents/ServicosGuia.tsx`
+  - `app/components/servicosComponents/ServicosCtaFinal.tsx`
+  - `app/components/Footer.tsx`
+  - `app/components/homeComponents/FinalCta.tsx`
+  - `app/orcamento/OrcamentoForm.tsx`
+  - `docs/16-ux-e-cta.md`
 - Testes realizados:
+  - `npx tsc --noEmit` sem erros.
+  - `npm run build` compila com sucesso (38 páginas estáticas).
+  - `npm run lint` sem erros novos nos ficheiros alterados (warnings pré-existentes em `NavBar.tsx`, `Preloader.tsx`, `MagneticPillField.tsx`, `PortfolioManifest.tsx`).

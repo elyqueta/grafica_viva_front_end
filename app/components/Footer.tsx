@@ -14,6 +14,7 @@ import {
   CONTACT_PHONE,
   CONTACT_ADDRESS,
   CONTACT_MAPS_URL,
+  ORCAMENTO_LINK,
 } from "../lib/constants";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -180,7 +181,7 @@ export default function Footer() {
               </p>
               <Link
                 data-footer-heading
-                href="/orcamento"
+                 href={ORCAMENTO_LINK}
                 className="mt-4 inline-flex items-center gap-2 rounded-sm bg-rose-600 px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-rose-700"
               >
                 <span className="h-1.5 w-1.5 rounded-full bg-white" />

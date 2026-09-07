@@ -6,6 +6,50 @@ Status: COMPLETED
 
 ---
 
+## Página dedicada de contactos (`/contactos`)
+
+Status: COMPLETED
+
+### Objectivo
+
+Substituir o `app/contactos/page.tsx` actual (que só monta `<Contact />`)
+por uma página própria, mais elaborada, com hero, informação de contacto e
+mapa do Google Maps.
+
+### Âmbito
+
+1. **`app/components/contactosComponents/ContactosHero.tsx`** (novo):
+   - Usa `MediaReveal` com `videoSrc="/videos/contactos.mp4"` e poster
+     Unsplash coerente.
+   - Overlay escuro, título e subtítulo.
+   - Estrutura de hero igual a outras páginas dinâmicas.
+
+2. **`app/components/contactosComponents/ContactosInfo.tsx`** (novo):
+   - Layout editorial com email, telefone, morada (constantes de
+     `app/lib/constants.ts`), ícones `lucide-react`.
+   - CTA duplo: "pedir orçamento" e "falar pelo whatsapp".
+
+3. **`app/components/contactosComponents/ContactosMapa.tsx`** (novo):
+   - `iframe` do Google Maps sem API key.
+   - Link "abrir no Google Maps" usando `CONTACT_MAPS_URL`.
+
+4. **`app/contactos/page.tsx`** (reescrito):
+   - Usa `ContactosHero`, `ContactosInfo`, `ContactosMapa`.
+   - Não importa mais `Contact` de `homeComponents`.
+
+### Resultado da implementação
+
+- O que foi alterado: Página `/contactos` reescrita com hero, informação de contacto e mapa. `Contact.tsx` mantém-se inalterado e continua a ser usado só na Home.
+- Componentes criados: `app/components/contactosComponents/ContactosHero.tsx`, `app/components/contactosComponents/ContactosInfo.tsx`, `app/components/contactosComponents/ContactosMapa.tsx`
+- Componentes reutilizados: `MediaReveal`, constantes de `app/lib/constants.ts`
+- Problemas encontrados: Nenhum.
+- Problemas corrigidos: Nenhum.
+- Problemas ainda existentes: Nenhum.
+- Ficheiros alterados: `app/contactos/page.tsx`, `app/components/contactosComponents/ContactosHero.tsx`, `app/components/contactosComponents/ContactosInfo.tsx`, `app/components/contactosComponents/ContactosMapa.tsx`
+- Testes realizados: `npx tsc --noEmit` sem erros, `npm run lint` sem erros, `npm run build` com sucesso (38 páginas estáticas).
+
+---
+
 ## Objectivo
 
 Confirmar em produção que a correcção já aplicada ao `Footer.tsx`

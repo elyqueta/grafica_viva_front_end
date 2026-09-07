@@ -6,6 +6,7 @@ import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SERVICES } from '../../data/servicos';
+import { ORCAMENTO_LINK } from '../../lib/constants';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -110,7 +111,7 @@ export default function Services() {
               <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/20" />
 
               <span className="absolute right-4 top-4 rounded-sm bg-rose-600 px-4 py-2 text-xs font-semibold text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                • ver mais
+                • Ver todos os serviços
               </span>
 
               <div className="absolute bottom-0 left-0 w-full p-4 sm:p-5">
@@ -129,7 +130,7 @@ export default function Services() {
       </div>
       <div className="mx-auto mt-12 max-w-7xl px-6 text-center lg:px-10">
         <Link
-          href="/orcamento"
+          href={ORCAMENTO_LINK}
           className="inline-flex items-center gap-2 rounded-sm bg-rose-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-rose-700"
         >
           <span className="h-1.5 w-1.5 rounded-full bg-white" />

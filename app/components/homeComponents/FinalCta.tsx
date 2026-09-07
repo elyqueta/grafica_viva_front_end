@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-import { WHATSAPP_LINK } from '../../lib/constants';
+import { WHATSAPP_LINK, ORCAMENTO_LINK } from '../../lib/constants';
 
 export default function FinalCta() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -52,7 +52,7 @@ export default function FinalCta() {
 
         <div data-final-cta-reveal className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link
-            href="/orcamento"
+            href={ORCAMENTO_LINK}
             className="rounded-sm bg-black px-6 py-3 text-sm font-bold tracking-wide text-white transition-colors hover:bg-white/90 hover:text-black"
           >
             PEDIR ORÇAMENTO
