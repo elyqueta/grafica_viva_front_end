@@ -1,11 +1,15 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import MediaReveal from '../MediaReveal';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
+
+// vídeo de placeholder para teste de performance, substituir por vídeo real da marca
+const SOBRE_VIDEO = '/videos/sobre.mp4';
 
 type ScatterImage = {
   src: string;
@@ -19,19 +23,19 @@ const IMAGES: ScatterImage[] = [
     src: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=700&q=80',
     alt: 'Processo de impressão na Gráfica Viva',
     size: 'w-56 sm:w-64 lg:w-72',
-    position: 'lg:left-[4%] lg:top-[2%]',
+    position: 'lg:left-[4%] lg:top-[4%]',
   },
   {
     src: 'https://images.unsplash.com/photo-1607166452427-7e4477079cb9?w=700&q=80',
     alt: 'Embalagens produzidas pela Gráfica Viva',
     size: 'w-48 sm:w-56 lg:w-60',
-    position: 'lg:left-1/2 lg:top-[32%] lg:-translate-x-1/2',
+    position: 'lg:left-1/2 lg:top-[36%] lg:-translate-x-1/2',
   },
   {
     src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=700&q=80',
     alt: 'Materiais gráficos da Gráfica Viva',
     size: 'w-56 sm:w-64 lg:w-80',
-    position: 'lg:right-[6%] lg:top-[48%]',
+    position: 'lg:right-[6%] lg:top-[50%]',
   },
 ];
 
@@ -78,23 +82,31 @@ export default function AboutStatement() {
       className="relative w-full overflow-hidden bg-amber-50 px-6 pb-24 pt-36 lg:px-10 lg:pt-44"
     >
       <div className="relative mx-auto flex max-w-3xl flex-col gap-10 lg:h-[90vh] lg:max-w-7xl lg:block">
-        {IMAGES.map((img) => (
+        {IMAGES.map((img, index) => (
           <div
             key={img.src}
             data-scatter-image
-            className={`relative mx-auto overflow-hidden border-white bg-white lg:absolute lg:mx-0 ${img.size} ${img.position}`}
+            className={`relative mx-auto overflow-hidden border-white bg-white lg:absolute lg:mx-0 ${img.size} ${img.position} ${index === 0 ? 'aspect-[3/4] sm:aspect-[3/4] lg:aspect-[3/4]' : ''}`}
           >
-            <Image
-              src={img.src}
-              alt={img.alt}
-              width={700}
-              height={840}
-              className="h-auto w-full object-cover"
-            />
+            {index === 0 ? (
+              <MediaReveal
+                poster={img.src}
+                alt={img.alt}
+                videoSrc={SOBRE_VIDEO}
+              />
+            ) : (
+              <Image
+                src={img.src}
+                alt={img.alt}
+                width={700}
+                height={840}
+                className="h-auto w-full object-cover"
+              />
+            )}
           </div>
         ))}
 
-        <div className="relative max-w-md lg:absolute lg:bottom-35 lg:left-0">
+        <div className="relative max-w-md lg:absolute lg:bottom-16 lg:left-0">
           <h2
             data-scatter-text
             className="text-3xl font-extrabold leading-tight text-black sm:text-2xl lg:text-4xl"

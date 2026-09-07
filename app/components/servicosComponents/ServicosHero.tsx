@@ -2,12 +2,16 @@
 
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import MediaReveal from '../MediaReveal';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
 import { WHATSAPP_LINK } from '../../lib/constants';
+
+// vídeo de placeholder para teste de performance, substituir por vídeo real da marca
+const SERVICOS_HERO_VIDEO = '/videos/servicos-hero.mp4';
 
 export default function ServicosHero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -52,9 +56,18 @@ export default function ServicosHero() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-amber-50 px-6 pb-16 pt-36 lg:px-10 lg:pb-20 lg:pt-44"
+      className="relative w-full overflow-hidden px-6 pb-16 pt-36 lg:px-10 lg:pb-20 lg:pt-44"
     >
-      <div className="mx-auto max-w-4xl text-center">
+      <div className="absolute inset-0">
+        <MediaReveal
+          poster="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1600&q=80"
+          videoSrc={SERVICOS_HERO_VIDEO}
+          alt="Serviços de impressão e gráfica"
+        />
+        <div className="absolute inset-0 bg-amber-50/80" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-4xl text-center">
         <p
           data-servicos-hero-label
           className="text-xs font-semibold tracking-widest text-black/40"

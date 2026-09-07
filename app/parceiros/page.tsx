@@ -1,9 +1,13 @@
 import Navbar from '../components/NavBar';
 import Footer from '../components/Footer';
 import PageShell from '../components/homeComponents/PageShell';
+import MediaReveal from '../components/MediaReveal';
 import { PARTNERS } from '../data/partners';
 import Image from 'next/image';
 import Link from 'next/link';
+
+// vídeo de placeholder para teste de performance, substituir por vídeo real da marca
+const PARCEIROS_HERO_VIDEO = '/videos/parceiros.mp4';
 
 export default function ParceirosPage() {
   return (
@@ -12,13 +16,12 @@ export default function ParceirosPage() {
 
       <section className="relative w-full bg-amber-50">
         <div className="relative h-[55vh] w-full overflow-hidden sm:h-[65vh] lg:h-[75vh]">
-          <Image
-            src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=1600&q=80"
+          <MediaReveal
+            poster="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=1600&q=80"
             alt="parceiros"
-            fill
             priority
-            sizes="100vw"
-            className="object-cover"
+            videoSrc={PARCEIROS_HERO_VIDEO}
+            className="absolute inset-0"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 px-6 pb-10 lg:px-10 lg:pb-16">

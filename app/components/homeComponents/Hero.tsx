@@ -1,17 +1,20 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import Image from 'next/image';
+import MediaReveal from '../MediaReveal';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ORCAMENTO_LINK } from '../../lib/constants';
+
+// vídeo de placeholder para teste de performance, substituir por vídeo real da marca
+const HERO_VIDEO = '/videos/hero.mp4';
 
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
-  const imageRef = useRef<HTMLImageElement>(null);
+  const mediaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -19,8 +22,8 @@ export default function Hero() {
     const ctx = gsap.context(() => {
       // Parallax sutil da imagem de fundo ao scroll — funciona em todos os
       // tamanhos de ecrã, incluindo mobile.
-      if (imageRef.current) {
-        gsap.to(imageRef.current, {
+      if (mediaRef.current) {
+        gsap.to(mediaRef.current, {
           yPercent: 12,
           ease: 'none',
           scrollTrigger: {
@@ -43,14 +46,13 @@ export default function Hero() {
       ref={sectionRef}
       className="relative flex min-h-screen w-full items-center overflow-hidden bg-black opacity-0"
     >
-      <Image
-        ref={imageRef}
-        width={800}
-        height={500}
-        src="/hero-bg.jpeg"
-        alt="Landscape picture"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
+      <div ref={mediaRef} className="absolute inset-0">
+        <MediaReveal
+          poster="/hero-bg.jpeg"
+          videoSrc={HERO_VIDEO}
+          alt="Landscape picture"
+        />
+      </div>
       <div className="absolute inset-0 bg-black/10" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pt-24 text-center lg:px-10">

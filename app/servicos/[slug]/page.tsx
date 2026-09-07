@@ -1,6 +1,7 @@
 import Navbar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import PageShell from '../../components/homeComponents/PageShell';
+import MediaReveal from '../../components/MediaReveal';
 import RelatedProjects from '../../components/servicosComponents/RelatedProjects';
 import ScrollFillHeading from '../../components/servicosComponents/ScrollFillHeading';
 import { SERVICES } from '../../data/servicos';
@@ -80,13 +81,12 @@ export default async function ServicoPage({ params }: ServicePageProps) {
 
       <section className="relative w-full bg-amber-50">
         <div className="relative h-[55vh] w-full overflow-hidden sm:h-[65vh] lg:h-[75vh]">
-          <Image
-            src={service.image}
+          <MediaReveal
+            poster={service.image}
             alt={service.title}
-            fill
             priority
-            sizes="100vw"
-            className="object-cover"
+            videoSrc="/videos/servicos-slug.mp4"
+            className="absolute inset-0"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 px-6 pb-10 lg:px-10 lg:pb-16">

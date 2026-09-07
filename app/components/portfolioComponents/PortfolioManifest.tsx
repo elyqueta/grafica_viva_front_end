@@ -19,6 +19,10 @@ const NAV_ITEMS = [
 ];
 
 import { WHATSAPP_LINK } from '../../lib/constants';
+import MediaReveal from '../MediaReveal';
+
+// vídeo de placeholder para teste de performance, substituir por vídeo real da marca
+const MANIFESTO_BRANCO_VIDEO = '/videos/portfolio-manifest.mp4';
 
 /* ------------------------------------------------------------------ */
 /* wrapper de cada secção                                             */
@@ -114,8 +118,14 @@ function VisualBranco() {
   return (
     <div
       ref={cardRef}
-      className="h-56 w-44 -rotate-2 rounded-sm border border-black/10 bg-white shadow-[0_25px_60px_-25px_rgba(0,0,0,0.35)] sm:h-72 sm:w-56"
-    />
+      className="relative h-56 w-44 -rotate-2 rounded-sm border border-black/10 bg-white shadow-[0_25px_60px_-25px_rgba(0,0,0,0.35)] sm:h-72 sm:w-56 overflow-hidden"
+    >
+      <MediaReveal
+        poster="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=700&q=80"
+        alt="branco"
+        videoSrc={MANIFESTO_BRANCO_VIDEO}
+      />
+    </div>
   );
 }
 

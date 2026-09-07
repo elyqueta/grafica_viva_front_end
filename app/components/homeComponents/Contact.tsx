@@ -6,8 +6,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Mail, Phone, MapPin } from "lucide-react";
 import MagneticPillField, { MagneticPillConfig } from "./MagneticPillField";
 import { WHATSAPP_LINK, CONTACT_EMAIL, CONTACT_PHONE, CONTACT_ADDRESS } from "../../lib/constants";
+import MediaReveal from "../MediaReveal";
 
 gsap.registerPlugin(ScrollTrigger);
+
+// vídeo de placeholder para teste de performance, substituir por vídeo real da marca
+const CONTACT_VIDEO = '/videos/contacto.mp4';
 
 const PILLS: MagneticPillConfig[] = [
   {
@@ -113,13 +117,20 @@ export default function Contact({ sectionId }: { sectionId?: string } = {}) {
       className="relative w-full overflow-hidden bg-amber-50 px-6 py-24 lg:px-10 lg:py-32"
     >
       <div className="pointer-events-none absolute inset-0">
+        <MediaReveal
+          poster="https://images.unsplash.com/photo-1607166452427-7e4477079cb9?w=1600&q=80"
+          alt="contactos"
+          videoSrc={CONTACT_VIDEO}
+          className="h-full w-full"
+        />
         <MagneticPillField
           pills={PILLS}
           wrapperRefs={pillsRef}
           disabled={isMobile}
-          className="opacity-40 scale-[0.65] sm:scale-75 lg:scale-100 lg:opacity-100"
+          className="absolute inset-0 opacity-40 scale-[0.65] sm:scale-75 lg:scale-100 lg:opacity-100"
         />
       </div>
+      <div className="relative inset-0 bg-amber-50/80" />
 
       <div className="relative mx-auto max-w-3xl text-center">
         <p

@@ -1,10 +1,14 @@
 import Navbar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import PageShell from '../../components/homeComponents/PageShell';
+import MediaReveal from '../../components/MediaReveal';
 import { BLOG_POSTS } from '../../data/blog';
 import { ORCAMENTO_LINK } from '../../lib/constants';
 import Link from 'next/link';
 import Image from 'next/image';
+
+// vídeo de placeholder para teste de performance, substituir por vídeo real da marca
+const BLOG_POST_VIDEO = '/videos/blog-individual.mp4';
 
 type BlogPostPageProps = {
   params: {
@@ -85,13 +89,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
       <section className="relative w-full bg-amber-50">
         <div className="relative h-[55vh] w-full overflow-hidden sm:h-[65vh] lg:h-[75vh]">
-          <Image
-            src={post.image}
+          <MediaReveal
+            poster={post.image}
             alt={post.title}
-            fill
             priority
-            sizes="100vw"
-            className="object-cover"
+            videoSrc={BLOG_POST_VIDEO}
+            className="absolute inset-0"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 px-6 pb-10 lg:px-10 lg:pb-16">
