@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
@@ -15,26 +16,19 @@ type PageShellProps = {
 export default function PageShell({ children, footer }: PageShellProps) {
   const footerRef = useRef<HTMLDivElement>(null);
   const [footerHeight, setFooterHeight] = useState(0);
+  const lenisRef = useRef<Lenis | null>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
-    // Lenis substitui o scroll nativo (que é "on/off", sem inércia) por um
-    // scroll com easing — cada "tick" do scroll aproxima-se suavemente do
-    // valor alvo em vez de saltar logo para lá. Por padrão o Lenis anima o
-    // scroll nativo da janela (sem envolver a página numa div com
-    // transform), por isso continua compatível com o footer `fixed`.
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easeOutExpo
       smoothWheel: true,
     });
 
-    // O ScrollTrigger normalmente ouve o evento nativo `scroll`; como o
-    // Lenis passa a controlar o scroll, é preciso dizer explicitamente ao
-    // ScrollTrigger para recalcular sempre que o Lenis emitir um "tick".
-    lenis.on("scroll", ScrollTrigger.update);
+    lenisRef.current = lenis;
 
-    // Liga o próprio relógio do GSAP ao Lenis, para os dois ficarem no
-    // mesmo frame e não perderem sincronia com as animações existentes.
+    lenis.on("scroll", ScrollTrigger.update);
     gsap.ticker.add((time) => {
       lenis.raf(time * 1000);
     });
@@ -42,6 +36,7 @@ export default function PageShell({ children, footer }: PageShellProps) {
 
     return () => {
       lenis.destroy();
+      lenisRef.current = null;
     };
   }, []);
 
@@ -70,6 +65,33 @@ export default function PageShell({ children, footer }: PageShellProps) {
     };
   }, []);
 
+  useEffect(() => {
+    const lenis = lenisRef.current;
+    if (!lenis) return;
+
+    const scrollToTarget = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const element = document.querySelector(hash);
+        if (element instanceof HTMLElement) {
+          requestAnimationFrame(() => {
+            lenis.scrollTo(element, { offset: 0, immediate: true });
+            ScrollTrigger.refresh();
+          });
+        }
+      } else {
+        requestAnimationFrame(() => {
+          lenis.scrollTo(0, { immediate: true });
+          ScrollTrigger.refresh();
+        });
+      }
+    };
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(scrollToTarget);
+    });
+  }, [pathname]);
+
   return (
     <>
       <div className="relative z-10">
@@ -78,18 +100,17 @@ export default function PageShell({ children, footer }: PageShellProps) {
           nesta div, que envolve exclusivamente o conteúdo real. Se esta
           div também envolvesse o espaçador, a sua cor de fundo (opaca)
           cobriria a área reservada para o footer — e o footer, mesmo
-          estando lá (z-0, por baixo), ficaria tapado por uma camada da
-          mesma cor da página, parecendo "vazio" ou em branco.
+          estando lá, ficaria tapado por uma camada da mesma cor da página,
+          parecendo "vazio" ou em branco.
         */}
         <div className="rounded-b-3xl bg-amber-50 shadow-sm">{children}</div>
 
         {/*
           Espaçador: reserva no fluxo do documento um espaço com a altura
           exata do footer. Fica FORA da div com fundo, portanto é
-          transparente — deixa o footer fixo por baixo (z-0) tornar-se
-          visível assim que o scroll o atravessa, sem depender de
-          margens negativas nem de `position: sticky` (que se comporta de
-          forma inconsistente entre browsers quando combinado com flex).
+          transparente — deixa o footer fixo por baixo tornar-se visível
+          assim que o scroll o atravessa, sem depender de margens negativas
+          nem de `position: sticky`.
         */}
         <div
           id="page-footer-spacer"
@@ -100,12 +121,13 @@ export default function PageShell({ children, footer }: PageShellProps) {
       </div>
 
       {/*
-        Footer fixo ao fundo do ecrã, atrás do conteúdo (z-0 < z-10).
-        Fica sempre "à espera" no fundo; só se torna visível quando o
-        conteúdo acima termina e o espaçador (transparente) liberta
-        espaço de scroll.
+        Footer fixo ao fundo do ecrã. Fica sempre à espera no fundo; só se
+        torna visível quando o conteúdo acima termina e o espaçador
+        (transparente) liberta espaço de scroll. Precisa de estar acima do
+        conteúdo principal para receber cliques, mas abaixo da navbar e do
+        menu mobile.
       */}
-      <div ref={footerRef} className="fixed inset-x-0 bottom-0 z-0">
+      <div ref={footerRef} className="fixed inset-x-0 bottom-0 z-20">
         {footer}
       </div>
     </>

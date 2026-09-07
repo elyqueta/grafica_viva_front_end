@@ -21,6 +21,11 @@ const NAV_LINKS = [
 
 import { WHATSAPP_LINK, ORCAMENTO_LINK } from '../lib/constants';
 
+const isActiveLink = (linkHref: string, pathname: string) => {
+  if (linkHref.startsWith('#')) return false;
+  return pathname === linkHref || (linkHref !== '/' && pathname.startsWith(linkHref + '/'));
+};
+
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -229,6 +234,31 @@ export default function Navbar() {
     };
   }, []);
 
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMenuOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1024px)');
+    const handler = (e: MediaQueryListEvent) => {
+      if (e.matches && menuOpen) {
+        setMenuOpen(false);
+      }
+    };
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, [menuOpen]);
+
   return (
     <>
       <header
@@ -264,7 +294,7 @@ export default function Navbar() {
 
           <ul className="hidden items-center gap-8 lg:flex">
             {NAV_LINKS.map((link) => {
-              const isActive = pathname === link.href;
+              const isActive = isActiveLink(link.href, pathname);
               return (
                 <li key={link.href} className="relative">
                   <Link
@@ -286,7 +316,10 @@ export default function Navbar() {
           <div className="hidden shrink-0 items-center gap-3 lg:flex">
             <button
               type="button"
-              className="flex items-center cursor-pointer gap-2 rounded-full bg-black/5 px-4 py-2 text-sm font-semibold text-black/70 transition-colors hover:bg-black/10"
+              disabled
+              aria-disabled="true"
+              aria-label="Idioma indisponível"
+              className="flex items-center cursor-not-allowed gap-2 rounded-full bg-black/5 px-4 py-2 text-sm font-semibold text-black/70 opacity-60"
             >
               <span className="h-2 w-2 rounded-full bg-black/40" />
               en
@@ -318,7 +351,7 @@ export default function Navbar() {
       >
         <ul ref={linksRef} className="flex flex-col gap-5">
           {NAV_LINKS.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive = isActiveLink(link.href, pathname);
             return (
               <li key={link.href}>
                 <Link

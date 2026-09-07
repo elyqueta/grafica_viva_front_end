@@ -2,7 +2,7 @@
 
 # Estado
 
-Status: PENDING
+Status: COMPLETED
 
 ---
 
@@ -46,13 +46,21 @@ regressões futuras.
 
 ## Resultado da implementação
 
-_(preencher ao executar este bloco)_
-
 - O que foi alterado:
-- Componentes criados:
-- Componentes reutilizados:
+  - Adicionado `cursor-pointer` em todos os links de navegação do Footer para garantir consistência visual e affordance de clique.
+  - Confirmado que `MagneticPillField` usa `pointer-events-none` tanto no wrapper como nos pills, pelo que não captura cliques destinados aos links por baixo.
+  - Confirmado que `PageShell.tsx` mantém o `ResizeObserver` e o recálculo do espaçador `#page-footer-spacer` sempre que a altura do footer muda.
+- Componentes criados: nenhum.
+- Componentes reutilizados: `Footer.tsx`, `MagneticPillField.tsx`, `PageShell.tsx`.
 - Problemas encontrados:
+  - Links das colunas "[navegação]" e "[redes]" do Footer não tinham `cursor-pointer` explícito, podendo dar a sensação de não serem clicáveis em alguns browsers/dispositivos.
 - Problemas corrigidos:
+  - Adicionado `cursor-pointer` a todos os links das colunas de navegação do Footer.
 - Problemas ainda existentes:
+  - Nenhum. A correcção histórica do Footer (uso do espaçador como trigger do ScrollTrigger) já estava aplicada e confirmada em `docs/01`.
 - Ficheiros alterados:
+  - `app/components/Footer.tsx`
 - Testes realizados:
+  - `npx tsc --noEmit` sem erros.
+  - `npm run build` compila com sucesso.
+  - Verificação manual em produção recomendada: scroll até ao fim da Home, `/servicos`, `/sobre` e `/portfolio`, clicar em todos os links do Footer em desktop e mobile.

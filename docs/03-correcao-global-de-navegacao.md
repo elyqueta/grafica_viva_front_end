@@ -2,7 +2,7 @@
 
 # Estado
 
-Status: PENDING
+Status: COMPLETED
 
 ---
 
@@ -52,13 +52,28 @@ ou inexistente.
 
 ## Resultado da implementação
 
-_(preencher ao executar este bloco)_
-
 - O que foi alterado:
-- Componentes criados:
-- Componentes reutilizados:
+  - Corrigida lógica de estado activo na Navbar (`NavBar.tsx`): links "pai" (`/servicos`, `/blog`, `/portfolio`) continuam destacados em subpáginas dinâmicas. Links de âncora (`/#parceiros`) não entram no cálculo de estado activo.
+  - Adicionado fecho automático do menu mobile em 3 cenários: (1) mudança de rota (`usePathname`), (2) tecla `Escape`, (3) redimensionamento para desktop (`matchMedia` breakpoint 1024px).
+  - Botão de idioma "en" marcado como desactivado (`disabled`, `aria-disabled="true"`, `aria-label="Idioma indisponível"`).
+  - Adicionado reset de scroll em `PageShell.tsx`: ao mudar de rota, o scroll sobe para o topo ou para a âncora respectiva, evitando conflito com Lenis.
+- Componentes criados: nenhum.
+- Componentes reutilizados: `NavBar.tsx`, `PageShell.tsx`.
 - Problemas encontrados:
+  - Estado activo da Navbar usava `pathname === link.href`, que falhava em rotas dinâmicas e no link `/#parceiros`.
+  - Menu mobile podia ficar com `overflow: hidden` preso se o utilizador mudasse de rota com o menu aberto, ou se redimensionasse o ecrã para desktop.
+  - Não havia reset de scroll entre páginas: ao navegar de `/servicos` para `/`, o utilizador ficava na mesma posição de scroll em vez de subir ao topo.
+  - Botão de idioma "en" parecia clicável mas não tinha qualquer acção nem indicação de estar desactivado.
 - Problemas corrigidos:
+  - Estado activo agora funciona em rotas dinâmicas.
+  - Menu mobile fecha automaticamente em mudança de rota, tecla `Escape` e redimensionamento para desktop.
+  - Scroll reset implementado em `PageShell.tsx` com suporte a âncoras.
+  - Botão de idioma desactivado e com `aria-label` explicito.
 - Problemas ainda existentes:
+  - Nenhum.
 - Ficheiros alterados:
+  - `app/components/NavBar.tsx`
+  - `app/components/homeComponents/PageShell.tsx`
 - Testes realizados:
+  - `npx tsc --noEmit` sem erros.
+  - `npm run build` compila com sucesso.

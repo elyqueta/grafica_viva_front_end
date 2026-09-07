@@ -74,64 +74,61 @@ export default function Footer() {
   useEffect(() => {
     if (!footerRef.current) return;
 
+    const footer = footerRef.current;
+
     const ctx = gsap.context(() => {
       const spacer = document.getElementById("page-footer-spacer");
 
+      gsap.set(footer, { y: '100%' });
+
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: spacer ?? footerRef.current,
-          start: "top 90%",
+          trigger: spacer ?? footer,
+          start: 'top 88%',
         },
       });
 
-      tl.from("[data-footer-label]", {
-        opacity: 0,
-        y: 16,
-        duration: 0.5,
-        ease: "power2.out",
+      tl.to(footer, {
+        y: '0%',
+        duration: 0.9,
+        ease: 'power3.out',
       })
-        .from(
-          "[data-footer-heading]",
-          { opacity: 0, y: 20, duration: 0.6, ease: "power2.out" },
-          "-=0.25",
-        )
-        .from(
-          "[data-footer-wordmark]",
-          { opacity: 0, scale: 0.9, duration: 0.8, ease: "power3.out" },
-          "-=0.3",
-        )
-        .from(
-          "[data-footer-column]",
-          {
-            opacity: 0,
-            y: 16,
-            duration: 0.5,
-            stagger: 0.1,
-            ease: "power2.out",
-          },
-          "-=0.5",
-        )
-        .from(
-          "[data-footer-divider]",
-          {
-            scaleX: 0,
-            transformOrigin: "left center",
-            duration: 0.6,
-            ease: "power2.inOut",
-          },
-          "-=0.2",
-        )
-        .from(
-          "[data-footer-copyright]",
-          { opacity: 0, y: 10, duration: 0.4, ease: "power2.out" },
-          "-=0.2",
-        );
+      .from(
+        "[data-footer-label]",
+        { opacity: 0, y: 14, duration: 0.5, ease: 'power2.out' },
+        '-=0.55',
+      )
+      .from(
+        "[data-footer-heading]",
+        { opacity: 0, y: 18, duration: 0.55, ease: 'power2.out' },
+        '-=0.35',
+      )
+      .from(
+        "[data-footer-wordmark]",
+        { opacity: 0, scale: 0.92, duration: 0.7, ease: 'power3.out' },
+        '-=0.3',
+      )
+      .from(
+        "[data-footer-column]",
+        { opacity: 0, y: 14, duration: 0.5, stagger: 0.08, ease: 'power2.out' },
+        '-=0.5',
+      )
+      .from(
+        "[data-footer-divider]",
+        { scaleX: 0, transformOrigin: 'left center', duration: 0.55, ease: 'power2.inOut' },
+        '-=0.2',
+      )
+      .from(
+        "[data-footer-copyright]",
+        { opacity: 0, y: 10, duration: 0.4, ease: 'power2.out' },
+        '-=0.2',
+      );
 
       gsap
         .timeline({
           scrollTrigger: {
-            trigger: spacer ?? footerRef.current,
-            start: "top 80%",
+            trigger: spacer ?? footer,
+            start: 'top 78%',
           },
         })
         .from(pillsRef.current, {
@@ -140,9 +137,9 @@ export default function Footer() {
           rotate: () => gsap.utils.random(-12, 12),
           duration: 0.9,
           stagger: 0.12,
-          ease: "power3.out",
+          ease: 'power3.out',
         });
-    }, footerRef);
+    }, footer);
 
     return () => ctx.revert();
   }, []);
@@ -201,14 +198,14 @@ export default function Footer() {
                           href={item.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-sm font-medium text-black/70 transition-colors hover:text-black"
+                          className="text-sm font-medium text-black/70 transition-colors hover:text-black cursor-pointer"
                         >
                           {item.label}
                         </a>
                       ) : (
                         <Link
                           href={item.href}
-                          className="text-sm font-medium text-black/70 transition-colors hover:text-black"
+                          className="text-sm font-medium text-black/70 transition-colors hover:text-black cursor-pointer"
                         >
                           {item.label}
                         </Link>
