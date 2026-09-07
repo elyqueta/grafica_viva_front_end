@@ -127,7 +127,7 @@ export default function PageShell({ children, footer }: PageShellProps) {
         conteúdo principal para receber cliques, mas abaixo da navbar e do
         menu mobile.
       */}
-      <div ref={footerRef} className="fixed inset-x-0 bottom-0 z-20">
+      <div ref={footerRef} className="fixed inset-x-0 bottom-0 z-0">
         {footer}
       </div>
     </>
