@@ -4,6 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { BLOG_POSTS, BLOG_CATEGORIES } from "../data/blog";
+import Navbar from "../components/NavBar";
+import Footer from "../components/Footer";
+import PageShell from "../components/homeComponents/PageShell";
 
 export default function BlogPage() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
@@ -16,7 +19,9 @@ export default function BlogPage() {
   const remainingPosts = filteredPosts.slice(1);
 
   return (
-    <>
+    <PageShell footer={<Footer />}>
+      <Navbar />
+
       <section className="relative w-full bg-amber-50 px-6 pt-36 lg:px-10 lg:pt-44">
         <div className="mx-auto max-w-4xl">
           <p className="text-xs font-semibold tracking-widest text-black/40">
@@ -139,6 +144,6 @@ export default function BlogPage() {
           </div>
         </section>
       )}
-    </>
+    </PageShell>
   );
 }
