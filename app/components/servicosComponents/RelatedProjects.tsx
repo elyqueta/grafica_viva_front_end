@@ -4,6 +4,7 @@ import type { PortfolioCard } from '../../data/portfolio';
 
 type RelatedProjectsProps = {
   projects: PortfolioCard[];
+  asDetailLinks?: boolean;
 };
 
 /**
@@ -11,14 +12,17 @@ type RelatedProjectsProps = {
  * galeria, consoante quantos projectos reais têm serviceId a apontar para
  * este serviço. Nunca lista todos os projectos, apenas reforça confiança.
  */
-export default function RelatedProjects({ projects }: RelatedProjectsProps) {
+export default function RelatedProjects({ projects, asDetailLinks = false }: RelatedProjectsProps) {
   if (projects.length === 0) return null;
+
+  const href = (project: PortfolioCard) =>
+    asDetailLinks ? `/portfolio/${project.slug}` : '/portfolio';
 
   if (projects.length === 1) {
     const project = projects[0];
     return (
       <Link
-        href="/portfolio"
+        href={href(project)}
         className="group relative mt-3 block h-40 w-full overflow-hidden rounded-sm sm:h-48"
       >
         <Image
@@ -41,7 +45,7 @@ export default function RelatedProjects({ projects }: RelatedProjectsProps) {
       {projects.slice(0, 3).map((project) => (
         <Link
           key={project.slug}
-          href="/portfolio"
+          href={href(project)}
           className="group relative block aspect-square overflow-hidden rounded-sm"
         >
           <Image

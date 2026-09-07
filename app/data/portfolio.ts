@@ -1,10 +1,19 @@
+/**
+ * ⚠️ DADOS DE EXEMPLO, só para pré-visualizares a galeria de projectos.
+ * NÃO SÃO PROJECTOS REAIS. Substitui por dados reais antes de publicar.
+ * As imagens vêm de um serviço remoto (Unsplash), não são ficheiros locais.
+ */
+
 export type PortfolioCard = {
   slug: string;
   client: string;
   title: string;
   image: string;
-  /** por preencher: liga este projecto a um serviço de app/data/servicos.ts quando existir a relação real */
+  category: string;
   serviceId?: string;
+  objective: string;
+  solution: string[];
+  gallery: string[];
 };
 
 export const PROJECTS: PortfolioCard[] = [
@@ -14,6 +23,19 @@ export const PROJECTS: PortfolioCard[] = [
     title: 'catálogo de produto',
     image:
       'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=900&q=80',
+    category: 'serviços gráficos',
+    serviceId: 'servicos-graficos',
+    objective: 'reforçar a presença no mercado nacional com um catálogo físico que transmitisse qualidade e tradição.',
+    solution: [
+      'desenvolvemos uma linha editorial alinhada com a identidade visual da marca, escolhendo papéis com toque quente e acabamento mate.',
+      'a estrutura do catálogo priorizou a legibilidade, com hierarquia clara entre famílias de produto e detalhes técnicos.',
+      'a impressão foi feita em offset de quatro cores, com revisão de cor presencial para garantir fidelidade ao briefing.',
+    ],
+    gallery: [
+      'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=900&q=80',
+      'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=900&q=80',
+      'https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80',
+    ],
   },
   {
     slug: 'cafe-kianda',
@@ -21,6 +43,19 @@ export const PROJECTS: PortfolioCard[] = [
     title: 'rebranding e embalagem',
     image:
       'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=900&q=80',
+    category: 'comunicação institucional',
+    serviceId: 'comunicacao-institucional',
+    objective: 'modernizar a imagem da marca sem perder a ligação à origem angolana do café.',
+    solution: [
+      'criámos um sistema de marca coerente, com paleta enxuta, tipografia com personalidade e regras de aplicação claras.',
+      'desenhámos embalagens funcionais para canal de retalho e para gamas premium, otimizando espaço de prateleira.',
+      'produzimos o primeiro lote com controlo de cor e acabamento, garantindo consistência entre o digital e o físico.',
+    ],
+    gallery: [
+      'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=900&q=80',
+      'https://images.unsplash.com/photo-1601924582970-9238bcb495d9?w=900&q=80',
+      'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=900&q=80',
+    ],
   },
   {
     slug: 'mercado-central',
@@ -28,6 +63,19 @@ export const PROJECTS: PortfolioCard[] = [
     title: 'sinalética exterior',
     image:
       'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=80',
+    category: 'publicidade e propaganda',
+    serviceId: 'publicidade-propaganda',
+    objective: 'tornar o espaço mais intuitivo para visitantes e comerciantes, com uma linguagem visual comum.',
+    solution: [
+      'levantamento prévio das zonas de maior fluxo para definir hierarquia de informação e suportes mais adequados.',
+      'desenvolvemos painéis em lona reforçada e pórticos em alumínio, preparados para exterior e manutenção simples.',
+      'implementámos um sistema modular, com peças de reposição independentes, reduzindo custos de atualização.',
+    ],
+    gallery: [
+      'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=80',
+      'https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80',
+      'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=900&q=80',
+    ],
   },
   {
     slug: 'nova-vida-eventos',
@@ -35,6 +83,19 @@ export const PROJECTS: PortfolioCard[] = [
     title: 'materiais de evento',
     image:
       'https://images.unsplash.com/photo-1587440871875-191322ee64b0?w=900&q=80',
+    category: 'publicidade e propaganda',
+    serviceId: 'publicidade-propaganda',
+    objective: 'criar uma experiência coerente entre o espaço físico e os suportes digitais do evento.',
+    solution: [
+      'desenhámos um sistema visual modular para palcos, zonas de entrada e áreas de catering, com elementos reutilizáveis.',
+      'produzimos painéis, roll-ups, crachás e sacos com a mesma paleta e estilo, garantindo consistência.',
+      'a execução foi acompanhada presencialmente durante o evento para ajustes de última hora e reposição de stock.',
+    ],
+    gallery: [
+      'https://images.unsplash.com/photo-1587440871875-191322ee64b0?w=900&q=80',
+      'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=900&q=80',
+      'https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80',
+    ],
   },
   {
     slug: 'grupo-luanda-norte',
@@ -42,6 +103,20 @@ export const PROJECTS: PortfolioCard[] = [
     title: 'identidade corporativa',
     image:
       'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=900&q=80',
+    category: 'comunicação institucional',
+    serviceId: 'comunicacao-institucional',
+    objective: 'unificar a comunicação de várias empresas do grupo sob uma marca forte e reconhecível.',
+    solution: [
+      'desenvolvemos uma identidade visual flexível, com versões para comunicação digital e impressa, sem perder legibilidade.',
+      'criámos um manual de aplicação com regras para papelaria, sinalética, redes sociais e apresentações institucionais.',
+      'acompanhámos a implementação ao longo de seis meses, garantindo consistência em todos os touchpoints.',
+    ],
+    gallery: [
+      'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=900&q=80',
+      'https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80',
+      'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=900&q=80',
+      'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=900&q=80',
+    ],
   },
   {
     slug: 'feira-do-artesao',
@@ -49,5 +124,18 @@ export const PROJECTS: PortfolioCard[] = [
     title: 'sinalética e brindes',
     image:
       'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=900&q=80',
+    category: 'brindes personalizados',
+    serviceId: 'brindes-personalizados',
+    objective: 'dar visibilidade aos artesãos locais e tornar o espaço da feira mais apelativo para visitantes.',
+    solution: [
+      'desenhámos uma linha de sinalética com materiais resistentes, adequada a condições exteriores e montagem temporária.',
+      'produzimos brindes personalizados com motivos inspirados no trabalho dos artesãos, funcionando como cartão de visita.',
+      'coordenámos a produção com o calendário do evento, cumprindo prazos apertados sem sacrificar a qualidade.',
+    ],
+    gallery: [
+      'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=900&q=80',
+      'https://images.unsplash.com/photo-1601924582970-9238bcb495d9?w=900&q=80',
+      'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=80',
+    ],
   },
 ];

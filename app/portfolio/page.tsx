@@ -28,7 +28,11 @@ export default function PortfolioPage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {PROJECTS.map((project) => (
-              <article key={project.slug} className="group relative block h-80 w-full overflow-hidden rounded-sm">
+              <Link
+                key={project.slug}
+                href={`/portfolio/${project.slug}`}
+                className="group relative block h-80 w-full overflow-hidden rounded-sm"
+              >
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -45,7 +49,7 @@ export default function PortfolioPage() {
                     {project.title}
                   </p>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>
