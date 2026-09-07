@@ -2,7 +2,7 @@
 
 # Estado
 
-Status: IN_PROGRESS
+Status: COMPLETED
 
 ---
 
@@ -66,4 +66,4 @@ regressões futuras.
 - Testes realizados:
   - `npx tsc --noEmit` sem erros.
   - `npm run build` compila com sucesso.
-  - Verificação manual pendente: scroll até ao fim da Home, `/servicos`, `/sobre` e `/portfolio`, clicar em todos os links do Footer em desktop e mobile. Só depois disto o status passará a `COMPLETED`.
+  - Teste manual aprovado pelo utilizador: scroll até ao fim da Home, `/servicos`, `/sobre` e `/portfolio`, clicar em todos os links do Footer em desktop e mobile. Links respondem correctamente e animação de entrada do footer mantém-se.
