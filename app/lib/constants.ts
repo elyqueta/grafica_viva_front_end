@@ -7,3 +7,4 @@ export const CONTACT_MAPS_URL = 'https://maps.google.com/?q=Nova+Vida,+Luanda,+A
 export const SITE_NAME = 'Gráfica Viva';
 export const SITE_URL = 'https://grafica-viva-front-end-t6oc.vercel.app';
 export const ORCAMENTO_LINK = '/orcamento';
+export const SERVICOS_LINK = '/servicos'

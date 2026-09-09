@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import MediaReveal from '../MediaReveal';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ORCAMENTO_LINK } from '../../lib/constants';
+import { ORCAMENTO_LINK, SERVICOS_LINK } from '../../lib/constants';
 
 // vídeo de placeholder para teste de performance, substituir por vídeo real da marca
 const HERO_VIDEO = '/videos/hero.mp4';
@@ -70,15 +70,14 @@ export default function Hero() {
              className="rounded-sm cursor-pointer bg-amber-50 px-6 py-3 text-sm font-bold tracking-wide text-[#292929c5] transition-colors hover:bg-white/90 hover:text-[#29292980]"
            >
              <span className="hidden sm:inline">PEDIR ORÇAMENTO</span>
-             <span className="sm:hidden">orçamento</span>
+              <span className="sm:hidden">Orçamento</span>
            </a>
            
            <a          
-             href="#servicos"
-             className="rounded-sm border border-amber-50 px-6 py-3 text-sm font-bold tracking-wide text-amber-50 transition-colors hover:bg-amber-50 hover:text-[#29292980]"
-           >
+             href={SERVICOS_LINK}
+             className="rounded-sm border border-amber-50 px-6 py-3 text-sm font-bold tracking-wide text-amber-50 transition-colors hover:bg-amber-50 hover:text-[#29292980]">
              <span className="hidden sm:inline">VER SERVIÇOS</span>
-             <span className="sm:hidden">serviço</span>
+              <span className="sm:hidden">Serviço</span>
            </a>
         </div>
       </div>

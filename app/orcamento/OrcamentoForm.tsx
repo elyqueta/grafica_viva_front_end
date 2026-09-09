@@ -33,16 +33,16 @@ export function OrcamentoForm() {
   const validate = () => {
     const next: Record<string, string> = {};
 
-    if (!name.trim()) next.name = "nome obrigatório";
+    if (!name.trim()) next.name = "Nome obrigatório";
     if (!email.trim()) {
-      next.email = "email obrigatório";
+      next.email = "Email obrigatório";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
-      next.email = "email inválido";
+      next.email = "Email inválido";
     }
-    if (!phone.trim()) next.phone = "telefone obrigatório";
-    if (!service) next.service = "seleccione um serviço";
-    if (!description.trim()) next.description = "descreva o projecto";
-    if (description.trim().length < 10) next.description = "muito curto, detalhe mais";
+    if (!phone.trim()) next.phone = "Telefone obrigatório";
+    if (!service) next.service = "Seleccione um serviço";
+    if (!description.trim()) next.description = "Descreva o projecto";
+    if (description.trim().length < 10) next.description = "Muito curto, detalhe mais";
 
     return next;
   };
@@ -74,9 +74,9 @@ export function OrcamentoForm() {
 
     await new Promise((resolve) => setTimeout(resolve, 800));
 
-    const subject = encodeURIComponent(`pedido de orçamento: ${service || "sem serviço"}`);
+    const subject = encodeURIComponent(`Pedido de orçamento: ${service || "Sem serviço"}`);
     const body = encodeURIComponent(
-      `nome: ${name}\nemail: ${email}\ntelefone: ${phone}\nempresa: ${company || "—"}\nserviço: ${service}\nprazo desejado: ${deadline || "—"}\n\n${description}`,
+      `Nome: ${name}\nEmail: ${email}\nTelefone: ${phone}\nEmpresa: ${company || "—"}\nServiço: ${service}\nPrazo desejado: ${deadline || "—"}\n\n${description}`,
     );
 
     window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
@@ -95,11 +95,11 @@ export function OrcamentoForm() {
       {formState === "success" ? (
         <div className="rounded-sm bg-black/5 px-6 py-10 text-center">
           <p className="text-xl font-extrabold text-black sm:text-2xl">
-            recebemos o seu pedido
+            Recebemos o seu pedido
           </p>
           <p className="mt-3 text-sm text-black/60 sm:text-base">
-            vamos analisar a informação e responder em até um dia útil.
-            se for urgente, prefira o WhatsApp.
+            Vamos analisar a informação e responder em até um dia útil.
+            Se for urgente, prefira o WhatsApp.
           </p>
         </div>
       ) : (
