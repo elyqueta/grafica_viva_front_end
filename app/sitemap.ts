@@ -16,7 +16,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/orcamento",
     "/manifesto",
     "/parceiros",
-    "/produtos",
   ];
 
   const servicePaths = SERVICES.map((service) => `/servicos/${service.slug}`);
