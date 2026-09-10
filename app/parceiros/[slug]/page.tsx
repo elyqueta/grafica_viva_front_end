@@ -48,17 +48,17 @@ export default async function ParceiroPage({ params }: ParceiroPageProps) {
         <section className="relative w-full bg-amber-50 px-6 py-24 lg:px-10 lg:py-32">
           <div className="mx-auto max-w-2xl text-center">
             <h1 className="text-3xl font-extrabold leading-tight text-black sm:text-4xl">
-              parceiro não encontrado
+              Parceiro não encontrado
             </h1>
             <p className="mt-4 text-base text-black/60 sm:text-lg">
-              o parceiro que procura não existe ou foi removido.
+              O parceiro que procura não existe ou foi removido.
             </p>
             <Link
               href="/parceiros"
               className="mt-8 inline-flex items-center gap-2 rounded-sm bg-rose-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-rose-700"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-white" />
-              ver todos os parceiros
+              Ver todos os parceiros
             </Link>
           </div>
         </section>
@@ -96,7 +96,7 @@ export default async function ParceiroPage({ params }: ParceiroPageProps) {
       <section className="relative w-full bg-amber-50 px-6 py-16 lg:px-10 lg:py-24">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-2xl font-extrabold leading-tight text-black sm:text-3xl">
-            sobre
+            Sobre
           </h2>
           <p className="mt-4 text-base leading-relaxed text-black/70 sm:text-lg">
             {partner.description}
@@ -110,11 +110,11 @@ export default async function ParceiroPage({ params }: ParceiroPageProps) {
             [contactos]
           </p>
           <h2 className="mt-3 text-2xl font-extrabold leading-tight text-black sm:text-3xl">
-            informações e contactos
+            Informações e contactos
           </h2>
           <div className="mt-8 space-y-6">
             <div>
-              <p className="text-xs font-semibold text-black/50">email</p>
+              <p className="text-xs font-semibold text-black/50">Email</p>
               <a
                 href={`mailto:${partner.contactEmail}`}
                 className="mt-1 block text-sm text-black/80 underline underline-offset-4 hover:text-black"
@@ -123,7 +123,7 @@ export default async function ParceiroPage({ params }: ParceiroPageProps) {
               </a>
             </div>
             <div>
-              <p className="text-xs font-semibold text-black/50">telefone</p>
+              <p className="text-xs font-semibold text-black/50">Telefone</p>
               <a
                 href={`tel:${partner.contactPhone}`}
                 className="mt-1 block text-sm text-black/80 underline underline-offset-4 hover:text-black"
@@ -132,7 +132,7 @@ export default async function ParceiroPage({ params }: ParceiroPageProps) {
               </a>
             </div>
             <div>
-              <p className="text-xs font-semibold text-black/50">website</p>
+              <p className="text-xs font-semibold text-black/50">Website</p>
               <a
                 href={partner.url}
                 target="_blank"

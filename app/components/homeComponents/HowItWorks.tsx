@@ -15,25 +15,25 @@ type Step = {
 const STEPS: Step[] = [
   {
     number: "01",
-    title: "conte-nos a sua ideia",
+    title: "Conte-nos a sua ideia",
     description:
       "Explique-nos o que precisa e qual é o objetivo do seu projecto.",
   },
   {
     number: "02",
-    title: "criamos a solução",
+    title: "Criamos a solução",
     description:
       "A nossa equipa trabalha consigo para encontrar a melhor solução gráfica.",
   },
   {
     number: "03",
-    title: "aprove o projecto",
+    title: "Aprove o projecto",
     description:
       "Analisamos consigo todos os detalhes antes de avançar para a produção.",
   },
   {
     number: "04",
-    title: "damos vida à ideia",
+    title: "Damos vida à ideia",
     description:
       "Produzimos o resultado final com atenção à qualidade e aos detalhes.",
   },
@@ -92,7 +92,7 @@ export default function HowItWorks() {
           data-how-reveal
           className="mt-2 text-3xl font-extrabold text-black sm:text-4xl"
         >
-          da ideia ao resultado.
+          Da ideia ao resultado.
         </h2>
         <p data-how-reveal className="mt-4 text-base text-black/60 sm:text-lg">
           Um processo simples, transparente e pensado para transformar a sua

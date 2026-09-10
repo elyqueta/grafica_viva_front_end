@@ -41,7 +41,7 @@ export default function ContactosHero() {
       <div className="relative h-[55vh] w-full overflow-hidden sm:h-[65vh] lg:h-[75vh]">
         <MediaReveal
           poster="https://images.unsplash.com/photo-1607166452427-7e4477079cb9?w=1600&q=80"
-          alt="contactos"
+          alt="Contactos"
           priority
           videoSrc={CONTACTOS_HERO_VIDEO}
           className="absolute inset-0"
@@ -53,13 +53,13 @@ export default function ContactosHero() {
               data-contactos-hero
               className="text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl"
             >
-              fala connosco
+              Fala connosco
             </h1>
             <p
               data-contactos-hero
               className="mt-2 text-base text-white/80 sm:text-lg"
             >
-              a nossa porta está aberta. se tens uma ideia ou um projecto para imprimir, fala connosco.
+              A nossa porta está aberta. Se tens uma ideia ou um projecto para imprimir, fala connosco.
             </p>
           </div>
         </div>

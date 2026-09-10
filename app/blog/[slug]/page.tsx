@@ -53,17 +53,17 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <section className="relative w-full bg-amber-50 px-6 py-24 lg:px-10 lg:py-32">
           <div className="mx-auto max-w-2xl text-center">
             <h1 className="text-3xl font-extrabold leading-tight text-black sm:text-4xl">
-              artigo não encontrado
+              Artigo não encontrado
             </h1>
             <p className="mt-4 text-base text-black/60 sm:text-lg">
-              o artigo que procura não existe ou foi removido.
+              O artigo que procura não existe ou foi removido.
             </p>
             <Link
               href="/blog"
               className="mt-8 inline-flex items-center gap-2 rounded-sm bg-rose-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-rose-700"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-white" />
-              ver todos os artigos
+              Ver todos os artigos
             </Link>
           </div>
         </section>
@@ -160,7 +160,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               [artigos relacionados]
             </p>
             <h2 className="mt-3 text-2xl font-extrabold leading-tight text-black sm:text-3xl">
-              continuar a ler
+              Continuar a ler
             </h2>
             <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {finalRelated.map((related) => (
@@ -198,10 +198,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <section className="relative w-full bg-amber-50 px-6 pb-24 lg:px-10 lg:pb-32">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-extrabold leading-tight text-black sm:text-4xl lg:text-5xl">
-            já sabe do que precisa?
+            Já sabe do que precisa?
           </h2>
           <p className="mt-6 text-base text-black/60 sm:text-lg">
-            fale connosco e peça um orçamento para o seu próximo projecto.
+            Fale connosco e peça um orçamento para o seu próximo projecto.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
@@ -209,7 +209,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               className="inline-flex items-center gap-2 rounded-sm bg-rose-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-rose-700"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-white" />
-              pedir orçamento
+              Pedir orçamento
             </Link>
           </div>
         </div>
@@ -227,7 +227,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 {previousPost.title}
               </Link>
             ) : (
-              <span className="text-sm text-black/30">artigo anterior</span>
+              <span className="text-sm text-black/30">                Artigo anterior</span>
             )}
           </div>
           <div>
@@ -240,7 +240,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <span className="h-1.5 w-1.5 rounded-full bg-rose-600" />
               </Link>
             ) : (
-              <span className="text-sm text-black/30">artigo seguinte</span>
+              <span className="text-sm text-black/30">                Artigo seguinte</span>
             )}
           </div>
         </div>

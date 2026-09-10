@@ -16,7 +16,7 @@ export default function ScrollArrows({ atStart, atEnd, onPrev, onNext }: ScrollA
       <button
         type="button"
         onClick={onPrev}
-        aria-label="anterior"
+        aria-label="Anterior"
         className={`flex h-10 w-10 items-center justify-center rounded-full bg-white text-black/70 shadow-md transition-opacity duration-300 ${
           atStart ? 'pointer-events-none opacity-0' : 'pointer-events-auto opacity-100'
         }`}
@@ -27,7 +27,7 @@ export default function ScrollArrows({ atStart, atEnd, onPrev, onNext }: ScrollA
       <button
         type="button"
         onClick={onNext}
-        aria-label="seguinte"
+        aria-label="Seguinte"
         className={`flex h-10 w-10 items-center justify-center rounded-full bg-white text-black/70 shadow-md transition-opacity duration-300 ${
           atEnd ? 'pointer-events-none opacity-0' : 'pointer-events-auto opacity-100'
         }`}

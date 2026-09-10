@@ -16,22 +16,22 @@ type ShapeConfig = {
 const SHAPES: ShapeConfig[] = [
   {
     id: 'tesoura',
-    label: 'desenha uma tesoura',
+    label: 'Desenha uma tesoura',
     guidePath: 'M40,30 L120,150 M120,30 L40,150',
-    revealText: 'cortamos com precisão, nunca ao acaso.',
+    revealText: 'Cortamos com precisão, nunca ao acaso.',
   },
   {
     id: 'pincel',
-    label: 'desenha um pincel',
+    label: 'Desenha um pincel',
     guidePath: 'M80,15 L60,50 L100,50 Z M80,50 L80,150',
-    revealText: 'desenhamos cada identidade à mão, antes de ir para a máquina.',
+    revealText: 'Desenhamos cada identidade à mão, antes de ir para a máquina.',
   },
   {
     id: 'carimbo',
-    label: 'desenha um carimbo',
+    label: 'Desenha um carimbo',
     guidePath:
       'M140,80 A60,60 0 1,1 20,80 A60,60 0 1,1 140,80 M50,85 L72,107 L115,55',
-    revealText: 'só sai da gráfica o que passa no nosso controlo de qualidade.',
+    revealText: 'Só sai da gráfica o que passa no nosso controlo de qualidade.',
   },
 ];
 
@@ -187,7 +187,7 @@ function DiscoveryCanvas({ id, label, guidePath, revealText }: ShapeConfig) {
             onClick={handleReset}
             className="absolute right-2 top-2 rounded-sm bg-white/80 px-2 py-1 text-xs font-medium text-black/60 backdrop-blur-sm transition-colors hover:bg-white"
           >
-            tentar outra vez
+            Tentar outra vez
           </button>
         )}
       </div>
@@ -229,7 +229,7 @@ export default function AboutDiscover() {
           [descobre-nos]
         </p>
         <p data-discover-reveal className="mt-4 text-base text-black/60 sm:text-lg">
-          desenha as formas abaixo e mostramos-te como trabalhamos.
+          Desenha as formas abaixo e mostramos-te como trabalhamos.
         </p>
       </div>
 

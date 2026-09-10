@@ -51,10 +51,10 @@ export default async function ServicoPage({ params }: ServicePageProps) {
         <section className="relative w-full bg-amber-50 px-6 py-24 lg:px-10 lg:py-32">
           <div className="mx-auto max-w-2xl text-center">
             <h1 className="text-3xl font-extrabold leading-tight text-black sm:text-4xl">
-              serviço não encontrado
+              Serviço não encontrado
             </h1>
             <p className="mt-4 text-base text-black/60 sm:text-lg">
-              o serviço que procura não existe ou foi removido.
+              O serviço que procura não existe ou foi removido.
             </p>
             <Link
               href="/servicos"
@@ -110,7 +110,7 @@ export default async function ServicoPage({ params }: ServicePageProps) {
 
           <div className="mt-12">
             <h2 className="text-2xl font-extrabold leading-tight text-black sm:text-3xl">
-              o que fazemos
+              O que fazemos
             </h2>
             <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
               {service.items.map((item) => (
@@ -133,7 +133,7 @@ export default async function ServicoPage({ params }: ServicePageProps) {
               [projectos relacionados]
             </p>
             <h2 className="mt-3 text-2xl font-extrabold leading-tight text-black sm:text-3xl">
-              exemplos reais
+              Exemplos reais
             </h2>
             <div className="mt-10">
               <RelatedProjects projects={relatedProjects} />
@@ -148,7 +148,7 @@ export default async function ServicoPage({ params }: ServicePageProps) {
             [outros serviços]
           </p>
           <h2 className="mt-3 text-2xl font-extrabold leading-tight text-black sm:text-3xl">
-            serviços relacionados
+              Serviços relacionados
           </h2>
           <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {relatedServices.slice(0, 3).map((related) => (
@@ -182,11 +182,11 @@ export default async function ServicoPage({ params }: ServicePageProps) {
       <section className="relative w-full bg-amber-50 px-6 pb-24 lg:px-10 lg:pb-32">
         <div className="mx-auto max-w-3xl text-center">
           <ScrollFillHeading
-            text="já sabe do que precisa?"
+            text="            Já sabe do que precisa?"
             className="text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl"
           />
           <p className="mt-6 text-base text-black/60 sm:text-lg">
-            fale connosco e peça um orçamento para o seu próximo projecto.
+            Fale connosco e peça um orçamento para o seu próximo projecto.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
@@ -194,7 +194,7 @@ export default async function ServicoPage({ params }: ServicePageProps) {
               className="inline-flex items-center gap-2 rounded-sm bg-rose-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-rose-700"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-white" />
-              pedir orçamento
+              Pedir orçamento
             </Link>
             <a
               href={WHATSAPP_LINK}
@@ -203,7 +203,7 @@ export default async function ServicoPage({ params }: ServicePageProps) {
               className="inline-flex items-center gap-2 rounded-sm bg-black/5 px-6 py-3 text-sm font-semibold text-black/80 transition-colors hover:bg-black/10"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-rose-600" />
-              falar pelo whatsapp
+              Falar pelo WhatsApp
             </a>
           </div>
         </div>

@@ -18,7 +18,7 @@ export default function ParceirosPage() {
         <div className="relative h-[55vh] w-full overflow-hidden sm:h-[65vh] lg:h-[75vh]">
           <MediaReveal
             poster="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=1600&q=80"
-            alt="parceiros"
+            alt="Parceiros"
             priority
             videoSrc={PARCEIROS_HERO_VIDEO}
             className="absolute inset-0"
@@ -30,10 +30,10 @@ export default function ParceirosPage() {
                 [parceiros]
               </p>
               <h1 className="mt-3 text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl">
-                marcas que confiam na gráfica viva
+                Marcas que confiam na Gráfica Viva
               </h1>
               <p className="mt-2 text-base text-white/80 sm:text-lg">
-                conheça os nossos parceiros e saiba como colaboramos.
+                Conheça os nossos parceiros e saiba como colaboramos.
               </p>
             </div>
           </div>

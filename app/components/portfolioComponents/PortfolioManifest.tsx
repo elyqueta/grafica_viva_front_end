@@ -77,7 +77,7 @@ function ManifestSection({
               className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-black/50 transition-colors hover:text-black"
             >
               <span className="h-2 w-2 rounded-full bg-rose-600" />
-              {expanded ? "mostrar menos" : "Ler manifesto"}
+              {expanded ? "Mostrar menos" : "Ler manifesto"}
             </button>
           </>
         )}
@@ -122,7 +122,7 @@ function VisualBranco() {
     >
       <MediaReveal
         poster="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=700&q=80"
-        alt="branco"
+        alt="Branco"
         videoSrc={MANIFESTO_BRANCO_VIDEO}
       />
     </div>
@@ -178,7 +178,7 @@ function VisualEntropia() {
         className="inline-flex items-center gap-2 rounded-sm bg-black/5 px-5 py-3 text-sm font-semibold text-black/70 transition-colors hover:bg-black/10"
       >
         <span className="h-2 w-2 rounded-full bg-rose-600" />
-        aplicar energia
+          Aplicar energia
       </button>
       {energised && (
         <p className="text-sm text-black/40">
@@ -291,8 +291,8 @@ function VisualObservador() {
       </div>
       <p className="text-sm text-black/40">
         {approved
-          ? "prova aprovada, segue para impressão"
-          : "clica para rever a prova"}
+          ? "          Prova aprovada, segue para impressão"
+          : "          Clica para rever a prova"}
       </p>
     </div>
   );
@@ -306,11 +306,11 @@ type Side = "tecnico" | "ambos" | "criativo";
 
 const SIDE_TEXT: Record<Side, string> = {
   tecnico:
-    "este lado mede, calcula e verifica margens antes de qualquer máquina arrancar.",
+    "        Este lado mede, calcula e verifica margens antes de qualquer máquina arrancar.",
   ambos:
-    "os dois lados vivem no mesmo processo, da folha em branco à entrega final.",
+    "        Os dois lados vivem no mesmo processo, da folha em branco à entrega final.",
   criativo:
-    "este lado sente o que funciona visualmente, mesmo antes de saber explicar porquê.",
+    "        Este lado sente o que funciona visualmente, mesmo antes de saber explicar porquê.",
 };
 
 function VisualDicotomia() {
@@ -337,7 +337,7 @@ function VisualDicotomia() {
           onClick={() => setSide("tecnico")}
           className={side === "tecnico" ? "text-black" : "text-black/35"}
         >
-          o lado técnico
+          O lado técnico
         </button>
         <span className="text-black/20">/</span>
         <button
@@ -345,7 +345,7 @@ function VisualDicotomia() {
           onClick={() => setSide("ambos")}
           className={side === "ambos" ? "text-black" : "text-black/35"}
         >
-          o ofício
+          O ofício
         </button>
         <span className="text-black/20">/</span>
         <button
@@ -353,7 +353,7 @@ function VisualDicotomia() {
           onClick={() => setSide("criativo")}
           className={side === "criativo" ? "text-black" : "text-black/35"}
         >
-          o lado criativo
+          O lado criativo
         </button>
       </div>
 
@@ -396,7 +396,7 @@ function VisualEscolha() {
 
   return (
     <div className="flex flex-col items-center gap-8">
-      <p className="text-sm text-black/40">cinco papéis, escolhe só um</p>
+      <p className="text-sm text-black/40">          Cinco papéis, escolhe só um</p>
       <div className="flex gap-3 sm:gap-4">
         {PAPERS.map((paper, i) => (
           <div
@@ -414,7 +414,7 @@ function VisualEscolha() {
               }}
               type="button"
               onClick={() => openDoor(i)}
-              aria-label={`escolher ${paper}`}
+              aria-label={`Escolher ${paper}`}
               disabled={openIndex !== null}
               className="absolute inset-0 border border-black/20 bg-amber-50 disabled:cursor-default"
             />
@@ -423,7 +423,7 @@ function VisualEscolha() {
       </div>
       {openIndex !== null && (
         <p className="text-sm text-black/40">
-          escolheste {PAPERS[openIndex]}, as outras portas ficam fechadas
+              Escolheste {PAPERS[openIndex]}, as outras portas ficam fechadas
         </p>
       )}
     </div>
@@ -488,7 +488,7 @@ function VisualPerda() {
           className="inline-flex items-center gap-2 rounded-sm bg-black/5 px-5 py-3 text-sm font-semibold text-black/70 transition-colors hover:bg-black/10"
         >
           <span className="h-2 w-2 rounded-full bg-rose-600" />
-          ganhar folha
+          Ganhar folha
         </button>
         <button
           type="button"
@@ -499,11 +499,11 @@ function VisualPerda() {
           className="inline-flex items-center gap-2 rounded-sm bg-black/5 px-5 py-3 text-sm font-semibold text-black/70 transition-colors hover:bg-black/10"
         >
           <span className="h-2 w-2 rounded-full bg-black/40" />
-          perder folha
+          Perder folha
         </button>
       </div>
       <p className="text-sm text-black/40">
-        ganhas {gain} folhas / perdes {loss} folhas
+          Ganhas {gain} folhas / perdes {loss} folhas
       </p>
     </div>
   );
@@ -553,14 +553,14 @@ function VisualConfianca() {
           onClick={trust}
           className="text-black/70 transition-colors hover:text-black"
         >
-          confiar
+          Confiar
         </button>
         <button
           type="button"
           onClick={betray}
           className="text-black/70 transition-colors hover:text-black"
         >
-          trair
+          Trair
         </button>
       </div>
     </div>
@@ -638,12 +638,10 @@ export default function PortfolioManifest() {
             data-manifest-intro
             className="mt-8 text-2xl leading-relaxed text-black sm:text-3xl lg:text-4xl"
           >
-            não vemos o design como decoração. tiramos o que é desnecessário de
-            uma peça gráfica, de uma frase, de um dia inteiro de trabalho. o que
-            fica não é menos, é mais claro.
+            Não vemos o design como decoração. Tiramos o que é desnecessário de uma peça gráfica, de uma frase, de um dia inteiro de trabalho. O que fica não é menos, é mais claro.
           </p>
           <p data-manifest-intro className="mt-12 text-sm text-black/40">
-            as ideias começam abaixo, desliza
+            As ideias começam abaixo, desliza
           </p>
         </div>
       </section>
@@ -687,8 +685,8 @@ export default function PortfolioManifest() {
               sectionRefs.current[0] = el;
             }}
             label="[antes da tinta]"
-            text="todo o trabalho começa aqui. uma folha sem marcas é pura possibilidade, mas também o maior risco: o primeiro traço decide tudo o que vem a seguir."
-            more="às vezes a decisão mais difícil de um projecto é não desenhar nada."
+            text="          Todo o trabalho começa aqui. Uma folha sem marcas é pura possibilidade, mas também o maior risco: o primeiro traço decide tudo o que vem a seguir."
+            more="          Às vezes a decisão mais difícil de um projecto é não desenhar nada."
           >
             <VisualBranco />
           </ManifestSection>
@@ -698,8 +696,8 @@ export default function PortfolioManifest() {
               sectionRefs.current[1] = el;
             }}
             label="[o rascunho]"
-            text="uma ideia nasce dispersa, feita de referências, recortes e notas soltas. o nosso trabalho é dar ordem a esse caos antes de ele chegar à máquina."
-            more="a máquina só recebe o ficheiro depois de a ideia ganhar forma."
+            text="          Uma ideia nasce dispersa, feita de referências, recortes e notas soltas. O nosso trabalho é dar ordem a esse caos antes de ele chegar à máquina."
+            more="          A máquina só recebe o ficheiro depois de a ideia ganhar forma."
           >
             <VisualEntropia />
           </ManifestSection>
@@ -709,8 +707,8 @@ export default function PortfolioManifest() {
               sectionRefs.current[2] = el;
             }}
             label="[a tirania dos poucos]"
-            text="o valor não se reparte de forma igual. um pequeno grupo de clientes e produtos sustenta quase tudo o resto. escolher bem esse grupo é o verdadeiro ofício."
-            more="por isso preferimos poucos clientes bem tratados a muitos mal servidos."
+            text="          O valor não se reparte de forma igual. Um pequeno grupo de clientes e produtos sustenta quase tudo o resto. Escolher bem esse grupo é o verdadeiro ofício."
+            more="          Por isso preferimos poucos clientes bem tratados a muitos mal servidos."
           >
             <VisualPareto />
           </ManifestSection>
@@ -720,8 +718,8 @@ export default function PortfolioManifest() {
               sectionRefs.current[3] = el;
             }}
             label="[o olhar final]"
-            text="uma prova de impressão guarda todos os erros e todos os acertos ao mesmo tempo, até alguém a observar. é o nosso olhar treinado que decide o que sai da gráfica."
-            more="nenhuma tiragem sai sem essa aprovação final."
+            text="          Uma prova de impressão guarda todos os erros e todos os acertos ao mesmo tempo, até alguém a observar. É o nosso olhar treinado que decide o que sai da gráfica."
+            more="          Nenhuma tiragem sai sem essa aprovação final."
           >
             <VisualObservador />
           </ManifestSection>
@@ -731,8 +729,8 @@ export default function PortfolioManifest() {
               sectionRefs.current[4] = el;
             }}
             label="[o ofício]"
-            text="um lado mede, calcula e verifica margens. o outro lado sente o que funciona visualmente antes de saber explicar porquê. os dois vivem no mesmo processo."
-            more="um bom impresso nunca escolhe só um dos dois lados."
+            text="          Um lado mede, calcula e verifica margens. O outro lado sente o que funciona visualmente antes de saber explicar porquê. Os dois vivem no mesmo processo."
+            more="          Um bom impresso nunca escolhe só um dos dois lados."
           >
             <VisualDicotomia />
           </ManifestSection>
@@ -742,8 +740,8 @@ export default function PortfolioManifest() {
               sectionRefs.current[5] = el;
             }}
             label="[o peso do sim]"
-            text="escolher é a arte de subtrair. cada papel e cada acabamento escolhido fecha a porta a todos os outros. cinco portas, abre só uma."
-            more="por isso perguntamos sempre antes de decidir por ti."
+            text="          Escolher é a arte de subtrair. Cada papel e cada acabamento escolhido fecha a porta a todos os outros. Cinco portas, abre só uma."
+            more="          Por isso perguntamos sempre antes de decidir por ti."
           >
             <VisualEscolha />
           </ManifestSection>
@@ -753,8 +751,8 @@ export default function PortfolioManifest() {
               sectionRefs.current[6] = el;
             }}
             label="[o que fica para trás]"
-            text="uma folha desperdiçada pesa mais do que uma folha ganha. por isso conferimos duas vezes antes de qualquer máquina arrancar."
-            more="prevenir custa sempre menos do que reimprimir."
+            text="          Uma folha desperdiçada pesa mais do que uma folha ganha. Por isso conferimos duas vezes antes de qualquer máquina arrancar."
+            more="          Prevenir custa sempre menos do que reimprimir."
           >
             <VisualPerda />
           </ManifestSection>
@@ -764,8 +762,8 @@ export default function PortfolioManifest() {
               sectionRefs.current[7] = el;
             }}
             label="[confiar antes de imprimir]"
-            text="confiar não é um sentimento, é uma estratégia. voltamos a trabalhar com quem cumpre, e recomeçamos sempre sem guardar rancor."
-            more="um fornecedor de confiança poupa tempo a toda a gente."
+            text="          Confiar não é um sentimento, é uma estratégia. Voltamos a trabalhar com quem cumpre, e recomeçamos sempre sem guardar rancor."
+            more="          Um fornecedor de confiança poupa tempo a toda a gente."
           >
             <VisualConfianca />
           </ManifestSection>
@@ -781,7 +779,7 @@ export default function PortfolioManifest() {
               data-manifest-reveal
               className="text-3xl font-semibold text-black sm:text-4xl"
             >
-              é tudo isto. e é suficiente.
+              É tudo isto. E é suficiente.
             </p>
             <p
               data-manifest-reveal
@@ -797,7 +795,7 @@ export default function PortfolioManifest() {
               className="inline-flex items-center gap-2 rounded-sm bg-rose-600 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-rose-700"
             >
               <span className="h-2 w-2 rounded-full bg-white" />
-              se algo disto falou contigo, fala connosco
+              Se algo disto falou contigo, fala connosco
             </a>
           </section>
         </div>

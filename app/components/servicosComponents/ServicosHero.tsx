@@ -79,15 +79,14 @@ export default function ServicosHero() {
           data-servicos-hero-title
           className="mt-4 text-3xl font-extrabold leading-tight text-black sm:text-4xl lg:text-5xl"
         >
-          soluções para dar forma às suas ideias.
+          Soluções para dar forma às suas ideias.
         </h1>
 
         <p
           data-servicos-hero-text
           className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-black/70 sm:text-lg"
         >
-          da identidade da sua marca à produção dos materiais que precisa, criamos
-          soluções pensadas para comunicar, promover e valorizar o seu negócio.
+          Da identidade da sua marca à produção dos materiais que precisa, criamos soluções pensadas para comunicar, promover e valorizar o seu negócio.
         </p>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -97,7 +96,7 @@ export default function ServicosHero() {
             className="inline-flex items-center gap-2 rounded-sm bg-rose-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-rose-700"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-white" />
-            pedir orçamento
+            Pedir orçamento
           </Link>
 
           <a
@@ -108,7 +107,7 @@ export default function ServicosHero() {
             className="inline-flex items-center gap-2 rounded-sm bg-black/5 px-6 py-3 text-sm font-semibold text-black/80 transition-colors hover:bg-black/10"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-rose-600" />
-            falar pelo whatsapp
+            Falar pelo WhatsApp
           </a>
         </div>
       </div>

@@ -39,7 +39,7 @@ export default function ServicosGuia() {
           data-guia-reveal
           className="text-2xl font-extrabold leading-tight text-black sm:text-3xl"
         >
-          não sabe por onde começar?
+          Não sabe por onde começar?
         </h2>
 
         <p data-guia-reveal className="mt-4 text-base text-black/60 sm:text-lg">
@@ -54,7 +54,7 @@ export default function ServicosGuia() {
             className="inline-flex items-center gap-2 rounded-sm bg-rose-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-rose-700"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-white" />
-            pedir orçamento
+            Pedir orçamento
           </Link>
 
           <a
@@ -65,7 +65,7 @@ export default function ServicosGuia() {
             className="inline-flex items-center gap-2 rounded-sm bg-black/5 px-6 py-3 text-sm font-semibold text-black/80 transition-colors hover:bg-black/10"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-rose-600" />
-            falar pelo whatsapp
+            Falar pelo WhatsApp
           </a>
         </div>
       </div>

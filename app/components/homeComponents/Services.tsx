@@ -81,7 +81,7 @@ export default function Services() {
           [serviços]
         </p>
         <h2 className="mt-2 text-3xl font-extrabold text-black sm:text-4xl">
-          do conceito à impressão.
+          Do conceito à impressão.
         </h2>
         <p className="mt-4 max-w-xl text-base text-black/60 sm:text-lg">
           Soluções gráficas pensadas para ajudar a sua marca a comunicar melhor e destacar-se.
@@ -134,7 +134,7 @@ export default function Services() {
           className="inline-flex items-center gap-2 rounded-sm bg-rose-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-rose-700"
         >
           <span className="h-1.5 w-1.5 rounded-full bg-white" />
-          pedir orçamento
+          Pedir orçamento
         </Link>
       </div>
     </section>

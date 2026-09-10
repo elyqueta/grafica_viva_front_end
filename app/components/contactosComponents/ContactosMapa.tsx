@@ -20,7 +20,7 @@ export default function ContactosMapa() {
             rel="noopener noreferrer"
             className="text-sm font-semibold text-black/70 underline underline-offset-4 transition-colors hover:text-black"
           >
-            abrir no Google Maps
+            Abrir no Google Maps
           </a>
         </div>
       </div>

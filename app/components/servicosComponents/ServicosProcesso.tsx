@@ -9,23 +9,23 @@ gsap.registerPlugin(ScrollTrigger);
 const STEPS = [
   {
     number: '01',
-    title: 'conte-nos o que precisa',
-    description: 'explique-nos a sua ideia, necessidade ou objectivo.',
+    title: 'Conte-nos o que precisa',
+    description: 'Explique-nos a sua ideia, necessidade ou objectivo.',
   },
   {
     number: '02',
-    title: 'definimos a solução',
-    description: 'ajudamos a escolher o serviço e os materiais mais adequados.',
+    title: 'Definimos a solução',
+    description: 'Ajudamos a escolher o serviço e os materiais mais adequados.',
   },
   {
     number: '03',
-    title: 'preparamos o projecto',
-    description: 'tratamos dos detalhes necessários antes da produção.',
+    title: 'Preparamos o projecto',
+    description: 'Tratamos dos detalhes necessários antes da produção.',
   },
   {
     number: '04',
-    title: 'produzimos',
-    description: 'damos forma à solução final com atenção aos detalhes.',
+    title: 'Produzimos',
+    description: 'Damos forma à solução final com atenção aos detalhes.',
   },
 ];
 
@@ -67,7 +67,7 @@ export default function ServicosProcesso() {
           data-processo-heading
           className="text-2xl font-extrabold leading-tight text-black sm:text-3xl"
         >
-          um processo simples. um resultado pensado consigo.
+          Um processo simples. Um resultado pensado consigo.
         </h2>
       </div>
 

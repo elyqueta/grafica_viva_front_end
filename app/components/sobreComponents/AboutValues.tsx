@@ -16,20 +16,20 @@ type Value = {
 const VALUES: Value[] = [
   {
     number: '01',
-    title: 'simplicidade',
+    title: 'Simplicidade',
     description:
-      'a beleza não vem de acrescentar, vem de tirar. deixamos ficar só o que é preciso.',
+      'A beleza não vem de acrescentar, vem de tirar. Deixamos ficar só o que é preciso.',
   },
   {
     number: '02',
-    title: 'rigor',
+    title: 'Rigor',
     description:
-      'cada cor, cada corte, cada milímetro é verificado antes de sair da gráfica.',
+      'Cada cor, cada corte, cada milímetro é verificado antes de sair da gráfica.',
   },
   {
     number: '03',
-    title: 'cuidado',
-    description: 'tratamos cada encomenda como se fosse a única do dia.',
+    title: 'Cuidado',
+    description: 'Tratamos cada encomenda como se fosse a única do dia.',
   },
 ];
 
@@ -73,8 +73,7 @@ export default function AboutValues() {
           [como pensamos]
         </p>
         <p data-values-reveal className="mt-6 text-lg leading-relaxed text-black/70 sm:text-xl">
-          um trabalho bem feito não nasce da pressa, nasce de decisões. deixamos cair
-          o que não é preciso e guardamos só o que tem significado.
+          Um trabalho bem feito não nasce da pressa, nasce de decisões. Deixamos cair o que não é preciso e guardamos só o que tem significado.
         </p>
 
         <div data-values-list className="mt-14 divide-y divide-black/10 border-y border-black/10">
@@ -124,7 +123,7 @@ export default function AboutValues() {
             className="inline-flex items-center gap-2 rounded-sm bg-black/5 px-5 py-2.5 text-sm font-semibold text-black/80 transition-colors hover:bg-black/10"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-rose-600" />
-            ver como trabalhamos
+            Ver como trabalhamos
           </Link>
         </div>
       </div>

@@ -18,7 +18,7 @@ export default function PortfolioPage() {
         <div className="relative h-[55vh] w-full overflow-hidden sm:h-[65vh] lg:h-[75vh]">
           <MediaReveal
             poster="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=1600&q=80"
-            alt="portfólio"
+            alt="Portfólio"
             priority
             videoSrc={PORTFOLIO_HERO_VIDEO}
             className="absolute inset-0"
@@ -30,10 +30,10 @@ export default function PortfolioPage() {
                 [portfólio]
               </p>
               <h1 className="mt-3 text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl">
-                os nossos trabalhos
+                Os nossos trabalhos
               </h1>
               <p className="mt-2 text-base text-white/80 sm:text-lg">
-                uma selecção de projectos reais em impressão, branding e digital.
+                Uma selecção de projectos reais em impressão, branding e digital.
               </p>
             </div>
           </div>
@@ -77,11 +77,10 @@ export default function PortfolioPage() {
             [manifesto]
           </p>
           <h2 className="mt-4 text-3xl font-extrabold leading-tight text-black sm:text-4xl">
-            o que acreditamos
+            O que acreditamos
           </h2>
           <p className="mt-4 text-base leading-relaxed text-black/60 sm:text-lg">
-            antes de qualquer impressão, há uma forma de pensar. o manifesto
-            explica por que fazemos as coisas como fazemos.
+            Antes de qualquer impressão, há uma forma de pensar. O manifesto explica por que fazemos as coisas como fazemos.
           </p>
           <Link
             href="/manifesto"

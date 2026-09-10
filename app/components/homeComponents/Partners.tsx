@@ -63,7 +63,7 @@ export default function Partners({ sectionId }: PartnersProps = {}) {
           [parceiros]
         </p>
         <h2 data-partners-reveal className="mt-2 text-3xl font-extrabold text-black sm:text-4xl">
-          marcas que confiam na gráfica viva.
+          Marcas que confiam na Gráfica Viva.
         </h2>
         <p data-partners-reveal className="mt-4 text-base text-black/60 sm:text-lg">
           Temos orgulho em contribuir para projectos de empresas e marcas que procuram qualidade, criatividade e profissionalismo.

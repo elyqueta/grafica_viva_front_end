@@ -171,7 +171,7 @@ export default function Footer() {
                 data-footer-heading
                 className="mt-2 text-xl font-extrabold text-black sm:text-2xl lg:text-4xl"
               >
-                precisa de um orçamento?
+                Precisa de um orçamento?
               </h2>
               <p
                 data-footer-heading
@@ -185,7 +185,7 @@ export default function Footer() {
                 className="mt-4 inline-flex items-center gap-2 rounded-sm bg-rose-600 px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-rose-700"
               >
                 <span className="h-1.5 w-1.5 rounded-full bg-white" />
-                pedir orçamento
+                  Pedir orçamento
               </Link>
             </div>
 
@@ -256,7 +256,7 @@ export default function Footer() {
         <div data-footer-divider className="h-px w-full bg-black/10" />
 
         <p data-footer-copyright className="mt-3 text-[10px] text-black/40 sm:mt-4 lg:mt-6">
-          desenhado e construído pela gráfica viva © 2026
+          Desenhado e construído pela Gráfica Viva © 2026
         </p>
       </div>
     </footer>

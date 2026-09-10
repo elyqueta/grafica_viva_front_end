@@ -73,7 +73,7 @@ export default function Needs() {
           [o que precisa?]
         </p>
         <h2 data-needs-reveal className="mt-2 text-3xl font-extrabold text-black sm:text-4xl">
-          o que precisa para a sua marca?
+          O que precisa para a sua marca?
         </h2>
         <p data-needs-reveal className="mt-4 text-base text-black/60 sm:text-lg">
           Encontre a solução certa para comunicar, promover e valorizar o seu negócio.

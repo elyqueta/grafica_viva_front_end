@@ -56,7 +56,7 @@ export default function Blog() {
             [blog]
           </p>
           <h2 className="mt-2 text-2xl font-extrabold text-black sm:text-3xl">
-            do que estamos a falar
+            Do que estamos a falar
           </h2>
         </div>
 
@@ -110,7 +110,7 @@ export default function Blog() {
             className="inline-flex items-center gap-2 rounded-sm bg-black/5 px-5 py-2.5 text-sm font-semibold text-black/80 transition-colors hover:bg-black/10"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-rose-600" />
-            ver todos os artigos
+            Ver todos os artigos
           </Link>
         </div>
       </div>

@@ -111,12 +111,12 @@ export default function AboutStatement() {
             data-scatter-text
             className="text-3xl font-extrabold leading-tight text-black sm:text-2xl lg:text-4xl"
           >
-            confiamos no olho, <br /> não no acaso.
+            Confiamos no olho, <br /> não no acaso.
           </h2>
           <p data-scatter-text className="mt-4 text-base text-black/60 sm:text-lg">
-            reparamos no que a maioria ignora.
+            Reparamos no que a maioria ignora.
             <br />
-            e nunca apressamos o processo.
+            E nunca apressamos o processo.
           </p>
         </div>
       </div>

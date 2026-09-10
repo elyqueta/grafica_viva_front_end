@@ -85,17 +85,13 @@ export default function AboutBio() {
           data-bio-reveal
           className="mt-6 text-lg leading-relaxed text-black/70 sm:text-xl"
         >
-          começámos como uma pequena tipografia de bairro, com uma máquina
-          antiga e a vontade de fazer bem feito. hoje somos uma equipa que
-          desenha, imprime e acompanha cada projecto do primeiro rascunho à
-          entrega final.
+          Começámos como uma pequena tipografia de bairro, com uma máquina antiga e a vontade de fazer bem feito. Hoje somos uma equipa que desenha, imprime e acompanha cada projecto do primeiro rascunho à entrega final.
         </p>
         <p
           data-bio-reveal
           className="mt-4 text-lg leading-relaxed text-black/70 sm:text-xl"
         >
-          não crescemos a acrescentar clientes ao acaso — crescemos a dizer que
-          não a trabalho apressado.
+          Não crescemos a acrescentar clientes ao acaso — crescemos a dizer que não a trabalho apressado.
         </p>
       </div>
 
@@ -124,15 +120,13 @@ export default function AboutBio() {
             data-bio-reveal
             className="mt-6 text-base leading-relaxed text-black/70 sm:text-lg"
           >
-            desenhamos a identidade visual e imprimimos o resultado final. não
-            separamos as duas fases — quem cria também acompanha a produção.
+            Desenhamos a identidade visual e imprimimos o resultado final. Não separamos as duas fases — quem cria também acompanha a produção.
           </p>
           <p
             data-bio-reveal
             className="mt-4 text-base leading-relaxed text-black/70 sm:text-lg"
           >
-            trabalhamos grandes e pequenos formatos, embalagens, sinalética e
-            tudo o que precise de sair do ecrã para o papel.
+            Trabalhamos grandes e pequenos formatos, embalagens, sinalética e tudo o que precise de sair do ecrã para o papel.
           </p>
         </div>
 

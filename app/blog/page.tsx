@@ -32,11 +32,10 @@ export default function BlogPage() {
             [blog]
           </p>
           <h1 className="mt-4 text-3xl font-extrabold leading-tight text-black sm:text-4xl lg:text-5xl">
-            artigos sobre impressão, branding e digital
+            Artigos sobre impressão, branding e digital
           </h1>
           <p className="mt-4 text-base leading-relaxed text-black/60 sm:text-lg">
-            partilhamos o que aprendemos no dia a dia: papel, embalagem,
-            sinalética, identidade e produção gráfica.
+            Partilhamos o que aprendemos no dia a dia: papel, embalagem, sinalética, identidade e produção gráfica.
           </p>
         </div>
       </section>
@@ -51,7 +50,7 @@ export default function BlogPage() {
                 : "bg-black/5 text-black/70 hover:bg-black/10"
             }`}
           >
-            todos
+            Todos
           </button>
           {BLOG_CATEGORIES.map((category) => (
             <button

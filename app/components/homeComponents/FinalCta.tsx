@@ -43,7 +43,7 @@ export default function FinalCta() {
           data-final-cta-reveal
           className="mt-4 text-3xl font-extrabold leading-tight text-black sm:text-4xl lg:text-5xl"
         >
-          tem uma ideia? vamos dar-lhe vida.
+          Tem uma ideia? Vamos dar-lhe vida.
         </h2>
 
         <p data-final-cta-reveal className="mt-4 text-base text-black sm:text-lg">
@@ -55,7 +55,7 @@ export default function FinalCta() {
             href={ORCAMENTO_LINK}
             className="rounded-sm bg-black px-6 py-3 text-sm font-bold tracking-wide text-white transition-colors hover:bg-white/90 hover:text-black"
           >
-            PEDIR ORÇAMENTO
+            Pedir orçamento
           </Link>
 
           <a
@@ -64,7 +64,7 @@ export default function FinalCta() {
             rel="noopener noreferrer"
             className="rounded-sm border border-black px-6 py-3 text-sm font-bold tracking-wide text-black transition-colors hover:bg-black hover:text-white"
           >
-            FALAR PELO WHATSAPP
+            Falar pelo WhatsApp
           </a>
         </div>
       </div>

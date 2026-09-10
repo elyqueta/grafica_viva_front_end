@@ -37,12 +37,12 @@ export default function ServicosCtaFinal() {
     >
       <div className="mx-auto max-w-3xl text-center">
         <ScrollFillHeading
-          text="já sabe do que precisa?"
+          text="          Já sabe do que precisa?"
           className="text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl"
         />
 
         <p data-cta-final-reveal className="mt-6 text-base text-black/60 sm:text-lg">
-          fale connosco e peça um orçamento para o seu próximo projecto.
+          Fale connosco e peça um orçamento para o seu próximo projecto.
         </p>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -52,7 +52,7 @@ export default function ServicosCtaFinal() {
             className="inline-flex items-center gap-2 rounded-sm bg-rose-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-rose-700"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-white" />
-            pedir orçamento
+            Pedir orçamento
           </Link>
 
           <a
@@ -63,7 +63,7 @@ export default function ServicosCtaFinal() {
             className="inline-flex items-center gap-2 rounded-sm bg-black/5 px-6 py-3 text-sm font-semibold text-black/80 transition-colors hover:bg-black/10"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-rose-600" />
-            falar pelo whatsapp
+            Falar pelo WhatsApp
           </a>
         </div>
       </div>

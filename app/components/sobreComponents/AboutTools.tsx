@@ -26,26 +26,26 @@ type Tool = {
 };
 
 const TOOLS: Tool[] = [
-  { label: "impressão offset", Icon: Printer },
-  { label: "design vetorial", Icon: PenTool },
-  { label: "gestão de cor", Icon: Palette },
-  { label: "corte e vinco", Icon: Scissors },
-  { label: "acabamentos", Icon: Layers },
-  { label: "tratamento de imagem", Icon: ImageIcon },
-  { label: "embalagem", Icon: Package },
-  { label: "papel reciclado", Icon: Recycle },
-  { label: "medição rigorosa", Icon: Ruler },
-  { label: "ilustração", Icon: Paintbrush },
-  { label: "artes finais", Icon: FileText },
-  { label: "entrega e logística", Icon: Truck },
+  { label: "Impressão offset", Icon: Printer },
+  { label: "Design vetorial", Icon: PenTool },
+  { label: "Gestão de cor", Icon: Palette },
+  { label: "Corte e vinco", Icon: Scissors },
+  { label: "Acabamentos", Icon: Layers },
+  { label: "Tratamento de imagem", Icon: ImageIcon },
+  { label: "Embalagem", Icon: Package },
+  { label: "Papel reciclado", Icon: Recycle },
+  { label: "Medição rigorosa", Icon: Ruler },
+  { label: "Ilustração", Icon: Paintbrush },
+  { label: "Artes finais", Icon: FileText },
+  { label: "Entrega e logística", Icon: Truck },
 ];
 
 const FACTS: string[] = [
-  "sediados em luanda",
-  "a imprimir todos os dias",
-  "sempre a testar papel novo",
-  "atentos a cada detalhe",
-  "de portas abertas a novos projectos",
+  "Sediados em Luanda",
+  "A imprimir todos os dias",
+  "Sempre a testar papel novo",
+  "Atentos a cada detalhe",
+  "De portas abertas a novos projectos",
 ];
 
 export default function AboutTools() {

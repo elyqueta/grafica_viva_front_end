@@ -49,15 +49,14 @@ export default function Contact({ sectionId }: { sectionId?: string } = {}) {
           data-contact-reveal
           className="mt-4 text-3xl font-extrabold leading-tight text-black sm:text-4xl lg:text-5xl"
         >
-          vamos construir algo com significado.
+          Vamos construir algo com significado.
         </h2>
 
         <p
           data-contact-reveal
           className="mt-4 text-base text-black/60 sm:text-lg"
         >
-          a nossa porta está aberta. se tens uma ideia ou um projecto para
-          imprimir, fala connosco.
+          A nossa porta está aberta. Se tens uma ideia ou um projecto para imprimir, fala connosco.
         </p>
 
         <div data-contact-reveal className="mt-10">
@@ -68,7 +67,7 @@ export default function Contact({ sectionId }: { sectionId?: string } = {}) {
             className="inline-flex items-center gap-2 rounded-sm bg-rose-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-rose-700"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-white" />
-            fala connosco
+            Fala connosco
           </a>
         </div>
 
@@ -79,7 +78,7 @@ export default function Contact({ sectionId }: { sectionId?: string } = {}) {
           <div className="flex items-start gap-3">
             <Mail className="mt-0.5 h-4 w-4 shrink-0 text-black/40" />
             <div>
-              <p className="text-xs text-black/40">email</p>
+              <p className="text-xs text-black/40">Email</p>
               <p className="text-sm font-medium text-black/80">
                 {CONTACT_EMAIL}
               </p>
@@ -89,7 +88,7 @@ export default function Contact({ sectionId }: { sectionId?: string } = {}) {
           <div className="flex items-start gap-3">
             <Phone className="mt-0.5 h-4 w-4 shrink-0 text-black/40" />
             <div>
-              <p className="text-xs text-black/40">telefone</p>
+              <p className="text-xs text-black/40">Telefone</p>
               <p className="text-sm font-medium text-black/80">
                 {CONTACT_PHONE}
               </p>
@@ -99,7 +98,7 @@ export default function Contact({ sectionId }: { sectionId?: string } = {}) {
           <div className="flex items-start gap-3">
             <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-black/40" />
             <div>
-              <p className="text-xs text-black/40">morada</p>
+              <p className="text-xs text-black/40">Morada</p>
               <p className="text-sm font-medium text-black/80">
                 {CONTACT_ADDRESS}
               </p>

@@ -43,7 +43,7 @@ export default function ContactosInfo() {
           <div data-contactos-info className="flex flex-col items-center gap-3 text-center sm:items-start sm:text-left">
             <Mail className="h-5 w-5 text-black/40" />
             <div>
-              <p className="text-xs font-semibold text-black/40">email</p>
+              <p className="text-xs font-semibold text-black/40">Email</p>
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
                 className="mt-1 block text-sm text-black/80 underline underline-offset-4 hover:text-black"
@@ -56,7 +56,7 @@ export default function ContactosInfo() {
           <div data-contactos-info className="flex flex-col items-center gap-3 text-center sm:items-start sm:text-left">
             <Phone className="h-5 w-5 text-black/40" />
             <div>
-              <p className="text-xs font-semibold text-black/40">telefone</p>
+              <p className="text-xs font-semibold text-black/40">Telefone</p>
               <a
                 href={`tel:${CONTACT_PHONE}`}
                 className="mt-1 block text-sm text-black/80 underline underline-offset-4 hover:text-black"
@@ -69,7 +69,7 @@ export default function ContactosInfo() {
           <div data-contactos-info className="flex flex-col items-center gap-3 text-center sm:items-start sm:text-left">
             <MapPin className="h-5 w-5 text-black/40" />
             <div>
-              <p className="text-xs font-semibold text-black/40">morada</p>
+              <p className="text-xs font-semibold text-black/40">Morada</p>
               <p className="mt-1 text-sm text-black/80">{CONTACT_ADDRESS}</p>
             </div>
           </div>
@@ -81,7 +81,7 @@ export default function ContactosInfo() {
             className="inline-flex items-center gap-2 rounded-sm bg-rose-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-rose-700"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-white" />
-            pedir orçamento
+              Pedir orçamento
           </Link>
 
           <a
@@ -91,7 +91,7 @@ export default function ContactosInfo() {
             className="inline-flex items-center gap-2 rounded-sm bg-black/5 px-6 py-3 text-sm font-semibold text-black/80 transition-colors hover:bg-black/10"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-rose-600" />
-            falar pelo whatsapp
+              Falar pelo WhatsApp
           </a>
         </div>
       </div>

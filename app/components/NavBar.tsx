@@ -283,12 +283,12 @@ export default function Navbar() {
             {menuOpen ? (
               <>
                 <X className="h-4 w-4" />
-                close
+                Close
               </>
             ) : (
               <>
                 <span className="font-mono text-xs tracking-widest">[ ]</span>
-                menu
+                Menu
               </>
             )}
           </button>
@@ -331,7 +331,7 @@ export default function Navbar() {
               className="flex items-center gap-2 rounded-full bg-rose-600 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-rose-700"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-white" />
-              pedir orçamento
+                Pedir orçamento
             </Link>
           </div>
         </nav>
@@ -376,7 +376,7 @@ export default function Navbar() {
             className="flex items-center justify-center gap-2 rounded-full bg-rose-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-rose-700"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-white" />
-            pedir orçamento
+                Pedir orçamento
           </Link>
 
           <div className="flex items-center justify-between">

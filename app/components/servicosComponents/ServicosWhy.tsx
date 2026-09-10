@@ -75,7 +75,7 @@ export default function ServicosWhy() {
           className="mt-12 inline-flex items-center gap-2 rounded-sm bg-black/5 px-6 py-3 text-sm font-semibold text-black/80 transition-colors hover:bg-black/10"
         >
           <span className="h-1.5 w-1.5 rounded-full bg-black/60" />
-          falar pelo whatsapp
+            Falar pelo WhatsApp
         </a>
       </div>
     </section>

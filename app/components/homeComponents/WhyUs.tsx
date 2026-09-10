@@ -15,31 +15,31 @@ type Reason = {
 
 const REASONS: Reason[] = [
   {
-    title: 'qualidade',
+    title: 'Qualidade',
     description: 'Atenção ao detalhe em cada projecto.',
     image:
       'https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=900&q=80',
   },
   {
-    title: 'criatividade',
+    title: 'Criatividade',
     description: 'Soluções pensadas para valorizar a sua marca.',
     image:
       'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=900&q=80',
   },
   {
-    title: 'acompanhamento',
+    title: 'Acompanhamento',
     description: 'Estamos consigo desde a ideia até ao resultado final.',
     image:
       'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=80',
   },
   {
-    title: 'soluções personalizadas',
+    title: 'Soluções personalizadas',
     description: 'Cada projecto é tratado de acordo com as suas necessidades.',
     image:
       'https://images.unsplash.com/photo-1587440871875-191322ee64b0?w=900&q=80',
   },
   {
-    title: 'compromisso',
+    title: 'Compromisso',
     description: 'Trabalhamos para entregar resultados consistentes e profissionais.',
     image:
       'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=900&q=80',
@@ -94,7 +94,7 @@ export default function WhyUs() {
           [porquê a gráfica viva]
         </p>
         <h2 data-why-us-reveal className="mt-2 text-3xl font-extrabold text-black sm:text-4xl">
-          mais do que imprimir. criamos impacto.
+          Mais do que imprimir. Criamos impacto.
         </h2>
       </div>
 
