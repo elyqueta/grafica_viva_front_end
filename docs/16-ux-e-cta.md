@@ -80,3 +80,40 @@ fraco ou redundante.
   - `npx tsc --noEmit` sem erros.
   - `npm run build` compila com sucesso (38 páginas estáticas).
   - `npm run lint` sem erros novos nos ficheiros alterados (warnings pré-existentes em `NavBar.tsx`, `Preloader.tsx`, `MagneticPillField.tsx`, `PortfolioManifest.tsx`).
+
+## Capitalização de textos (pt-PT)
+
+Após a conclusão do bloco `16`, foi executada uma correcção adicional de capitalização em todo o conteúdo textual do site, garantindo que todas as frases e títulos começam com letra maiúscula, conforme regras gramaticais do pt-PT.
+
+### Âmbito
+
+1. **Componentes React**: actualizados todos os textos visíveis nos componentes de todas as páginas (Home, Serviços, Portfólio, Blog, Orçamento, Contactos, Sobre, Parceiros), incluindo títulos, botões, parágrafos, labels, mensagens de erro, placeholders e aria-labels.
+2. **Dados mockados**: actualizados todos os textos em `app/data/servicos.ts`, `app/data/portfolio.ts`, `app/data/blog.ts` e `app/data/partners.ts`, mantendo a estrutura existente e apenas corrigindo a capitalização de parágrafos e títulos.
+
+### Ficheiros alterados
+
+- `app/components/homeComponents/*.tsx`
+- `app/components/servicosComponents/*.tsx`
+- `app/components/portfolioComponents/*.tsx`
+- `app/components/contactosComponents/*.tsx`
+- `app/components/sobreComponents/*.tsx`
+- `app/components/Footer.tsx`
+- `app/components/NavBar.tsx`
+- `app/orcamento/OrcamentoForm.tsx`
+- `app/orcamento/page.tsx`
+- `app/blog/page.tsx`
+- `app/blog/[slug]/page.tsx`
+- `app/portfolio/page.tsx`
+- `app/portfolio/[slug]/page.tsx`
+- `app/servicos/[slug]/page.tsx`
+- `app/parceiros/page.tsx`
+- `app/parceiros/[slug]/page.tsx`
+- `app/data/servicos.ts`
+- `app/data/portfolio.ts`
+- `app/data/blog.ts`
+- `app/data/partners.ts`
+
+### Validação
+
+- `npx tsc --noEmit` sem erros.
+- `npm run build` compila com sucesso (38 páginas estáticas).

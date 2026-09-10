@@ -17,16 +17,16 @@ type ServiceItem = {
 const SERVICES_PREVIEW: ServiceItem[] = [
   {
     number: "01",
-    title: "grande e pequeno formato",
-    category: "impressão digital",
+    title: "Grande e pequeno formato",
+    category: "Impressão digital",
   },
   {
     number: "02",
-    title: "identidade visual e materiais",
-    category: "design gráfico",
+    title: "Identidade visual e materiais",
+    category: "Design gráfico",
   },
-  { number: "03", title: "soluções personalizadas", category: "embalagens" },
-  { number: "04", title: "interior e exterior", category: "sinalética" },
+  { number: "03", title: "Soluções personalizadas", category: "Embalagens" },
+  { number: "04", title: "Interior e exterior", category: "Sinalética" },
 ];
 
 export default function AboutBio() {
