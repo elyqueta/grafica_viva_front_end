@@ -106,10 +106,11 @@ export function OrcamentoForm() {
         <form onSubmit={handleSubmit} className="mt-10 space-y-6">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <div>
-              <label className="mb-2 block text-xs font-semibold text-black/70">
+              <label htmlFor="name" className="mb-2 block text-xs font-semibold text-black/70">
                 nome *
               </label>
               <input
+                id="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 onBlur={() => handleBlur("name")}
@@ -122,10 +123,11 @@ export function OrcamentoForm() {
             </div>
 
             <div>
-              <label className="mb-2 block text-xs font-semibold text-black/70">
+              <label htmlFor="email" className="mb-2 block text-xs font-semibold text-black/70">
                 email *
               </label>
               <input
+                id="email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -139,10 +141,11 @@ export function OrcamentoForm() {
             </div>
 
             <div>
-              <label className="mb-2 block text-xs font-semibold text-black/70">
+              <label htmlFor="phone" className="mb-2 block text-xs font-semibold text-black/70">
                 telefone *
               </label>
               <input
+                id="phone"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 onBlur={() => handleBlur("phone")}
@@ -155,10 +158,11 @@ export function OrcamentoForm() {
             </div>
 
             <div>
-              <label className="mb-2 block text-xs font-semibold text-black/70">
+              <label htmlFor="company" className="mb-2 block text-xs font-semibold text-black/70">
                 empresa
               </label>
               <input
+                id="company"
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
                 className={inputClasses("company")}
@@ -167,11 +171,12 @@ export function OrcamentoForm() {
             </div>
 
             <div className="sm:col-span-2">
-              <label className="mb-2 block text-xs font-semibold text-black/70">
+              <label htmlFor="service" className="mb-2 block text-xs font-semibold text-black/70">
                 serviço *
               </label>
               <div className="relative">
                 <select
+                  id="service"
                   value={service}
                   onChange={(e) => setService(e.target.value)}
                   onBlur={() => handleBlur("service")}
@@ -194,10 +199,11 @@ export function OrcamentoForm() {
             </div>
 
             <div className="sm:col-span-2">
-              <label className="mb-2 block text-xs font-semibold text-black/70">
+              <label htmlFor="deadline" className="mb-2 block text-xs font-semibold text-black/70">
                 prazo desejado
               </label>
               <input
+                id="deadline"
                 value={deadline}
                 onChange={(e) => setDeadline(e.target.value)}
                 className={inputClasses("deadline")}
@@ -206,10 +212,11 @@ export function OrcamentoForm() {
             </div>
 
             <div className="sm:col-span-2">
-              <label className="mb-2 block text-xs font-semibold text-black/70">
+              <label htmlFor="description" className="mb-2 block text-xs font-semibold text-black/70">
                 descrição do projecto *
               </label>
               <textarea
+                id="description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 onBlur={() => handleBlur("description")}

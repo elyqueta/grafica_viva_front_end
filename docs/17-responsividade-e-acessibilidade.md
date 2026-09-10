@@ -2,7 +2,7 @@
 
 # Estado
 
-Status: PENDING
+Status: COMPLETED
 
 ---
 
@@ -49,13 +49,38 @@ depois de todas as páginas novas existirem.
 
 ## Resultado da implementação
 
-_(preencher ao executar este bloco)_
-
 - O que foi alterado:
-- Componentes criados:
-- Componentes reutilizados:
+  - Corrigida hierarquia de headings em 4 páginas de detalhe: substituídos `<h1>` duplicados nos estados "não encontrado" por `<h2>`, garantindo um único `<h1>` por página (`portfolio/[slug]`, `blog/[slug]`, `servicos/[slug]`, `parceiros/[slug]`).
+  - Adicionado `role="img"` e `aria-label` ao canvas SVG de `AboutDiscover.tsx`, fornece texto alternativo para leitores de ecrã.
+  - Associados `id` a todos os campos do formulário de orçamento e `htmlFor` aos respectivos `<label>` em `OrcamentoForm.tsx`.
+  - Adicionadas regras globais de `:focus-visible` em `globals.css` para garantir foco visível em todos os elementos interactivos.
+  - Alterado `alt` da imagem de fundo do Hero de `"Landscape picture"` para `alt=""` com `aria-hidden="true"`, pois é uma imagem decorativa.
+- Componentes criados: nenhum.
+- Componentes reutilizados: `OrcamentoForm.tsx`, `AboutDiscover.tsx`, `Hero.tsx`, `globals.css`.
 - Problemas encontrados:
+  - Páginas de detalhe (`portfolio/[slug]`, `blog/[slug]`, `servicos/[slug]`, `parceiros/[slug]`) tinham dois `<h1>` por página (estado "não encontrado" + hero da página).
+  - Canvas de `AboutDiscover.tsx` não tinha texto alternativo para leitores de ecrã.
+  - Formulário de orçamento tinha `<label>` sem `htmlFor`, impossibilitando associação explícita com os campos.
+  - Não existiam estilos globais de `:focus-visible`, pelo que o foco por teclado não era visível em todos os elementos.
+  - Imagem de fundo do Hero tinha `alt` genérico, desnecessário para elemento decorativo.
 - Problemas corrigidos:
+  - Eliminados `<h1>` duplicados em todas as páginas de detalhe.
+  - Canvas de `AboutDiscover` agora acessível via `aria-label`.
+  - Labels do formulário de orçamento agora associados aos campos.
+  - Foco visível por teclado garantido em todo o site.
+  - Imagem decorativa do Hero marcada como tal.
 - Problemas ainda existentes:
+  - Nenhum.
 - Ficheiros alterados:
+  - `app/portfolio/[slug]/page.tsx`
+  - `app/blog/[slug]/page.tsx`
+  - `app/servicos/[slug]/page.tsx`
+  - `app/parceiros/[slug]/page.tsx`
+  - `app/components/sobreComponents/AboutDiscover.tsx`
+  - `app/orcamento/OrcamentoForm.tsx`
+  - `app/globals.css`
+  - `app/components/homeComponents/Hero.tsx`
 - Testes realizados:
+  - `npx tsc --noEmit` sem erros.
+  - `npm run build` compila com sucesso (38 páginas estáticas).
+  - `npm run lint` sem erros novos nos ficheiros alterados (warnings pré-existentes).

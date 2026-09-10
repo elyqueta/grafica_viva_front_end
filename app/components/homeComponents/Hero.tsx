@@ -50,7 +50,8 @@ export default function Hero() {
         <MediaReveal
           poster="/hero-bg.jpeg"
           videoSrc={HERO_VIDEO}
-          alt="Landscape picture"
+          alt=""
+          aria-hidden="true"
         />
       </div>
       <div className="absolute inset-0 bg-black/10" />

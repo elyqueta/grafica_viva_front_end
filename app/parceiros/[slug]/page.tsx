@@ -47,9 +47,9 @@ export default async function ParceiroPage({ params }: ParceiroPageProps) {
         <Navbar />
         <section className="relative w-full bg-amber-50 px-6 py-24 lg:px-10 lg:py-32">
           <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-3xl font-extrabold leading-tight text-black sm:text-4xl">
+            <h2 className="text-3xl font-extrabold leading-tight text-black sm:text-4xl">
               Parceiro não encontrado
-            </h1>
+            </h2>
             <p className="mt-4 text-base text-black/60 sm:text-lg">
               O parceiro que procura não existe ou foi removido.
             </p>

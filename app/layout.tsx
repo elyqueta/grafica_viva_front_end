@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Poppins, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+import { SITE_NAME, SITE_URL } from "./lib/constants";
+
 const poppins = Poppins({
   variable: "--font-geist-sans",
   weight: ["400", "700"],
@@ -15,8 +17,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Gráfica Viva",
-  description: "Gráfica Viva",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_NAME,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: "Gráfica Viva — soluções gráficas em impressão, branding, digital e promocionais.",
+  openGraph: {
+    title: SITE_NAME,
+    description: "Soluções gráficas em impressão, branding, digital e promocionais.",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    locale: "pt_PT",
+    type: "website",
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({

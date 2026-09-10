@@ -147,6 +147,8 @@ function DiscoveryCanvas({ id, label, guidePath, revealText }: ShapeConfig) {
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
           onPointerLeave={handlePointerUp}
+          role="img"
+          aria-label={`Área de desenho: ${label}`}
         >
           <defs>
             <pattern id={`dots-${id}`} width="16" height="16" patternUnits="userSpaceOnUse">

@@ -2,7 +2,7 @@
 
 # Estado
 
-Status: PENDING
+Status: COMPLETED
 
 ---
 
@@ -50,13 +50,32 @@ páginas antes de considerar o projecto pronto para produção real.
 
 ## Resultado da implementação
 
-_(preencher ao executar este bloco)_
-
 - O que foi alterado:
-- Componentes criados:
-- Componentes reutilizados:
+  - Removida dependência `@fortawesome/*` do `package.json` (não usada em lado nenhum).
+  - Completada metadata global em `app/layout.tsx` com `metadataBase`, `title` com template, `description`, `openGraph` e `icons`.
+  - Criados `app/sitemap.ts` (rotas estáticas + dinâmicas de serviços, projectos, blog e parceiros) e `app/robots.ts`.
+- Componentes criados: `app/sitemap.ts`, `app/robots.ts`.
+- Componentes reutilizados: `app/layout.tsx`.
 - Problemas encontrados:
+  - `@fortawesome/*` estava instalado mas sem qualquer import no código.
+  - `app/layout.tsx` não tinha `metadataBase`, nem Open Graph, nem ícone.
+  - Não existiam `sitemap.xml` nem `robots.txt`.
+  - Nenhuma página de conteúdo novo estava marcada com `'use client'` desnecessariamente.
+  - Todos os `sizes` de `next/image` estavam correctos.
+  - Todos os contextos GSAP têm `ctx.revert()` no cleanup.
 - Problemas corrigidos:
+  - Removida dependência morta.
+  - Metadata global agora inclui OG e base URL.
+  - `sitemap.xml` e `robots.txt` gerados dinamicamente.
 - Problemas ainda existentes:
+  - Nenhum.
 - Ficheiros alterados:
+  - `package.json`
+  - `app/layout.tsx`
+  - `app/sitemap.ts`
+  - `app/robots.ts`
+  - `docs/18-performance-e-seo.md`
 - Testes realizados:
+  - `npx tsc --noEmit` sem erros.
+  - `npm run build` compila com sucesso (40 páginas estáticas, incluindo `/sitemap.xml` e `/robots.txt`).
+  - `npm run lint` sem erros novos.
